@@ -1,0 +1,2 @@
+REPO_URL=https://github.com/dwyl/english-words.git
+CLONE_DIR=/path/to/clone/directory
