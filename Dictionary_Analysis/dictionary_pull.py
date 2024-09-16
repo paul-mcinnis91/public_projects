@@ -2,6 +2,7 @@ import requests
 import json
 import os
 import atexit
+import getpass
 from json import JSONDecodeError
 from datetime import date
 
@@ -31,27 +32,21 @@ class dictionary_pull:
 
     def windows_linux_path(self):
         file_path_dict = {}
+        user = getpass.getuser()
         if os.name == "nt":
-            file_path_dict["api_calls"] = r"C:\Users\Michel´s PC\Projects\Dictionary_Analysis\api_calls.json"
-            file_path_dict["words_alpha"] = r"C:\Users\Michel´s PC\english-words\words_alpha.txt"
-            file_path_dict["etymology_dict"] = r"C:\Users\Michel´s PC\Projects\Dictionary_Analysis\etymology_dict.json"
-            file_path_dict["keys"] = r"C:\Users\Michel´s PC\Projects\Dictionary_Analysis\keys.txt"
+            file_path_dict["api_calls"] = fr"C:\Users\{user}\Projects\Dictionary_Analysis\api_calls.json"
+            file_path_dict["words_alpha"] = fr"C:\Users\{user}\english-words\words_alpha.txt"
+            file_path_dict["etymology_dict"] = fr"C:\Users\{user}\Projects\Dictionary_Analysis\etymology_dict.json"
+            file_path_dict["keys"] = fr"C:\Users\{user}\Projects\Dictionary_Analysis\keys.txt"
             return file_path_dict
 
         else:
-            try:
-                open(r'/home/william.p.mcinnis53/Projects/Dictionary_Analysis/keys.txt')
-                file_path_dict["api_calls"] = r"/home/william.p.mcinnis53/Projects/Dictionary_Analysis/api_calls.json"
-                file_path_dict["words_alpha"] = r"/home/william.p.mcinnis53/english-words/words_alpha.txt"
-                file_path_dict["etymology_dict"] = r"/home/william.p.mcinnis53/Projects/Dictionary_Analysis/etymology_dict.json"
-                file_path_dict["keys"] = r"/home/william.p.mcinnis53/Projects/Dictionary_Analysis/keys.txt"
-                return file_path_dict
-            except FileNotFoundError:
-                file_path_dict["api_calls"] = r"/home/paulmcinnis/Projects/Dictionary_Analysis/api_calls.json"
-                file_path_dict["words_alpha"] = r"/home/paulmcinnis/english-words/words_alpha.txt"
-                file_path_dict["etymology_dict"] = r"/home/paulmcinnis/Projects/Dictionary_Analysis/etymology_dict.json"
-                file_path_dict["keys"] = r"/home/paulmcinnis/Projects/Dictionary_Analysis/keys.txt"
-                return file_path_dict
+            file_path_dict["api_calls"] = f"/home/{user}/Projects/Dictionary_Analysis/api_calls.json"
+            file_path_dict["words_alpha"] = f"/home/{user}/english-words/words_alpha.txt"
+            file_path_dict["etymology_dict"] = f"/home/{user}/Projects/Dictionary_Analysis/etymology_dict.json"
+            file_path_dict["keys"] = f"/home/{user}/Projects/Dictionary_Analysis/keys.txt"
+            return file_path_dict
+        
 
     def save_api_calls(self):
         """Save API Calls
