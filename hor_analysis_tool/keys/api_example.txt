@@ -1,0 +1,5 @@
+YOUR API KEY HERE
+Rename this file to api.txt
+Delete all text in the file
+Paste the API key in the file
+Save the file

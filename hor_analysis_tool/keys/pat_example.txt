@@ -1,0 +1,5 @@
+YOUR PERSONAL ACCESS TOKEN HERE
+Rename this file to pat.txt
+Delete all text in the file
+Paste the Personal Access Token in the file
+Save the file

@@ -1,0 +1,8 @@
+{
+    "email_info":
+    {
+        "user": "your_email@here.com",
+        "server": "for gmail: smtp.gmail.com, for outlook: mtp.office365.com, others: google them!",
+        "password": "your_app_password_here"
+    }
+}

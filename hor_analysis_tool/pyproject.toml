@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "hor-analysis-tool"
+version = "0.1.1"
+description = "Python program to determine soldier distance driving from home of record to Home Station, Fort Benning, Fort Gordon, and Fort Stewart."
+authors = ["William Paul McInnis <william.p.mcinnis4.mil@army.mil>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+certifi = "2025.1.31"
+charset-normalizer = "3.4.1"
+customtkinter = "5.2.2"
+darkdetect = "0.8.0"
+googlemaps = "4.10.0"
+idna = "3.10"
+mccabe = "0.7.0"
+numpy = "1.24.4"
+packaging = "24.2"
+pandas = "2.0.3"
+python-dateutil = "2.9.0.post0"
+pytz = "2025.1"
+requests = "2.32.3"
+six = "1.17.0"
+tzdata = "2025.1"
+urllib3 = "2.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
