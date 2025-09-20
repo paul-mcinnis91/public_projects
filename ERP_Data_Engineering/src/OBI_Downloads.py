@@ -150,8 +150,6 @@ class DownloadFilesfromOBI:
         return None
             
 
-
-
     def download_files(self):
         """This function takes the driver from the OBI Login and then checks the day of the week to determine
         what files need to be downloaded. There are two lists of URLs. The first list is for files ONLY on Mondays
@@ -160,11 +158,6 @@ class DownloadFilesfromOBI:
         driver = self.OBI_Login()
 
         day_of_week = self.weekday[0]
-
-        New_Reference_Data_URL = ''
-
-
-        Onward_6Pby_date_new_xpath = '//*[@id="idCatalogItemsAccordion"]/div[1]/div[2]/table/tbody/tr[6]/td/div/table/tbody/tr[2]/td/table/tbody/tr/td[5]/a'
 
         attachment_rate_urls = [r'http://ccinsight.internal.clubcar.com:9502/analytics/saw.dll?PortalGo&Action=prompt&path=%2Fshared%2FSFA%20Reports%2FOnward%206P%20by%20date',
                                     r'http://ccinsight.internal.clubcar.com:9502/analytics/saw.dll?PortalGo&Action=prompt&path=%2Fshared%2Fcc%20Service%20Parts%2FAnakkar%2FOnward%20Att.%20Rate%2FOnward%20Accessories%20-%202023%20Attachment%20Rate']
@@ -320,69 +313,14 @@ class DownloadFilesfromOBI:
 
 
 
-def move_and_rename_files(weekday):
-    """This function takes the current files and moves them to their desginated location in the 'K' drive
-    One file needs to be renamed every Monday and that file alone will be renamed with the current date in 
-    YYYY-MM-DD format."""
-    day_of_week, current_date = weekday
-
-    attachment_rate_dict = {0:'Onward 6P by date.csv', 1: 'Onward Accessories - 2023 Attachment Rate.xlsx'}
-    reference_data_dict = {0:'PLAN ETL - Objectives Data.csv', 1:'PLAN ETL - Plan Data.csv', 2: 'Warr Reg Flag CY.csv', 3: 'Warranty Accepted Amount CY for SFDC updates.csv', 4:'Warranty Registrations for SFDC updates.csv', 5: 'Order - Details for WR CY.csv'}
-        
-    for position, reference_data_dict in reference_data_dict.items():
-        shutil.move(rf'C:\Users\wxm3287\Downloads\{reference_data_dict}', rf'\\AGS-US-303\Specdata\Analytics_Reports\Reference Data\{reference_data_dict}')
-    
-    if day_of_week == 0:
-        filename = r'C:\Users\wxm3287\Downloads\Onward Accessories - 2023 Attachment Rate.xlsx'
-
-        basename, extension = os.path.splitext(filename)
-
-        new_filename = f'{basename} {current_date}{extension}'
-
-
-        os.rename(filename, new_filename)
-
-        slice_begin = new_filename.rfind('\\')
-        onward_accessories = new_filename[slice_begin+1:]
-        
-        attachment_rate_dict[1] = onward_accessories
-
-        for position, attachment_rate_file in attachment_rate_dict.items():
-            shutil.move(rf'C:\Users\wxm3287\Downloads\{attachment_rate_file}', rf'K:\Analytics_Reports\Reference Data\AttachmentRate\{attachment_rate_file}')
-
-    print('Files moved :)')
-    return None
-
-
-
-def download_files_from_OBI(weekday):
-    get_files = DownloadFilesfromOBI(weekday)
-    get_files.download_files()
-    get_files.download_missed_files()
 
 
 
 
-def all_together_now():
-    """This function acts as the Main() function would in a C program. Or at least a rudimentary 
-    version of the Main() function. This combines all previous functions and runs the program
-    Later there will be an associated text document with this program that will keep track of unsuccessful
-    vs successful runs"""
-    start_time = time.time()
-    date_information = day_of_week_check()
-    download_files_from_OBI(date_information)
-    print(datetime.datetime.now())
-    move_and_rename_files(date_information)
-    run_time = (time.time()-start_time)/60
-    print(f'Program completed in {run_time} minutes!')
-    end_time = datetime.datetime.now()
-    with open("weekly_data_loads_performance.csv", "a+") as WDLP:
-        WDLP.write(f"{datetime.datetime.today().strftime('%Y-%m-%d')},{start_time},{run_time},{end_time}")
-        WDLP.write("\n")
-    
-    sys.exit()
 
 
 
-all_together_now()
+
+
+
 

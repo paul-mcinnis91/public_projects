@@ -1,5 +1,7 @@
 import datetime
 import os
+import shutil
+from pathlib import Path
 
 def day_of_week_fun() -> int:
     day_of_week_input = input("What day of the week do you want to run? Monday or Thursday?").lower()
@@ -62,3 +64,45 @@ def get_user_creds() -> str:
         credentials_dict["password"] = password
     
     return credentials_dict
+
+
+def move_files(file: str, destination: Path) -> None:
+    downloads_dir: str = rf'C:\Users\wxm3287\Downloads\\'
+    file_in_downlads: str = downloads_dir + file
+    destination_file = destination + file
+    shutil.move(file_in_downlads, destination_file)
+
+def attachment_rate_rename(current_date) -> dict:
+    attachment_rate_dict = {0:'Onward 6P by date.csv', 1: 'Onward Accessories - 2023 Attachment Rate.xlsx'}
+
+    filename = r'C:\Users\wxm3287\Downloads\Onward Accessories - 2023 Attachment Rate.xlsx'
+
+    basename, extension = os.path.splitext(filename)
+
+    new_filename = f'{basename} {current_date}{extension}'
+    os.rename(filename, new_filename)
+
+    slice_begin = new_filename.rfind('\\')
+    onward_accessories = new_filename[slice_begin+1:]
+    attachment_rate_dict[1] = onward_accessories
+
+    return attachment_rate_dict
+
+def move_and_rename_files(weekday):
+    """This function takes the current files and moves them to their desginated location in the 'K' drive
+    One file needs to be renamed every Monday and that file alone will be renamed with the current date in 
+    YYYY-MM-DD format."""
+    day_of_week, current_date = weekday
+
+    reference_data_dict = {0:'PLAN ETL - Objectives Data.csv', 1:'PLAN ETL - Plan Data.csv', 2: 'Warr Reg Flag CY.csv', 3: 'Warranty Accepted Amount CY for SFDC updates.csv', 4:'Warranty Registrations for SFDC updates.csv', 5: 'Order - Details for WR CY.csv'}
+    
+    for position, reference_data_file in reference_data_dict.items():
+        destination_path = rf'\\AGS-US-303\Specdata\Analytics_Reports\Reference Data\\'
+        move_files(destination=destination_path, file=reference_data_file)
+    
+    if day_of_week == 0:
+        attachment_rate_dict: dict = attachment_rate_rename(current_date=current_date)
+
+        for position, attachment_rate_file in attachment_rate_dict.items():
+            destination_path = rf'K:\Analytics_Reports\Reference Data\AttachmentRate\\'
+            move_files(file=attachment_rate_file, destination=destination_path)
