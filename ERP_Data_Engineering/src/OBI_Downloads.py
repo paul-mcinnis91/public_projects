@@ -53,39 +53,45 @@ class DownloadFilesfromOBI:
         return driver
 
 
-    def _catalog_loop(self, driver: webdriver.Firefox, SFA_Reports_Xpaths: dict):
-       for files, xpaths in SFA_Reports_Xpaths.items():
-                if self.weekday != 0 and files == 'Onward 6P by Date':
-                    continue
-                Export_Xpath = '//*[@id="menuoptionCell_Export"]/img'
-                data_xpath = '//*[@id="menuOptionItem_Data"]'
-                csv_css_selector = '#menuOptionItem_CSV > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > span:nth-child(1)'
-                WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, xpaths))).click()
-                time.sleep(3)
-                WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, Export_Xpath))).click()
-                time.sleep(3)
-                WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, data_xpath))).click()
-                time.sleep(3)
-                WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, csv_css_selector))).click()
-
-                download_finished_xpath = '/html/body/div[5]/div/table/tbody[1]/tr/td/div[3]/a[1]'
-                time.sleep(5)
-                if files == 'Warranty Registrations for SFDC updates':
-                    time.sleep(120)
-                WebDriverWait(driver, 40).until(expected_conditions.element_to_be_clickable((By.XPATH, download_finished_xpath))).click()
-                time.sleep(3)
+    def _catalog_loop_mon(self, driver: webdriver.Firefox) -> None:
+        if self.weekday != 0:
+            raise TypeError("Wrong Day of Week")
         
-                if self.weekday == 0:
-                
-                    driver.get(r'http://ccinsight.internal.clubcar.com:9502/analytics/saw.dll?PortalGo&Action=prompt&path=%2Fshared%2Fcc%20Service%20Parts%2FAnakkar%2FOnward%20Att.%20Rate%2FOnward%20Accessories%20-%202023%20Attachment%20Rate')
-                    export_xpath = '/html/body/div[2]/div/table[1]/tbody/tr[1]/td[2]/div/table[1]/tbody/tr/td[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[7]'
-                    WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, export_xpath))).click()
-                    excel_xpath = '/html/body/div[3]/table/tbody/tr[1]/td[1]/a[2]/table'
-                    driver.find_element(By.XPATH, excel_xpath).click()
-                    
-                    download_finished_xpath = '/html/body/div[5]/div/table/tbody[1]/tr/td/div[3]/a[1]'
-                    time.sleep(5)
+        driver.get(r'http://ccinsight.internal.clubcar.com:9502/analytics/saw.dll?PortalGo&Action=prompt&path=%2Fshared%2Fcc%20Service%20Parts%2FAnakkar%2FOnward%20Att.%20Rate%2FOnward%20Accessories%20-%202023%20Attachment%20Rate')
+        export_xpath = '/html/body/div[2]/div/table[1]/tbody/tr[1]/td[2]/div/table[1]/tbody/tr/td[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[7]'
+        WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, export_xpath))).click()
+        excel_xpath = '/html/body/div[3]/table/tbody/tr[1]/td[1]/a[2]/table'
+        driver.find_element(By.XPATH, excel_xpath).click()
+        time.sleep(5)
 
+
+    def _catalog_loop_thurs(self, driver: webdriver.Firefox, SFA_Reports_Xpaths: dict):
+       
+       for files, xpaths in SFA_Reports_Xpaths.items():
+            if files == 'Onward 6P by Date' and self.weekday != 0:
+                continue
+
+            Export_Xpath = '//*[@id="menuoptionCell_Export"]/img'
+            data_xpath = '//*[@id="menuOptionItem_Data"]'
+            csv_css_selector = '#menuOptionItem_CSV > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > span:nth-child(1)'
+            WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, xpaths))).click()
+            time.sleep(3)
+            WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, Export_Xpath))).click()
+            time.sleep(3)
+            WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, data_xpath))).click()
+            time.sleep(3)
+            WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, csv_css_selector))).click()
+
+            download_finished_xpath = '/html/body/div[5]/div/table/tbody[1]/tr/td/div[3]/a[1]'
+            time.sleep(5)
+
+            if files == 'Warranty Registrations for SFDC updates':
+                time.sleep(120)
+
+            WebDriverWait(driver, 40).until(expected_conditions.element_to_be_clickable((By.XPATH, download_finished_xpath))).click()
+            time.sleep(3)
+    
+                
 
 
     def navigate_catalog(self):
@@ -106,48 +112,15 @@ class DownloadFilesfromOBI:
                        'Warranty Accepted Amount CY for SFDC updates':'//*[@id="idCatalogItemsAccordion"]/div[1]/div[2]/table/tbody/tr[15]/td/div/table/tbody/tr[2]/td/table/tbody/tr/td[5]/a',
                        'Warranty Registrations for SFDC updates':'//*[@id="idCatalogItemsAccordion"]/div[1]/div[2]/table/tbody/tr[16]/td/div/table/tbody/tr[2]/td/table/tbody/tr/td[5]/a'       }
         
-        try:
-            for files, xpaths in SFA_Reports.items():
-                if self.weekday != 0 and files == 'Onward 6P by Date':
-                    continue
-                Export_Xpath = '//*[@id="menuoptionCell_Export"]/img'
-                data_xpath = '//*[@id="menuOptionItem_Data"]'
-                csv_css_selector = '#menuOptionItem_CSV > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > span:nth-child(1)'
-                WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, xpaths))).click()
-                time.sleep(3)
-                WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, Export_Xpath))).click()
-                time.sleep(3)
-                WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, data_xpath))).click()
-                time.sleep(3)
-                WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, csv_css_selector))).click()
+        if self.weekday == 0:
+            self._catalog_loop_mon(driver=driver)
+            driver.close()
+            driver.quit()
+            return None
 
-                download_finished_xpath = '/html/body/div[5]/div/table/tbody[1]/tr/td/div[3]/a[1]'
-                time.sleep(5)
-                if files == 'Warranty Registrations for SFDC updates':
-                    time.sleep(120)
-                WebDriverWait(driver, 40).until(expected_conditions.element_to_be_clickable((By.XPATH, download_finished_xpath))).click()
-                time.sleep(3)
-        
-            if self.weekday == 0:
-                
-                driver.get(r'http://ccinsight.internal.clubcar.com:9502/analytics/saw.dll?PortalGo&Action=prompt&path=%2Fshared%2Fcc%20Service%20Parts%2FAnakkar%2FOnward%20Att.%20Rate%2FOnward%20Accessories%20-%202023%20Attachment%20Rate')
-                export_xpath = '/html/body/div[2]/div/table[1]/tbody/tr[1]/td[2]/div/table[1]/tbody/tr/td[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[7]'
-                WebDriverWait(driver, 20).until(expected_conditions.element_to_be_clickable((By.XPATH, export_xpath))).click()
-                excel_xpath = '/html/body/div[3]/table/tbody/tr[1]/td[1]/a[2]/table'
-                driver.find_element(By.XPATH, excel_xpath).click()
-                
-                download_finished_xpath = '/html/body/div[5]/div/table/tbody[1]/tr/td/div[3]/a[1]'
-                time.sleep(5)
-        except TimeoutException:
-            time.sleep(60)
-            self._catalog_loop(driver, SFA_Reports)
-        
-        self._catalog_loop(driver, SFA_Reports)
-        
-        print("Catalog downloaded!")
+        self._catalog_loop_thurs(driver=driver, SFA_Reports_Xpaths=SFA_Reports)  
         driver.close()
-        driver.quit()
-        return None
+        driver.quit()     
             
 
     def download_files(self):
@@ -310,17 +283,4 @@ class DownloadFilesfromOBI:
         print('First Sweep Done!')
         self.check_files_downloaded()
         self.download_missed_files()
-
-
-
-
-
-
-
-
-
-
-
-
-
 
