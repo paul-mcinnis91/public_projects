@@ -5,11 +5,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions 
 from selenium.webdriver.support.wait import WebDriverWait
 
+from OBI_Downloads import DownloadFilesfromOBI
 
-class Check_Downloads():
+
+class Check_Downloads(DownloadFilesfromOBI):
      
-    def __init__(self):
-          pass
+    def __init__(self, weekday) -> None:
+        super().__init__(weekday=weekday)
+        self.weekday = weekday
 
     def check_files_downloaded(self):
         """This function conducts an error check to ensure all files required are downloaded.
@@ -39,30 +42,24 @@ class Check_Downloads():
     
         
         reference_data_missed_urls = [reference_data_urls[position] for position, file in reference_data_dict.items() if file not in csvs_xlsxs]
-        print('Created missing list! ')
         if day_of_week == 0:
             attachment_rate_missed_urls = [attachment_rate_urls[position] for position, file in attachment_rate_dict.items() if file not in csvs_xlsxs]
             missed_urls = attachment_rate_missed_urls + reference_data_missed_urls
         
         else:
             missed_urls = reference_data_missed_urls
-        
-        print(f'Sending missing list! There is {len(missed_urls)} missing files!')
+    
 
         return missed_urls
+
 
     def download_missed_files(self):
         """This function checks to see if any files were missed while downloading. If there are none, it terminates and the 
         next part of the program begins"""
-        try:
-            missed_urls = self.check_files_downloaded()
-            print(f'Checked Downloads Folder! There is {len(missed_urls)} missing files!')
-            if len(missed_urls) == 0:
-                return None  
-        except TypeError:
-            return None
-
-
+        missed_urls = self.check_files_downloaded()
+        if len(missed_urls) == 0:
+            return None  
+      
         driver = self.OBI_Login()      
 
         for URL in missed_urls:
@@ -70,24 +67,22 @@ class Check_Downloads():
             export_xpath = '/html/body/div[2]/div/table[1]/tbody/tr[1]/td[2]/div/table[1]/tbody/tr/td[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[7]'
             WebDriverWait(driver, 300).until(expected_conditions.element_to_be_clickable((By.XPATH, export_xpath))).click()
 
+            data_xpath = '/html/body/div[3]/table/tbody/tr[1]/td[1]/a[5]/table/tbody/tr/td[2]'
+            driver.find_element(By.XPATH, data_xpath).click()
+            csv_xpath = '/html/body/div[4]/table/tbody/tr[1]/td[1]/a[2]/table/tbody/tr/td[2]'
+            driver.find_element(By.XPATH, csv_xpath).click()
+
             if 'Anakkar' in URL:
                     excel_xpath = '/html/body/div[3]/table/tbody/tr[1]/td[1]/a[2]/table'
                     driver.find_element(By.XPATH, excel_xpath).click()
 
-            else:
-                data_xpath = '/html/body/div[3]/table/tbody/tr[1]/td[1]/a[5]/table/tbody/tr/td[2]'
-                driver.find_element(By.XPATH, data_xpath).click()
-                csv_xpath = '/html/body/div[4]/table/tbody/tr[1]/td[1]/a[2]/table/tbody/tr/td[2]'
-                driver.find_element(By.XPATH, csv_xpath).click()
-        
-
             time.sleep(30)
+
         driver.quit()
         return None
 
     def login_download_check_redownload(self):
         self.OBI_Login()
         self.download_files()
-        print('First Sweep Done!')
         self.check_files_downloaded()
         self.download_missed_files()
