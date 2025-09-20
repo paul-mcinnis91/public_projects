@@ -2,6 +2,9 @@ import time
 import datetime
 import shutil
 import os
+import sys
+
+from helper import day_of_week_check, get_user_creds
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions 
@@ -9,44 +12,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.common.exceptions import TimeoutException
-from collections import OrderedDict
-import pandas as pd
-from numpy import array
-import sys
 
 """The purpose of this program is to download multiple files from Oracle Business Intelligence and place
 the files into the appropriate folder in the 'K' Drive. This is done by webcrawling using Selenium 
 for now and will later be changed to ODBC access or API access."""
 
-def manual_override():
-    override_option = input("Do you want to manually override the program to run data loads? Y/N?").lower()
-    if override_option[0] == "y":
-        day_of_week_input = input("What day of the week do you want to run? Monday or Thursday?").lower()
-        if day_of_week_input[0] == "m":
-            day_of_week = 0
-        elif day_of_week_input[0] == "t":
-            day_of_week = 3
-    else:
-        return None
-    
-    return day_of_week
 
-def day_of_week_check():
-    """This function is designed to check the day of the week. If the day is Monday different files are 
-    are downloaded as opposed to Thursday. Also data loads are only done Mondays or Thursdays so if it is ran
-    on a day that is not Monday or Thursday the program will terminate. Later there will be a function to have 
-    the user pick which day of the week they need to run in case of a failure on Monday or Thursday"""
-    today_str = str(datetime.datetime.today().strftime('%Y-%m-%d'))
-    today_year = int(today_str[:4])
-    today_month = int(today_str[5:7])
-    today_day = int(today_str[-2:])
-    day_of_week = int(datetime.date(today_year, today_month, today_day).weekday())
-    print('Day of week checked!')
-    
-    if day_of_week not in (0,3):
-        return manual_override(), today_str
-    
-    return day_of_week, today_str
 
 class DownloadFilesfromOBI:
     def __init__(self, weekday) -> None:
@@ -58,8 +29,8 @@ class DownloadFilesfromOBI:
         It uses the current users login info to achieve this. This needs to be changed in the future to a 
         generic user such as the system Admin"""
     
-        user_ID = 'WXM3287'.upper()
-        password = 'PropelOnward$3005'
+        user_ID = get_user_creds().get("username")
+        password = get_user_creds().get("password")
         login_URL = r'http://ccinsight.internal.clubcar.com:9502/bi-security-login/login.jsp?msi=false&redirect=L2FuYWx5dGljcy9zYXcuZGxsP2JpZWVob21lJnN0YXJ0UGFnZT0xJmhhc2g9ajdETVBqQkk2N2l4NHBQbU1FTURnbmNhTGZmai00NmRDOVRKMUlmdzBfTkdWdHpzLWs3YjJQSkJrZDJ6QUc1Yg=='
 
         quiet = Options()
@@ -82,7 +53,7 @@ class DownloadFilesfromOBI:
         return driver
 
 
-    def __catalog_loop(self, driver: webdriver.Firefox, SFA_Reports_Xpaths: dict):
+    def _catalog_loop(self, driver: webdriver.Firefox, SFA_Reports_Xpaths: dict):
        for files, xpaths in SFA_Reports_Xpaths.items():
                 if self.weekday != 0 and files == 'Onward 6P by Date':
                     continue
@@ -169,9 +140,9 @@ class DownloadFilesfromOBI:
                 time.sleep(5)
         except TimeoutException:
             time.sleep(60)
-            self.__catalog_loop(driver, SFA_Reports)
+            self._catalog_loop(driver, SFA_Reports)
         
-        self.__catalog_loop(driver, SFA_Reports)
+        self._catalog_loop(driver, SFA_Reports)
         
         print("Catalog downloaded!")
         driver.close()
