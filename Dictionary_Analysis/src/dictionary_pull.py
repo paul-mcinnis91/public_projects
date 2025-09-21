@@ -35,9 +35,10 @@ class dictionary_pull:
             None
         """
         url = f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}?key={self.college_key}"
+        url_minus_key = url.replace(f"?key={self.college_key}", "")
         response = requests.get(url)
         self.call_count += 1
-        return [response.json(), url]
+        return [response.json(), url_minus_key]
 
     def etymology(self, json_response: list) -> str:
         """Etymology
