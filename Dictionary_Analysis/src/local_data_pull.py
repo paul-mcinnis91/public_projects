@@ -1,7 +1,7 @@
 from datetime import date
 import os
 import json
-import local_data_push as ldp
+from src import local_data_push as ld_push
 
 
 def get_top_level_directories() -> dict:
@@ -53,7 +53,7 @@ def get_user_credentials() -> dict:
         data_dict: dict = data[0]
 
         if data_dict.get("date") != date.today().isoformat():
-            ldp.save_api_calls(0)
+            ld_push.save_api_calls(0)
             data_dict["api_calls"] = 0
 
         credentials_dict["api_calls"] = data_dict.get("api_calls")

@@ -1,8 +1,6 @@
 import requests
-import json
 from datetime import date
-import os
-from src import helper
+from src import local_data_pull as ld_pull
 
 class dictionary_pull:
     """Dictionary Pull Class
@@ -21,10 +19,10 @@ class dictionary_pull:
         None
     """
     def __init__(self):
-        self.college_key = helper.get_user_credentials().get("api_key")
+        self.college_key = ld_pull.get_user_credentials().get("api_key")
         self.today_date = date.today().strftime("%Y-%m-%d")
-        self.call_count = helper.get_user_credentials().get("api_calls")
-        self.last_date = helper.get_user_credentials().get("api_date")
+        self.call_count = ld_pull.get_user_credentials().get("api_calls")
+        self.last_date = ld_pull.get_user_credentials().get("api_date")
         
     def pull_dictionary(self, word) -> list:
         """Pull Dictionary
@@ -84,20 +82,4 @@ class dictionary_pull:
         return origination_date
       
     
-    def current_index(self) -> int:
-        """Current Index
-        This function returns the current index of the word list from the etymology_dict.json file.
-
-        Args:
-            None
-
-        Returns:
-            Integer of current index
-        """
-        record_keeping_path = helper.get_top_level_directories().get("record_keeping")
-        etymology_dict_path = os.path.join(record_keeping_path, "etymology_dict.json")
-
-        with open(etymology_dict_path, "r") as etymology_file_data:
-            data = json.load(etymology_file_data)
-            return len(data)
-       
+    
