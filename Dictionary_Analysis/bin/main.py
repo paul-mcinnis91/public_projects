@@ -8,6 +8,7 @@ joined_paths = os.path.join(dirname, "..")
 sys.path.append(joined_paths)
 
 from src.dictionary_pull import dictionary_pull
+from src import helper
 
 def main():
     """Main
@@ -21,7 +22,7 @@ def main():
     """
     test_dictionary = dictionary_pull()
     current_index = test_dictionary.current_index()
-    sorted_word_list = sorted(test_dictionary.word_list(), key=lambda x: x[0].lower())
+    sorted_word_list = helper.get_full_word_list()
     current_word_list = sorted_word_list[current_index:]
     if test_dictionary.last_date != test_dictionary.today_date:
         test_dictionary.current_api_calls = 0

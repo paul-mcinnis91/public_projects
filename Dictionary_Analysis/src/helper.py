@@ -1,6 +1,5 @@
 from datetime import date
 import json
-from json import JSONDecodeError
 import os
 
 
@@ -42,12 +41,10 @@ def get_user_credentials() -> dict:
     
     keys_path = get_top_level_directories().get("keys")
     records_path = get_top_level_directories().get("record_keeping")
-    api_record_path = os.path.join(records_path, "api_calls.json")
-    
+    api_record_path = os.path.join(records_path, "api_calls.json")   
     api_path = os.path.abspath(os.path.join(keys_path, "api.txt"))
 
     credentials_dict = {}
-
 
     with open(api_record_path, "r") as api_record_file:
 
@@ -66,6 +63,20 @@ def get_user_credentials() -> dict:
         credentials_dict["api_key"] = api_text
     
     return credentials_dict
+
+def get_full_word_list() -> list:
+    """Opens words_alpha.txt, exectures read_lines, and returns the list
+    
+    args: None
+    
+    Returns: word_list (list) list of all words from a github repo 
+            found here: https://github.com/dwyl/english-words"""
+
+    records_path = get_top_level_directories().get("record_keeping")
+    words_alpha_path = os.path.join(records_path, "words_alpha.txt")
+
+    with open(words_alpha_path) as word_alpha_data:
+        return word_alpha_data.readlines()
 
 def get_current_words() -> dict:
     """Pulls current etymology dictionary so the program knows what word to start from for today

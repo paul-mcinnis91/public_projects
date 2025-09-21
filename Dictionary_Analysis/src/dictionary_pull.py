@@ -1,7 +1,7 @@
 import requests
 import json
-import atexit
 from datetime import date
+import os
 import helper
 
 class dictionary_pull:
@@ -21,28 +21,12 @@ class dictionary_pull:
         None
     """
     def __init__(self):
-        college_key, self.medical_key = self.dictionary_keys()
+        college_key, self.medical_key = helper.get_user_credentials("api_key")
         self.college_key = college_key.strip()
         self.today_date = date.today().strftime("%Y-%m-%d")
-        self.call_count = helper.current_api_calls()
-        self.last_date = self.current_api_calls()[0]["date"]
-        atexit.register(self.save_api_calls)
+        self.call_count = helper.get_user_credentials().get("api_calls")
+        self.last_date = helper.get_user_credentials().get("api_date")
         
-
-    def word_list(self) -> set:
-        """Word List
-        This function returns a set of words from the words_alpha.txt file.
-
-        Args:
-            None
-
-        Returns:
-            None
-        """
-        file_path = self.windows_linux_path()['words_alpha']
-        with open(file_path, "r") as file:
-            return(sorted(set(file.read().split()), key=lambda x: x.lower()))
-
     def pull_dictionary(self, word) -> list:
         """Pull Dictionary
         This function pulls the dictionary from the dictionaryapi.com API.
@@ -70,13 +54,9 @@ class dictionary_pull:
         """
         try:
             json_response[0].keys()
-        except AttributeError:
+        except (AttributeError, KeyError):
             return "Unknown"
 
-        try:
-            return json_response[0]["et"][0]
-        except KeyError:
-            return "Unknown"
 
     def word_date(self, json_response: list) -> str:
         """Word Date
@@ -101,20 +81,7 @@ class dictionary_pull:
         except KeyError:
             return "Unknown"
 
-    def dictionary_keys(self) -> list:
-        """Dictionary Keys
-        This function returns the API keys from the keys.txt file.
-
-        Args:
-            None
-
-        Returns:
-            None
-        """
-        file_path = self.windows_linux_path().get("keys")
-        with open(file_path, "r") as f:
-            return f.readlines()
-
+    
     def current_index(self) -> int:
         """Current Index
         This function returns the current index of the word list from the etymology_dict.json file.
@@ -125,10 +92,10 @@ class dictionary_pull:
         Returns:
             None
         """
-        file_path = self.windows_linux_path()["etymology_dict"]
-        try:
-            with open(file_path, "r") as f:
-                data = json.load(f)
-                return len(data)
-        except FileNotFoundError:
-            return 0
+        record_keeping_path = helper.get_top_level_directories().get("record_keeping")
+        etymology_dict_path = os.path.join(record_keeping_path, "etymology_dict.json")
+
+        with open(etymology_dict_path, "r") as etymology_file_data:
+            data = json.load(etymology_file_data)
+            return len(data)
+       
