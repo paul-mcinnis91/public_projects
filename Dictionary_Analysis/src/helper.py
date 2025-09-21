@@ -1,20 +1,36 @@
+from datetime import date
 import json
+from json import JSONDecodeError
 import os
-import sys
-import getpass
-
-dirname = os.path.dirname(__file__)
-joined_paths = os.path.join(dirname, "..")
-sys.path.append(joined_paths)
 
 
-def get_current_dir() -> str:
-    """Returns current directory file is running in.
+def get_todays_date() -> date:
+    return date.today()
+
+def get_top_level_directories() -> dict:
+    """Returns dictionary of all top level directories in module.
     
     Args: None
     
-    Returns: current directory file is being run in."""
-    return os.path.dirname(os.path.abspath(__file__))
+    Returns: dictionary of all top level modules.
+            Keys: 
+                bin: bin path,
+                keys: keys path
+                record_keeping: record_keeping path
+                setup: setup path
+                src: src path"""
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
+    child_dir_list = os.listdir(parent_dir)
+
+    top_level_directories = {}
+
+    for top_level_dir in child_dir_list:
+        dir_path_test = os.path.join(parent_dir, top_level_dir)
+        if os.path.isdir(dir_path_test):
+            top_level_directories[top_level_dir] = dir_path_test
+    
+    return top_level_directories
 
 def get_user_credentials() -> dict:
     """Gets user credentials from keys directory. Also pulls current api count from the record keeping
@@ -27,9 +43,8 @@ def get_user_credentials() -> dict:
                 api_date: last date the count was upated
                 api_key: key to acccess the database"""
     
-    current_dir = get_current_dir()
-    keys_path = os.path.abspath(os.path.join(current_dir, "..", "keys"))
-    records_path = os.path.abspath(os.path.join(current_dir, "..", "record_keeping"))
+    keys_path = get_top_level_directories().get("keys")
+    records_path = get_top_level_directories().get("records_keeping")
     api_calls_path_json = os.path.abspath(os.path.join(records_path, "api_calls.json"))
     
 
@@ -54,29 +69,62 @@ def get_current_words() -> dict:
     Args: None
     
     Returns: Dictionary with current words that have been recorded"""
-    current_dir = get_current_dir()
-    records_path = os.path.abspath(os.path.join(current_dir, "..", "record_keeping"))
+
+    records_path = get_top_level_directories().get("records_keeping")
     etymology_dict_json = os.path.abspath(os.path.join(records_path, "etymology_dict.json"))
     with open(etymology_dict_json) as etymology_json:
         etymology_dict: dict = json.load(etymology_json)
+        return etymology_dict
         
 
-    def save_api_calls(self):
-        """Save API Calls
-        This function saves the API calls to the json file.
+def save_api_calls(call_count: int):
+    """Save API Calls
+    This function saves the API calls to the json file.
 
-        Args:
-            None
+    Args:
+        call_count, integer of how many calls have been made to dictionary.com
 
-        Returns:
-            None
-        """
-        file_path = get_user_credentials().get('api_calls')
+    Returns:
+        None, updates JSON file with current call count
+    """
+    api_call_path = get_top_level_directories().get("record_keeping")
+    api_record_path = os.path.join(api_call_path, "api_calls.json")
 
-        with open(file_path, "w") as file:
-            try:
-                data = [{"api_calls": self.call_count, "date": self.today_date}]
-                json.dump(data, file, indent=2)
-            except TypeError:
-                data = [{"api_calls": 0, "date": {self.today_date}}]
-                json.dump(data, file, indent=2)
+    with open(api_record_path, "w") as api_record_file:
+        data = [{"api_calls": call_count, "date": date.today().isoformat()}]
+        json.dump(data, api_record_file, indent=2)
+
+
+
+def current_api_calls() -> int:
+    """Current API Calls
+    This function returns the current API calls from the json file and the last date the API calls were updated.
+
+    Args:
+        None
+
+    Returns:
+        Int of how many API calls are left for today
+    """
+    api_call_path = get_top_level_directories().get("record_keeping")
+    api_record_path = os.path.join(api_call_path, "api_calls.json")
+
+    with open(api_record_path, "r") as api_record_file:
+
+        data: list = json.load(api_record_file)
+        data_dict: dict = data[0]
+
+        if data_dict.get("date") != date.today().isoformat():
+            data_dict["api_calls"] = 0
+
+        return data_dict.get("api_calls")
+        
+    
+
+
+if __name__ == "__main__":
+    save_api_calls(5)
+    x = current_api_calls()
+    print(x)
+    
+    
