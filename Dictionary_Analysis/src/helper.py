@@ -4,9 +4,6 @@ from json import JSONDecodeError
 import os
 
 
-def get_todays_date() -> date:
-    return date.today()
-
 def get_top_level_directories() -> dict:
     """Returns dictionary of all top level directories in module.
     
@@ -44,18 +41,25 @@ def get_user_credentials() -> dict:
                 api_key: key to acccess the database"""
     
     keys_path = get_top_level_directories().get("keys")
-    records_path = get_top_level_directories().get("records_keeping")
-    api_calls_path_json = os.path.abspath(os.path.join(records_path, "api_calls.json"))
+    records_path = get_top_level_directories().get("record_keeping")
+    api_record_path = os.path.join(records_path, "api_calls.json")
     
-
     api_path = os.path.abspath(os.path.join(keys_path, "api.txt"))
 
     credentials_dict = {}
 
-    with open(api_calls_path_json) as api_calls_info:
-        api_calls_dict: dict = json.load(api_calls_info)
-        credentials_dict["api_calls"] = api_calls_dict.get("api_calls")
-        credentials_dict["api_date"] = api_calls_dict.get("date")
+
+    with open(api_record_path, "r") as api_record_file:
+
+        data: list = json.load(api_record_file)
+        data_dict: dict = data[0]
+
+        if data_dict.get("date") != date.today().isoformat():
+            save_api_calls(0)
+            data_dict["api_calls"] = 0
+
+        credentials_dict["api_calls"] = data_dict.get("api_calls")
+        credentials_dict["api_date"] = data_dict.get("date")
 
     with open(api_path) as api_info:
         api_text: str = api_info.read()
@@ -93,38 +97,12 @@ def save_api_calls(call_count: int):
     with open(api_record_path, "w") as api_record_file:
         data = [{"api_calls": call_count, "date": date.today().isoformat()}]
         json.dump(data, api_record_file, indent=2)
-
-
-
-def current_api_calls() -> int:
-    """Current API Calls
-    This function returns the current API calls from the json file and the last date the API calls were updated.
-
-    Args:
-        None
-
-    Returns:
-        Int of how many API calls are left for today
-    """
-    api_call_path = get_top_level_directories().get("record_keeping")
-    api_record_path = os.path.join(api_call_path, "api_calls.json")
-
-    with open(api_record_path, "r") as api_record_file:
-
-        data: list = json.load(api_record_file)
-        data_dict: dict = data[0]
-
-        if data_dict.get("date") != date.today().isoformat():
-            data_dict["api_calls"] = 0
-
-        return data_dict.get("api_calls")
-        
-    
+   
 
 
 if __name__ == "__main__":
     save_api_calls(5)
-    x = current_api_calls()
+    x = get_user_credentials().get("api_calls")
     print(x)
     
     

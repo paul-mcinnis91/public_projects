@@ -1,10 +1,8 @@
 import requests
 import json
-import os
 import atexit
-import getpass
-from json import JSONDecodeError
 from datetime import date
+import helper
 
 class dictionary_pull:
     """Dictionary Pull Class
@@ -26,67 +24,10 @@ class dictionary_pull:
         college_key, self.medical_key = self.dictionary_keys()
         self.college_key = college_key.strip()
         self.today_date = date.today().strftime("%Y-%m-%d")
-        self.call_count = self.current_api_calls()[0]["api_calls"]
+        self.call_count = helper.current_api_calls()
         self.last_date = self.current_api_calls()[0]["date"]
         atexit.register(self.save_api_calls)
-
-    def windows_linux_path(self):
-        file_path_dict = {}
-        user = getpass.getuser()
-        if os.name == "nt":
-            file_path_dict["api_calls"] = fr"C:\Users\{user}\Projects\Dictionary_Analysis\api_calls.json"
-            file_path_dict["words_alpha"] = fr"C:\Users\{user}\english-words\words_alpha.txt"
-            file_path_dict["etymology_dict"] = fr"C:\Users\{user}\Projects\Dictionary_Analysis\etymology_dict.json"
-            file_path_dict["keys"] = fr"C:\Users\{user}\Projects\Dictionary_Analysis\keys.txt"
-            return file_path_dict
-
-        else:
-            file_path_dict["api_calls"] = f"/home/{user}/Projects/Dictionary_Analysis/api_calls.json"
-            file_path_dict["words_alpha"] = f"/home/{user}/english-words/words_alpha.txt"
-            file_path_dict["etymology_dict"] = f"/home/{user}/Projects/Dictionary_Analysis/etymology_dict.json"
-            file_path_dict["keys"] = f"/home/{user}/Projects/Dictionary_Analysis/keys.txt"
-            return file_path_dict
         
-
-    def save_api_calls(self):
-        """Save API Calls
-        This function saves the API calls to the json file.
-
-        Args:
-            None
-
-        Returns:
-            None
-        """
-        file_path = self.windows_linux_path()['api_calls']
-
-        with open(file_path, "w") as file:
-            try:
-                data = [{"api_calls": self.call_count, "date": self.today_date}]
-                json.dump(data, file, indent=2)
-            except TypeError:
-                data = [{"api_calls": 0, "date": {self.today_date}}]
-                json.dump(data, file, indent=2)
-
-    def current_api_calls(self):
-        """Current API Calls
-        This function returns the current API calls from the json file and the last date the API calls were updated.
-
-        Args:
-            None
-
-        Returns:
-            None
-        """
-        file_path = self.windows_linux_path()['api_calls']
-        try:
-            with open(file_path, "r") as file:
-                data = json.load(file)
-                if data[0]["date"] != self.today_date:
-                    data[0]["api_calls"] = 0
-                return data
-        except JSONDecodeError:
-            return {"api_calls": 0, "date": self.today_date}
 
     def word_list(self) -> set:
         """Word List
