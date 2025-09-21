@@ -1,0 +1,218 @@
+[
+  {
+    "meta": {
+      "id": "alas",
+      "uuid": "954aa95f-0c20-4b21-a88d-b23f9c760902",
+      "sort": "011712000",
+      "src": "collegiate",
+      "section": "alpha",
+      "stems": [
+        "alas"
+      ],
+      "offensive": false
+    },
+    "hwi": {
+      "hw": "alas",
+      "prs": [
+        {
+          "mw": "ə-ˈlas",
+          "sound": {
+            "audio": "alas0001",
+            "ref": "c",
+            "stat": "1"
+          }
+        }
+      ]
+    },
+    "fl": "interjection",
+    "def": [
+      {
+        "sseq": [
+          [
+            [
+              "sense",
+              {
+                "dt": [
+                  [
+                    "uns",
+                    [
+                      [
+                        [
+                          "text",
+                          "used to express unhappiness, pity, or concern "
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "Life, {wi}alas{/wi}, is too short."
+                            }
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "et": [
+      [
+        "text",
+        "Middle English, from Anglo-French, from {it}a{/it} ah + {it}las{/it} weary, from Latin {it}lassus{/it} {ma}{mat|lassitude|}{/ma}"
+      ]
+    ],
+    "date": "13th century",
+    "shortdef": [
+      "—used to express unhappiness, pity, or concern"
+    ]
+  },
+  {
+    "meta": {
+      "id": "Alas",
+      "uuid": "af5c8b00-fbe3-4d82-bd33-55c4c11a2226",
+      "sort": "011713000",
+      "src": "collegiate",
+      "section": "alpha",
+      "stems": [
+        "Alas"
+      ],
+      "offensive": false
+    },
+    "hwi": {
+      "hw": "Alas"
+    },
+    "fl": "abbreviation",
+    "def": [
+      {
+        "sseq": [
+          [
+            [
+              "sense",
+              {
+                "dt": [
+                  [
+                    "text",
+                    "{a_link|Alaska}"
+                  ]
+                ]
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "shortdef": [
+      "Alaska"
+    ]
+  },
+  {
+    "meta": {
+      "id": "ala",
+      "uuid": "0dfed92c-f949-4e4d-9868-78ff1c75e391",
+      "sort": "011690000",
+      "src": "collegiate",
+      "section": "alpha",
+      "stems": [
+        "ala",
+        "alae",
+        "alar",
+        "alary",
+        "alas"
+      ],
+      "offensive": false
+    },
+    "hwi": {
+      "hw": "ala",
+      "prs": [
+        {
+          "mw": "ˈā-lə",
+          "sound": {
+            "audio": "ala00001",
+            "ref": "c",
+            "stat": "1"
+          }
+        }
+      ]
+    },
+    "fl": "noun",
+    "ins": [
+      {
+        "il": "plural",
+        "if": "alae",
+        "prs": [
+          {
+            "mw": "ˈā-ˌlē",
+            "sound": {
+              "audio": "ala00002",
+              "ref": "c",
+              "stat": "1"
+            }
+          }
+        ]
+      }
+    ],
+    "def": [
+      {
+        "sseq": [
+          [
+            [
+              "sense",
+              {
+                "dt": [
+                  [
+                    "text",
+                    "{bc}a wing or a winglike anatomic part or process {dx_def}see {dxt|process:1||4}{/dx_def}"
+                  ]
+                ]
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "uros": [
+      {
+        "ure": "alar",
+        "prs": [
+          {
+            "mw": "ˈā-lər",
+            "sound": {
+              "audio": "ala00003",
+              "ref": "c",
+              "stat": "1"
+            }
+          }
+        ],
+        "fl": "adjective"
+      },
+      {
+        "ure": "ala*ry",
+        "prs": [
+          {
+            "mw": "ˈā-lə-rē",
+            "sound": {
+              "audio": "ala00004",
+              "ref": "c",
+              "stat": "1"
+            }
+          }
+        ],
+        "fl": "adjective"
+      }
+    ],
+    "et": [
+      [
+        "text",
+        "borrowed from Latin {it}āla{/it} \"armpit, upper arm, wing, axil\" going back to {it}*akslā,{/it} going back to Indo-European {it}*h{inf}2{/inf}eḱs-(i)l-eh{inf}2{/inf}-{/it} (whence also Germanic {it}*ahslō-,{/it} whence Old English {it}eaxl{/it} \"shoulder,\" Old Frisian {it}axle, axele{/it} \"shoulder, armpit,\" Old Saxon {it}ahsla,{/it} Old High German {it}ahsla, ahsala,{/it} Old Icelandic {it}ǫxl{/it} \"shoulder\"), derivative with an {it}-l-{/it} suffix from {it}*h{inf}2{/inf}eḱs-{/it} \"pivot around which something rotates, axle\" {ma}{mat|axis|}{/ma}"
+      ]
+    ],
+    "date": "1634",
+    "shortdef": [
+      "a wing or a winglike anatomic part or process"
+    ]
+  }
+]

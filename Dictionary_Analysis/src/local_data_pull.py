@@ -1,6 +1,7 @@
 from datetime import date
-import json
 import os
+import json
+import local_data_push as ldp
 
 
 def get_top_level_directories() -> dict:
@@ -52,7 +53,7 @@ def get_user_credentials() -> dict:
         data_dict: dict = data[0]
 
         if data_dict.get("date") != date.today().isoformat():
-            save_api_calls(0)
+            ldp.save_api_calls(0)
             data_dict["api_calls"] = 0
 
         credentials_dict["api_calls"] = data_dict.get("api_calls")
@@ -63,6 +64,20 @@ def get_user_credentials() -> dict:
         credentials_dict["api_key"] = api_text
     
     return credentials_dict
+
+
+def get_current_words() -> list:
+    """Pulls current etymology dictionary so the program knows what word to start from for today
+    
+    Args: None
+    
+    Returns: Dictionary with current words that have been recorded"""
+
+    records_path = get_top_level_directories().get("record_keeping")
+    etymology_dict_json = os.path.abspath(os.path.join(records_path, "etymology_dict.json"))
+    with open(etymology_dict_json) as etymology_json:
+        etymology_dict_list: list = json.load(etymology_json)
+        return etymology_dict_list
 
 def get_full_word_list() -> list:
     """Opens words_alpha.txt, exectures read_lines, and returns the list
@@ -78,42 +93,20 @@ def get_full_word_list() -> list:
     with open(words_alpha_path) as word_alpha_data:
         return word_alpha_data.readlines()
 
-def get_current_words() -> dict:
-    """Pulls current etymology dictionary so the program knows what word to start from for today
-    
-    Args: None
-    
-    Returns: Dictionary with current words that have been recorded"""
+def get_current_index() -> int:
+        """Current Index
+        This function returns the current index of the word list from the etymology_dict.json file.
 
-    records_path = get_top_level_directories().get("records_keeping")
-    etymology_dict_json = os.path.abspath(os.path.join(records_path, "etymology_dict.json"))
-    with open(etymology_dict_json) as etymology_json:
-        etymology_dict: dict = json.load(etymology_json)
-        return etymology_dict
-        
+        Args:
+            None
 
-def save_api_calls(call_count: int):
-    """Save API Calls
-    This function saves the API calls to the json file.
+        Returns:
+            Integer of current index
+        """
+        record_keeping_path = get_top_level_directories().get("record_keeping")
+        etymology_dict_path = os.path.join(record_keeping_path, "etymology_dict.json")
 
-    Args:
-        call_count, integer of how many calls have been made to dictionary.com
-
-    Returns:
-        None, updates JSON file with current call count
-    """
-    api_call_path = get_top_level_directories().get("record_keeping")
-    api_record_path = os.path.join(api_call_path, "api_calls.json")
-
-    with open(api_record_path, "w") as api_record_file:
-        data = [{"api_calls": call_count, "date": date.today().isoformat()}]
-        json.dump(data, api_record_file, indent=2)
-   
-
-
-if __name__ == "__main__":
-    save_api_calls(5)
-    x = get_user_credentials().get("api_calls")
-    print(x)
-    
-    
+        with open(etymology_dict_path, "r") as etymology_file_data:
+            data = json.load(etymology_file_data)
+            return len(data)
+          

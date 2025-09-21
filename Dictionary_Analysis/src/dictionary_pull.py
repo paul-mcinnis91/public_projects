@@ -2,7 +2,7 @@ import requests
 import json
 from datetime import date
 import os
-import helper
+from src import helper
 
 class dictionary_pull:
     """Dictionary Pull Class
@@ -21,8 +21,7 @@ class dictionary_pull:
         None
     """
     def __init__(self):
-        college_key, self.medical_key = helper.get_user_credentials("api_key")
-        self.college_key = college_key.strip()
+        self.college_key = helper.get_user_credentials().get("api_key")
         self.today_date = date.today().strftime("%Y-%m-%d")
         self.call_count = helper.get_user_credentials().get("api_calls")
         self.last_date = helper.get_user_credentials().get("api_date")
@@ -40,7 +39,7 @@ class dictionary_pull:
         url = f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}?key={self.college_key}"
         response = requests.get(url)
         self.call_count += 1
-        return response.json(), url
+        return [response.json(), url]
 
     def etymology(self, json_response: list) -> str:
         """Etymology
@@ -72,15 +71,18 @@ class dictionary_pull:
             json_response[0].keys()
         except AttributeError:
             return "Unknown"
-        try:
-            origination_date = json_response[0]["date"]
-            if origination_date.isdigit():
-                return int(origination_date)
-            else:
-                return origination_date
-        except KeyError:
-            return "Unknown"
 
+        json_0_idx: dict = json_response[0]
+
+        origination_date = json_0_idx.get("date")
+
+        if origination_date.isdigit():
+            return int(origination_date)
+        elif isinstance(origination_date, None):
+            return "Unknown"
+        
+        return origination_date
+      
     
     def current_index(self) -> int:
         """Current Index
@@ -90,7 +92,7 @@ class dictionary_pull:
             None
 
         Returns:
-            None
+            Integer of current index
         """
         record_keeping_path = helper.get_top_level_directories().get("record_keeping")
         etymology_dict_path = os.path.join(record_keeping_path, "etymology_dict.json")
