@@ -25,9 +25,10 @@ def main():
     
     current_word_list: list = ld_pull.get_current_words()
     all_word_list: list = ld_pull.get_full_word_list()
+    
+    
+    
 
-    print(current_word_list[-1]) 
-    print(all_word_list[current_index-1])
 
 
     

@@ -32,13 +32,29 @@ class dictionary_pull:
             word (str): The word to pull the dictionary for.
 
         Returns:
-            None
+            list with the response json, and the url
         """
         url = f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}?key={self.college_key}"
         url_minus_key = url.replace(f"?key={self.college_key}", "")
         response = requests.get(url)
         self.call_count += 1
         return [response.json(), url_minus_key]
+    
+    def determine_known_unk(self, json_response: list) -> bool:
+        """Function used to determine if the word is in the dictionary database or no.
+        If no, returns false. Otherwise, true.
+
+        Args: json_response from pull_dictionary
+
+        Returns: bool
+        """
+
+        if isinstance(json_response[0][0], str):
+            return False
+        
+        return True
+        
+        
 
     def etymology(self, json_response: list) -> str:
         """Etymology
@@ -48,10 +64,13 @@ class dictionary_pull:
             json_response (list): The json response from the dictionaryapi.com API.
 
         Returns:
-            None
+            Etymology string
         """
         try:
             json_response[0].keys()
+            et_key = json_response[0].get("et")
+            et_key_0 = et_key[0]
+            return et_key_0[0]
         except (AttributeError, KeyError):
             return "Unknown"
 
@@ -64,23 +83,34 @@ class dictionary_pull:
             json_response (list): The json response from the dictionaryapi.com API.
 
         Returns:
-            None
+            Date info string
         """
-        try:
-            json_response[0].keys()
-        except AttributeError:
-            return "Unknown"
-
+       
         json_0_idx: dict = json_response[0]
-
         origination_date = json_0_idx.get("date")
 
-        if origination_date.isdigit():
-            return int(origination_date)
-        elif isinstance(origination_date, None):
+        if isinstance(origination_date, None):
             return "Unknown"
         
         return origination_date
-      
     
+    def package_et_date(self, json_response: list, index: int, word: str) -> dict:
+        """Function that takes the json response and strips out the needed parts for packaging.
+        Once packing is complete, another function will write this to etymology_dict.json"""
+
+        # Example package: {"Index": 0, 
+        #                   "Word": "a", 
+        #                   "Etymology": "Unknown", 
+        #                   "Origination Date": "before 12th century{ds||1|a|}"
+        #                   }
+
+        response_dict = {}
+        response_dict["Index"] = index
+        response_dict["Word"] = word
+        response_dict["Etymology"] = self.etymology(json_response)
+        response_dict["Origination Date"] = self.word_date(json_response)
+
+        return response_dict
+
+
     
