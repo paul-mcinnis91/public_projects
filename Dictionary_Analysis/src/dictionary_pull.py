@@ -1,7 +1,9 @@
 import re
 import requests
 from datetime import date
+import sys
 from src import local_data_pull as ld_pull
+from src import local_data_push as ld_push
 
 class dictionary_pull:
     """Dictionary Pull Class
@@ -38,6 +40,9 @@ class dictionary_pull:
         url = f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}?key={self.college_key}"
         response = requests.get(url)
         self.call_count += 1
+        ld_push.save_api_calls(self.call_count)
+        if self.call_count == 1000:
+            sys.exit("Call count at 1000")
         return response.json()
     
     def _filter_special_characters(self, character_string: str) -> str:

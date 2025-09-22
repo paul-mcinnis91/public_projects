@@ -30,7 +30,7 @@ def main():
             len_filtered = test_dictionary.filter_for_len(word_json)
             full_package = test_dictionary.package_et_date(json_response=len_filtered, index=idx, word=word)
             current_record_words.append(full_package)
-        if idx == current_index + 1000:
+        if test_dictionary.call_count == 1000:
             break
     
     ld_push.save_etymology_dict(current_record_words)
