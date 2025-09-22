@@ -19,24 +19,25 @@ def main():
     Returns:
         None
     """
-    test_dictionary = dictionary_pull()
+    dictionary_obj = dictionary_pull()
     current_index =  ld_pull.get_current_index()
-    all_words = ld_pull.get_full_word_list()
+    all_words_list = ld_pull.get_full_word_list()
     current_record_words = ld_pull.get_current_words()
 
-    for idx, word in enumerate(all_words, start=current_index):
-        word_json = test_dictionary.pull_dictionary(word)
-        if test_dictionary.determine_known_unk(word_json):
-            len_filtered = test_dictionary.filter_for_len(word_json)
-            full_package = test_dictionary.package_et_date(json_response=len_filtered, index=idx, word=word)
-            current_record_words.append(full_package)
-        if test_dictionary.call_count == 1000:
-            break
+    
+    for idx, word in enumerate(all_words_list, start=current_index):
+        word_json = dictionary_obj.pull_dictionary(word)
+        try:
+            if dictionary_obj.determine_known_unk(word_json):
+                len_filtered = dictionary_obj.filter_for_len(word_json)
+                full_package = dictionary_obj.package_et_date(json_response=len_filtered, index=idx, word=word)
+                current_record_words.append(full_package)
+
+        except AttributeError:
+            print(word_json)
     
     ld_push.save_etymology_dict(current_record_words)
 
-
-    
 
 if __name__ == "__main__":
     main()
