@@ -39,6 +39,10 @@ def main():
                 len_filtered = dictionary_obj.filter_for_len(word_json)
                 full_package = dictionary_obj.package_et_date(json_response=len_filtered, index=idx, word=word)
                 break
+        
+        if idx == current_index + 1000:
+            print("Current Call Count: 1000")
+            break
            
     
     ld_push.save_etymology_dict(current_record_words)
