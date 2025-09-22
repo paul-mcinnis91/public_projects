@@ -40,7 +40,7 @@ def main():
                 full_package = dictionary_obj.package_et_date(json_response=len_filtered, index=idx, word=word)
                 break
         
-        if idx == current_index + 1000:
+        if dictionary_obj.call_count == 1000:
             print("Current Call Count: 1000")
             break
            
