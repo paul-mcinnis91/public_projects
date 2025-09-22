@@ -27,14 +27,16 @@ def main():
     
     for idx, word in enumerate(all_words_list, start=current_index):
         word_json = dictionary_obj.pull_dictionary(word)
-        try:
-            if dictionary_obj.determine_known_unk(word_json):
+        if dictionary_obj.determine_known_unk(word_json):
+            try:
                 len_filtered = dictionary_obj.filter_for_len(word_json)
                 full_package = dictionary_obj.package_et_date(json_response=len_filtered, index=idx, word=word)
                 current_record_words.append(full_package)
 
-        except AttributeError:
-            print(word_json)
+            except AttributeError:
+                print(word_json)
+                break
+           
     
     ld_push.save_etymology_dict(current_record_words)
 

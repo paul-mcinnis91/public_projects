@@ -75,11 +75,13 @@ def get_current_words() -> list:
 
     records_path = get_top_level_directories().get("record_keeping")
     etymology_dict_json = os.path.abspath(os.path.join(records_path, "etymology_dict.json"))
-    with open(etymology_dict_json, "rb") as etymology_json:
-        if len(etymology_json.read()) == 0:
-            return []
+    with open(etymology_dict_json, "r") as etymology_json:
         string_json = etymology_json.read()
         etymology_dict_list: list = json.loads(string_json)
+
+        if len(etymology_dict_list) == 0:
+            return []
+        
         return etymology_dict_list
 
 def get_full_word_list() -> list:
@@ -106,14 +108,7 @@ def get_current_index() -> int:
         Returns:
             Integer of current index
         """
-        record_keeping_path = get_top_level_directories().get("record_keeping")
-        etymology_dict_path = os.path.join(record_keeping_path, "etymology_dict.json")
-
-        with open(etymology_dict_path, "r") as etymology_file_data:
-            if len(etymology_file_data.read()) == 0:
-                return 0
-            data = json.load(etymology_file_data)
-            last_item: dict = data[-1]
-            index_last_item = last_item.get("Index")
-            return index_last_item
+        word_list = get_current_words()
+        last_item: dict = word_list[-1]
+        return last_item.get("Index")
           
