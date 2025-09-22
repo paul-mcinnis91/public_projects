@@ -1,7 +1,7 @@
 from datetime import date
 import os
 import json
-import local_data_push as ld_push
+from src import local_data_push as ld_push
 
 
 def get_top_level_directories() -> dict:
@@ -76,6 +76,8 @@ def get_current_words() -> list:
     records_path = get_top_level_directories().get("record_keeping")
     etymology_dict_json = os.path.abspath(os.path.join(records_path, "etymology_dict.json"))
     with open(etymology_dict_json, "rb") as etymology_json:
+        if len(etymology_json.read()) == 0:
+            return []
         string_json = etymology_json.read()
         etymology_dict_list: list = json.loads(string_json)
         return etymology_dict_list
@@ -108,6 +110,10 @@ def get_current_index() -> int:
         etymology_dict_path = os.path.join(record_keeping_path, "etymology_dict.json")
 
         with open(etymology_dict_path, "r") as etymology_file_data:
+            if len(etymology_file_data.read()) == 0:
+                return 0
             data = json.load(etymology_file_data)
-            return len(data)
+            last_item: dict = data[-1]
+            index_last_item = last_item.get("Index")
+            return index_last_item
           

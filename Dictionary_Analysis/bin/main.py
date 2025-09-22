@@ -20,11 +20,19 @@ def main():
     """
     test_dictionary = dictionary_pull()
     current_index =  ld_pull.get_current_index()
-    sorted_word_list = ld_pull.get_full_word_list()
-    current_word_list = sorted_word_list[current_index:]
+    all_words = ld_pull.get_full_word_list()
+    current_record_words = ld_pull.get_current_words()
+
+    for idx, word in enumerate(all_words, start=current_index):
+        word_json = test_dictionary.pull_dictionary(word)
+        len_filtered = test_dictionary.filter_for_len(word_json)
+        full_package = test_dictionary.package_et_date(json_response=len_filtered, index=idx, word=word)
+
+
+
     
-    current_word_list: list = ld_pull.get_current_words()
-    all_word_list: list = ld_pull.get_full_word_list()
+
+
     
     
     
