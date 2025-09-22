@@ -21,8 +21,9 @@ def main():
     """
     dictionary_obj = dictionary_pull()
     current_index =  ld_pull.get_current_index()
-    all_words_list = ld_pull.get_full_word_list()
+    all_words_list = ld_pull.get_full_word_list()[current_index+1:]
     current_record_words = ld_pull.get_current_words()
+    
 
     
     for idx, word in enumerate(all_words_list, start=current_index):
@@ -33,8 +34,10 @@ def main():
                 full_package = dictionary_obj.package_et_date(json_response=len_filtered, index=idx, word=word)
                 current_record_words.append(full_package)
 
-            except AttributeError:
+            except AttributeError or IndexError:
                 print(word_json)
+                len_filtered = dictionary_obj.filter_for_len(word_json)
+                full_package = dictionary_obj.package_et_date(json_response=len_filtered, index=idx, word=word)
                 break
            
     

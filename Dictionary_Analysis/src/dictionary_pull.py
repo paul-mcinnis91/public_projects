@@ -74,8 +74,7 @@ class dictionary_pull:
         Returns: filtered list with just one item"""
 
         et_only_response = self._filter_for_et(json_response)
-
-        if len(et_only_response) > 1:
+        if len(et_only_response) > 0:
             return et_only_response[0]
     
     def determine_known_unk(self, json_response: dict) -> bool:
@@ -91,8 +90,7 @@ class dictionary_pull:
             return False
         
         return True
-        
-        
+
 
     def _etymology(self, filtered_json: dict) -> str:
         """Etymology
@@ -126,8 +124,11 @@ class dictionary_pull:
             Date info string
         """
        
-        
-        origination_date = filtered_json.get("date")
+        try:
+            origination_date = filtered_json.get("date")
+
+        except AttributeError:
+            return "Unknown"
 
         if isinstance(origination_date, type(None)):
             return "Unknown"
