@@ -17,7 +17,7 @@ Database Pulling, Local Pulling, Local Pushing
 
 ## Decomposition Description
 Mermaid Diagram:
-
+```mermaid
 flowchart TD
     Dictionary_com@{shape: cyl, label: "Dictionary.com"}
     Terminates_Query((X))
@@ -46,7 +46,7 @@ flowchart TD
     Etymology_Dict -- "Cleaned By" --> Data_Cleanse
     Data_Cleanse -- "When Complete" --> Data_Visualization
     Data_Visualization -- "After Update; Terminates Program" --> Terminates_Program
-
+```
 
 The system relies upon 6 python modules (dictioanary_pull, local_data_pull, local_data_push, data_cleansing, data_visualization) to interact with 1 database (dictionary.com) and 3 files (api_calls.json, etymology_dict.json, and word_alpha.txt) 
 The process starts with local_data_pull pulling from etymology_dict.json to get the correct index point. 
