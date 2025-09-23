@@ -27,6 +27,11 @@ def main():
 
     
     for idx, word in enumerate(all_words_list, start=current_index):
+        
+        if dictionary_obj.call_count >= 1000:
+            print(f"Current Call Count: {dictionary_obj.call_count}. Max usage is 1000 calls a day")
+            break
+           
         word_json = dictionary_obj.pull_dictionary(word)
         if dictionary_obj.determine_known_unk(word_json):
             try:
@@ -34,16 +39,11 @@ def main():
                 full_package = dictionary_obj.package_et_date(json_response=len_filtered, index=idx, word=word)
                 current_record_words.append(full_package)
 
-            except AttributeError or IndexError:
+            except TypeError:
                 print(word_json)
                 len_filtered = dictionary_obj.filter_for_len(word_json)
                 full_package = dictionary_obj.package_et_date(json_response=len_filtered, index=idx, word=word)
                 break
-        
-        if dictionary_obj.call_count == 1000:
-            print("Current Call Count: 1000")
-            break
-           
     
     ld_push.save_etymology_dict(current_record_words)
 
