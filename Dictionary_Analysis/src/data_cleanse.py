@@ -1,3 +1,4 @@
+import re
 from src import local_data_pull as ld_pull
 
 
@@ -31,7 +32,31 @@ class Data_Cleanse:
         
         Returns: Integer format of the 'date' key"""
 
+      
+        numbers_only = re.findall(r"\d+", date_str)
+        new_date = numbers_only[0]
+        if "century" in date_str:
+            new_date = numbers_only[0] + "00"
         
+        return int(new_date)
+        
+    
+
+    def test_unk(self, date_et_str: str) -> bool:
+        """Function to test if the date or et is equal to unknown. If the word is something 
+        other than 'Unknown' returns true.
+        
+        Args: date_et_str (str) the date or etymology string being test
+        
+        Returns: bool"""
+
+        if date_et_str == "Unknown":
+            return False
+        
+        return True
+        
+
+
 
 
 
