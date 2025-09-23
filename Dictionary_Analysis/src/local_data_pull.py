@@ -84,19 +84,32 @@ def get_current_words() -> list:
         
         return etymology_dict_list
 
-def get_full_word_list() -> list:
-    """Opens words_alpha.txt, exectures read_lines, and returns the list
+def get_word_lang_list(list_choice: str) -> list:
+    """Opens words_alpha.txt, executes read_lines, and returns the list
     
-    args: None
+    args: list_choice (str) what list [words_alpha, language] is the end user asking for.
     
     Returns: word_list (list) list of all words from a github repo 
-            found here: https://github.com/dwyl/english-words"""
+            found here: https://github.com/dwyl/english-words
+            
+            or
+            
+            language_list (list) list of all languages from a github repo 
+            found here: https://github.com/umpirsky/language-list"""
 
     records_path = get_top_level_directories().get("record_keeping")
-    words_alpha_path = os.path.join(records_path, "words_alpha.txt")
+    
+    path_dictionary = {}
 
-    with open(words_alpha_path) as word_alpha_data:
-        return word_alpha_data.readlines()
+    words_alpha_path = os.path.join(records_path, "words_alpha.txt")
+    language_path = os.path.join(records_path, "language.txt")
+
+    path_dictionary["words_alpha"] = words_alpha_path
+    path_dictionary["language"] = language_path 
+
+    
+    with open(path_dictionary.get(list_choice)) as list_data:
+        return list_data.readlines()
 
 def get_current_index() -> int:
         """Current Index

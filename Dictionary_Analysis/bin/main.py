@@ -21,7 +21,7 @@ def main():
     """
     dictionary_obj = dictionary_pull()
     current_index =  ld_pull.get_current_index()
-    all_words_list = ld_pull.get_full_word_list()[current_index+1:]
+    all_words_list = ld_pull.get_word_lang_list("words_alpha")[current_index+1:]
     current_record_words = ld_pull.get_current_words()
     
 

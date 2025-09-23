@@ -124,8 +124,8 @@ class dictionary_pull:
         response_dict = {}
         response_dict["Index"] = index
         response_dict["Word"] = word
-        response_dict["Etymology"] = filtered_orig_date
-        response_dict["Origination Date"] = filtered_etymology
+        response_dict["Etymology"] = filtered_etymology
+        response_dict["Origination Date"] = filtered_orig_date
 
         return response_dict
 
