@@ -13,7 +13,7 @@ Database Pulling, Local Pulling, Local Pushing
 
 # System Components
 
-![FIGURE 1](public_projects\Dictionary_Analysis\Dictionary_Analysis.png)
+![FIGURE 1](Dictionary_Analysis\Dictionary_Analysis.png)
 
 ## Decomposition Description
 Mermaid Diagram:
