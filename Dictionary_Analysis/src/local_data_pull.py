@@ -77,11 +77,10 @@ def get_current_words() -> list:
     etymology_dict_json = os.path.abspath(os.path.join(records_path, "etymology_dict.json"))
     with open(etymology_dict_json, "r") as etymology_json:
         string_json = etymology_json.read()
-        etymology_dict_list: list = json.loads(string_json)
-
-        if len(etymology_dict_list) == 0:
+        if len(string_json) == 0:
             return []
         
+        etymology_dict_list: list = json.loads(string_json)
         return etymology_dict_list
 
 def get_word_lang_list(list_choice: str) -> list:
@@ -122,6 +121,9 @@ def get_current_index() -> int:
             Integer of current index
         """
         word_list = get_current_words()
+        if len(word_list) == 0:
+            return 0
+        
         last_item: dict = word_list[-1]
         return last_item.get("Index")
           
