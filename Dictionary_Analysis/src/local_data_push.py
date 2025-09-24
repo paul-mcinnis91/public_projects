@@ -32,3 +32,20 @@ def save_etymology_dict(updated_list: list) -> None:
     
     with open(etymology_file_path, "w") as etymology_file:
         json.dump(updated_list, etymology_file, indent=2)
+
+def save_clean_et_dict(cleaned_list: list) -> None:
+    """Function to save the cleaned list into a different file. This way we can compare the old
+    with the new and ensure we are maintaining the correct data
+    
+    Args: cleaned_list (list): list that has been filtered and cleansed by the data_cleanse object
+    
+    Returns: None. Saves the data to cleaned_dict.json"""
+
+    record_keeping_path = ld_pull.get_top_level_directories().get("record_keeping")
+    cleaned_file_path = os.path.join(record_keeping_path, "cleaned_dict.json")
+    
+    with open(cleaned_file_path, "w") as cleaned_file:
+        json.dump(cleaned_list, cleaned_file, indent=2)
+
+
+    

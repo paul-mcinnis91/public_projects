@@ -47,9 +47,12 @@ def main():
                 full_package = dictionary_obj.package_et_date(json_response=len_filtered, index=idx, word=word)
                 break
     
+    ld_push.save_etymology_dict(current_record_words)
+
     cleaned_words = data_cleaner.cleaned_list(current_record_words)
+
+    ld_push.save_clean_et_dict(cleaned_words)
     
-    ld_push.save_etymology_dict(cleaned_words)
 
 
 if __name__ == "__main__":
