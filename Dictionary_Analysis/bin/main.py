@@ -9,6 +9,7 @@ from src.dictionary_pull import dictionary_pull
 from src import local_data_pull as ld_pull
 from src import local_data_push as ld_push
 from src.data_cleanse import Data_Cleanse
+from src.data_vis import Data_Visualization
 
 def main():
     """Main
@@ -25,7 +26,7 @@ def main():
     all_words_list = ld_pull.get_word_lang_list("words_alpha")[current_index+1:]
     current_record_words = ld_pull.get_current_words()
     data_cleaner = Data_Cleanse()
-    
+    data_vis = Data_Visualization()
 
     
     for idx, word in enumerate(all_words_list, start=current_index):
@@ -52,6 +53,9 @@ def main():
     cleaned_words = data_cleaner.cleaned_list(current_record_words)
 
     ld_push.save_clean_et_dict(cleaned_words)
+
+    test = data_vis.count_ets_dates()
+    print(test[0])
     
 
 

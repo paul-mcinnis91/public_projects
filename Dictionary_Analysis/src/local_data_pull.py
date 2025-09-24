@@ -82,6 +82,23 @@ def get_current_words() -> list:
         
         etymology_dict_list: list = json.loads(string_json)
         return etymology_dict_list
+    
+def get_cleaned_words() -> list: 
+    """Pulls cleaned etymology dictionary so the can visualize what's available.
+    
+    Args: None
+    
+    Returns: Dictionary with cleaned words that have been recorded"""
+
+    records_path = get_top_level_directories().get("record_keeping")
+    cleaned_dict_json = os.path.abspath(os.path.join(records_path, "cleaned_dict.json"))
+    with open(cleaned_dict_json, "r") as etymology_json:
+        string_json = etymology_json.read()
+        if len(string_json) == 0:
+            return []
+        
+        cleaned_dict_list: list = json.loads(string_json)
+        return cleaned_dict_list
 
 def get_word_lang_list(list_choice: str) -> list:
     """Opens words_alpha.txt, executes read_lines, and returns the list
