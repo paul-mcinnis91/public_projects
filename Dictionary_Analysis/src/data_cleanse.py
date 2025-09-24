@@ -9,8 +9,6 @@ class Data_Cleanse:
         self.etymology_dict: list = ld_pull.get_current_words()
         self.lang_list: list = self._cleaned_lang_list()
     
-
-
     def _cleaned_lang_list(self) -> list:
         """Function to reduce amount of calls made out to language.txt
         
@@ -30,6 +28,14 @@ class Data_Cleanse:
 
         possible_match = list(set(language for language in self.lang_list if language in ety_str))
         return possible_match
+    
+    def _test_capital_in_et(self, ety_str: str) -> list:
+        """Function to test if there are any capital letters in the etymology string. 
+        Dictionary.com did a good job of capitalizing proper nouns.
+        
+        Args: ety_str (str) the unpacked etymology string
+        
+        Returns: list of all words that are capitalized"""
 
     def _reduce_et(self, etymology: str) -> list:
         """Function to reduce etymology string to list of single words that can be queried later
@@ -38,7 +44,7 @@ class Data_Cleanse:
         
         Returns: list of where the word is from (language of origin)"""
 
-        current_et_split = etymology.lower().split(" ")
+        current_et_split = etymology.split(" ")
 
         possible_match = self._test_lang_in_et(etymology)
         et_options = list(set(word for word in current_et_split if word in self.lang_list))
@@ -64,8 +70,6 @@ class Data_Cleanse:
             new_date = numbers_only[0] + "00"
         
         return int(new_date)
-        
-    
 
     def _test_unk(self, date_et_str: str) -> bool:
         """Function to test if the date or et is equal to unknown. If the word is something 
@@ -80,7 +84,6 @@ class Data_Cleanse:
         
         return True
     
-
     def _filter_unk(self, etymology_list: list) -> list:
         """Filters out all json objects where the etymology AND origination dates are listed 'Unknown'. 
         
@@ -108,7 +111,7 @@ class Data_Cleanse:
             dirty_etymology = json_ob.get("Etymology")
             dirty_orig_date = json_ob.get("Origination Date")
             
-            cleaned_et = self._reduce_et(dirty_etymology)
+            cleaned_et = self._test_capital_in_et(dirty_etymology)
             cleaned_orig_date = self._clean_date(dirty_orig_date)
 
             json_ob["Origination Date"] = cleaned_orig_date
