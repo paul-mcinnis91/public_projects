@@ -1,4 +1,5 @@
 import re
+from typing import List, Tuple, Optional
 from src import local_data_pull as ld_pull
 
 
@@ -32,7 +33,7 @@ class Data_Cleanse:
             
             elif len(split_word) == 4:
                 modifier_word = split_word[0] + " " + split_word[1]
-                modifier_words.append(modifier_words)
+                modifier_words.append(modifier_word)
         
         return modifier_words
 
@@ -59,6 +60,7 @@ class Data_Cleanse:
 
     def _reduce_et(self, etymology: str) -> list:
         """Function to reduce etymology string to list of single words that can be queried later
+        Checks if the the words are in the language list and then returns the ones that are
         
         Args: etymology(string) the actual etymology being fed into the function.
         
@@ -114,24 +116,31 @@ class Data_Cleanse:
 
         return filtered_list
     
-    def _concat_et(self, etymology_str: str) -> list:
-        """Calls upon _reduce_et to look for certain words to concatenate together.
-        Reduces the size of the list with the concatenated words, returns a new list
+    def _get_correct_languages(self, etymology_str: str) -> list:
+        """Designed to pull out word modifieres from the etymology_list
         
-        Args: etymology_str (str) the unpacked etymology string
+        Args: etymology_str (str) string of etymology words that will be turned into a list
+                                    of capital letters then filtered from there.
         
-        Returns: list of etymology strings that hopefully concatenates correctly"""
+        Returns: available_modifiers (list) list of available modifiers"""
 
-        filtered_et_list = self._reduce_et(etymology_str)
-        shorter_list = []
-        for idx, word in enumerate(filtered_et_list):
-            try:
-                if word in self.modifier_words:
-                    new_word = word + " " + filtered_et_list[idx + 1]
-                    shorter_list.append(new_word)
-            except IndexError:
-                shorter_list.append(word)
-        return shorter_list
+        available_modifiers = []
+        etymology_list = self._reduce_et(etymology_str)
+        et_list_len = len(etymology_list) - 1
+        for idx in range(et_list_len):
+            if idx <= et_list_len - 2:
+                new_word = " ".join(etymology_list[idx: idx +2])
+                
+            elif idx <= et_list_len -1:
+                new_word = " ".join(etymology_list[idx: idx +1])
+
+            available_modifiers.append(new_word)
+
+        correct_languages = [modifier for modifier in available_modifiers if modifier in self.lang_list]
+        if len(correct_languages) == 0:
+            return etymology_list
+        return correct_languages
+
 
         
     def dirty_list(self, etymology_list: list, filtered_list: list) -> list:
@@ -158,7 +167,7 @@ class Data_Cleanse:
             dirty_etymology = json_ob.get("Etymology")
             dirty_orig_date = json_ob.get("Origination Date")
             
-            cleaned_et = self._concat_et(dirty_etymology)
+            cleaned_et = self._get_correct_languages(dirty_etymology)
             cleaned_orig_date = self._clean_date(dirty_orig_date)
 
             json_ob["Origination Date"] = cleaned_orig_date
