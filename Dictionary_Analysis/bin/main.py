@@ -8,6 +8,7 @@ sys.path.append(joined_paths)
 from src.dictionary_pull import dictionary_pull
 from src import local_data_pull as ld_pull
 from src import local_data_push as ld_push
+from src.data_cleanse import Data_Cleanse
 
 def main():
     """Main
@@ -23,6 +24,7 @@ def main():
     current_index =  ld_pull.get_current_index()
     all_words_list = ld_pull.get_word_lang_list("words_alpha")[current_index+1:]
     current_record_words = ld_pull.get_current_words()
+    data_cleaner = Data_Cleanse()
     
 
     
@@ -45,7 +47,9 @@ def main():
                 full_package = dictionary_obj.package_et_date(json_response=len_filtered, index=idx, word=word)
                 break
     
-    ld_push.save_etymology_dict(current_record_words)
+    cleaned_words = data_cleaner.cleaned_list(current_record_words)
+    
+    ld_push.save_etymology_dict(cleaned_words)
 
 
 if __name__ == "__main__":

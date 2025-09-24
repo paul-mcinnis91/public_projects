@@ -9,7 +9,7 @@ class Data_Cleanse:
         self.etymology_dict: list = ld_pull.get_current_words()
     
 
-    def reduce_et(self, etymology: str) -> list:
+    def _reduce_et(self, etymology: str) -> list:
         """Function to reduce etymology string to list of single words that can be queried later
         
         Args: etymology(string) the actual etymology being fed into the function.
@@ -17,13 +17,13 @@ class Data_Cleanse:
         Returns: list of where the word is from (language of origin)"""
 
         possible_ets = ld_pull.get_word_lang_list("language")
-        cleaned_ets = [language.split(" (")[0] for language in possible_ets]
-        current_et_split = etymology.split(" ")
+        cleaned_ets = [language.lower().split(" (")[0] for language in possible_ets]
+        current_et_split = etymology.lower().split(" ")
         et_options = [word for word in current_et_split if word in cleaned_ets]
         
         return et_options
     
-    def clean_date(self, date_str: str) -> int:
+    def _clean_date(self, date_str: str) -> int:
         """The purpose of this function is to pull the date_str and determine what year the word
         came from. Once that is determined, to return that word as an integer
         This will be one of the more difficult functions to deal with.
@@ -42,7 +42,7 @@ class Data_Cleanse:
         
     
 
-    def test_unk(self, date_et_str: str) -> bool:
+    def _test_unk(self, date_et_str: str) -> bool:
         """Function to test if the date or et is equal to unknown. If the word is something 
         other than 'Unknown' returns true.
         
@@ -54,6 +54,45 @@ class Data_Cleanse:
             return False
         
         return True
+    
+
+    def _filter_unk(self, etymology_list: list) -> list:
+        """Filters out all json objects where the etymology AND origination dates are listed 'Unknown'. 
+        
+        Args: etymology_list (list[dict]) list of dictionaries from within the cleaned_list function
+        
+        Returns: filterd_list (list[dict]) list of the same dictioanaries but filtered out unknowns"""
+
+        filtered_list = list(filter(lambda json_ob: 
+                                        self._test_unk(json_ob.get("Origination Date")) == True
+                                        and self._test_unk(json_ob.get("Etymology") == True), 
+                                        etymology_list))
+
+        return filtered_list
+        
+    def cleaned_list(self, etymology_list: list) -> list:
+        """Takes the etymology_list that is passed into it and runs the previous functions to cleanse it
+        
+        Args: etymology_list (list[dict]) list of dictionaries from etymology_dict.json
+        
+        Returns cleansed_list (list[dict]) list of dictioanries with cleaned data"""
+
+        filtered_list = self._filter_unk(etymology_list)
+        cleansed_list = []
+        for json_ob in filtered_list:
+            dirty_etymology = json_ob.get("Etymology")
+            dirty_orig_date = json_ob.get("Origination Date")
+            
+            cleaned_et = self._reduce_et(dirty_etymology)
+            cleaned_orig_date = self._clean_date(dirty_orig_date)
+
+            json_ob["Origination Date"] = cleaned_orig_date
+            json_ob["Etymology"] = cleaned_et
+            
+            cleansed_list.append(json_ob)
+        
+        return cleansed_list
+
         
 
 
