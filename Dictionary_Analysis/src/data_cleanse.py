@@ -9,8 +9,34 @@ class Data_Cleanse:
         self.etymology_dict: list = ld_pull.get_current_words()
         self.lang_list: list = self._cleaned_lang_list()
         self.all_words_lang: list = [word for sentence in self.lang_list for word in sentence.split()]
+        self.modifier_word_list: list = self._modifier_words()
+        
 
     
+    def _modifier_words(self) -> list:
+        """Function to gather all modifier words into one master list and pass it to self.modifier_word_list
+        self.modifier_words is used to help reduce the amount of excess words in the etymology lists in 
+        cleaned_dict.json
+        
+        Args: None
+        
+        Returns:
+            modifier_words (list) all first and second words on lines that are 2+ lines long in language.txt"""
+        
+        modifier_words = []
+        for word in self.lang_list:
+            split_word = word.split(" ")
+            
+            if len(split_word) == 3:
+                modifier_words.append(split_word[0])
+            
+            elif len(split_word) == 4:
+                modifier_word = split_word[0] + " " + split_word[1]
+                modifier_words.append(modifier_words)
+        
+        return modifier_words
+
+
     def _cleaned_lang_list(self) -> list:
         """Function to reduce amount of calls made out to language.txt
         
@@ -87,7 +113,38 @@ class Data_Cleanse:
                                         etymology_list))
 
         return filtered_list
+    
+    def _concat_et(self, etymology_str: str) -> list:
+        """Calls upon _reduce_et to look for certain words to concatenate together.
+        Reduces the size of the list with the concatenated words, returns a new list
         
+        Args: etymology_str (str) the unpacked etymology string
+        
+        Returns: list of etymology strings that hopefully concatenates correctly"""
+
+        filtered_et_list = self._reduce_et(etymology_str)
+        shorter_list = []
+        for idx, word in enumerate(filtered_et_list):
+            try:
+                if word in self.modifier_words:
+                    new_word = word + " " + filtered_et_list[idx + 1]
+                    shorter_list.append(new_word)
+            except IndexError:
+                shorter_list.append(word)
+        return shorter_list
+
+        
+    def dirty_list(self, etymology_list: list, filtered_list: list) -> list:
+        """Takes the etymology_list and returns every item that is not in the filtered_list
+        
+        Args: etymology_list (list) List of Dictionaries pulled from etymology_dict.json
+              filtered_list (list) List of Dictionaries that have known etymology or known orig dates
+        
+        Returns: unknown_words (list) all words that have unknown etymology and dates"""
+
+        unknown_words = [json_ob.get("Word") for json_ob in etymology_list if json_ob not in filtered_list]
+        return unknown_words
+
     def cleaned_list(self, etymology_list: list) -> list:
         """Takes the etymology_list that is passed into it and runs the previous functions to cleanse it
         
@@ -101,7 +158,7 @@ class Data_Cleanse:
             dirty_etymology = json_ob.get("Etymology")
             dirty_orig_date = json_ob.get("Origination Date")
             
-            cleaned_et = self._reduce_et(dirty_etymology)
+            cleaned_et = self._concat_et(dirty_etymology)
             cleaned_orig_date = self._clean_date(dirty_orig_date)
 
             json_ob["Origination Date"] = cleaned_orig_date

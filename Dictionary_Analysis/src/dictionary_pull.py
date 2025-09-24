@@ -50,11 +50,7 @@ class dictionary_pull:
         Args: character_string(str) string to be filtered
         
         Returns: String with only numbers and letters"""
-        try:
-            return re.sub(r'[^a-zA-Z0-9\s]', '', character_string)
-        except TypeError:
-            print(character_string)
-            sys.exit("Type Error!")
+        return re.sub(r'[^a-zA-Z0-9\s]', '', character_string)
     
     def _filter_for_et(self, json_response: list) -> list:
         """Takes json response and filters for items that contain the 'et' key 
