@@ -8,6 +8,8 @@ class Data_Cleanse:
     def __init__(self):
         self.etymology_dict: list = ld_pull.get_current_words()
         self.lang_list: list = self._cleaned_lang_list()
+        self.all_words_lang: list = [word for sentence in self.lang_list for word in sentence.split()]
+
     
     def _cleaned_lang_list(self) -> list:
         """Function to reduce amount of calls made out to language.txt
@@ -16,18 +18,8 @@ class Data_Cleanse:
         
         Returns list of cleaned language list"""
         dirty_ets = ld_pull.get_word_lang_list("language")
-        cleaned_ets = [language.lower().split(" (")[0] for language in dirty_ets]
+        cleaned_ets = [language.split(" (")[0] for language in dirty_ets]
         return cleaned_ets
-    
-    def _test_lang_in_et(self, ety_str: str) -> list:
-        """Function that checks if any of the languages in language.txt are in the ety_str
-        
-        Args: ety_str(str) etymology string
-        
-        Returns list of possible matches"""
-
-        possible_match = list(set(language for language in self.lang_list if language in ety_str))
-        return possible_match
     
     def _test_capital_in_et(self, ety_str: str) -> list:
         """Function to test if there are any capital letters in the etymology string. 
@@ -37,6 +29,8 @@ class Data_Cleanse:
         
         Returns: list of all words that are capitalized"""
 
+        return re.findall(r'\b[A-Z][a-zA-Z]*\b', ety_str)
+
     def _reduce_et(self, etymology: str) -> list:
         """Function to reduce etymology string to list of single words that can be queried later
         
@@ -44,13 +38,9 @@ class Data_Cleanse:
         
         Returns: list of where the word is from (language of origin)"""
 
-        current_et_split = etymology.split(" ")
+        capital_words: list = self._test_capital_in_et(etymology)
 
-        possible_match = self._test_lang_in_et(etymology)
-        et_options = list(set(word for word in current_et_split if word in self.lang_list))
-
-        if len(possible_match) > len(et_options):
-            return possible_match
+        et_options = [word for word in capital_words if word in self.all_words_lang]
         
         return et_options
     
@@ -111,7 +101,7 @@ class Data_Cleanse:
             dirty_etymology = json_ob.get("Etymology")
             dirty_orig_date = json_ob.get("Origination Date")
             
-            cleaned_et = self._test_capital_in_et(dirty_etymology)
+            cleaned_et = self._reduce_et(dirty_etymology)
             cleaned_orig_date = self._clean_date(dirty_orig_date)
 
             json_ob["Origination Date"] = cleaned_orig_date
