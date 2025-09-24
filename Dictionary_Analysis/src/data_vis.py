@@ -1,8 +1,9 @@
 import collections
+import matplotlib.pyplot as plt
 from src import local_data_pull as ld_pull
 
 
-class Data_Visualization:
+class Data_Manipulation:
 
     def __init__(self):
         self.ety_list: list = ld_pull.get_cleaned_words()
@@ -53,3 +54,16 @@ class Data_Visualization:
 
         return (ety_result, known_result)
     
+
+class Data_Visualizations(Data_Manipulation):
+    
+    def __init__(self):
+        super().__init__()
+
+    def lang_origin_pie_chart(self) -> None:
+        """Takes the inherited self.count_ets return and uses it to create two visualizations
+        A pie chart for all known words and pie chart for filtered with an actual etymology
+        
+        Args: None
+        
+        Returns: None, displays visualization and saves it."""

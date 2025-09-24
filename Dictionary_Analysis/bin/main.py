@@ -9,7 +9,7 @@ from src.dictionary_pull import dictionary_pull
 from src import local_data_pull as ld_pull
 from src import local_data_push as ld_push
 from src.data_cleanse import Data_Cleanse
-from src.data_vis import Data_Visualization
+from src.data_vis import Data_Visualizations
 
 def main():
     """Main
@@ -26,7 +26,7 @@ def main():
     all_words_list = ld_pull.get_word_lang_list("words_alpha")[current_index+1:]
     current_record_words = ld_pull.get_current_words()
     data_cleaner = Data_Cleanse()
-    data_vis = Data_Visualization()
+    data_vis = Data_Visualizations()
 
     
     for idx, word in enumerate(all_words_list, start=current_index):
