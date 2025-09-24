@@ -54,7 +54,7 @@ def main():
 
     ld_push.save_clean_et_dict(cleaned_words)
 
-    test = data_vis.count_ets_dates()
+    test = data_vis.count_dates_ets()
     print(test[0])
     
 

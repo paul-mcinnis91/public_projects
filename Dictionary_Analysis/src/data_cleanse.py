@@ -1,5 +1,4 @@
 import re
-from typing import List, Tuple, Optional
 from src import local_data_pull as ld_pull
 
 
