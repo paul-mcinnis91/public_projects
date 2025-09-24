@@ -7,7 +7,29 @@ class Data_Cleanse:
     Conducts several different types of data cleansing to make sure data can be sorted and used correctly"""
     def __init__(self):
         self.etymology_dict: list = ld_pull.get_current_words()
+        self.lang_list: list = self._cleaned_lang_list()
     
+
+
+    def _cleaned_lang_list(self) -> list:
+        """Function to reduce amount of calls made out to language.txt
+        
+        Args: None
+        
+        Returns list of cleaned language list"""
+        dirty_ets = ld_pull.get_word_lang_list("language")
+        cleaned_ets = [language.lower().split(" (")[0] for language in dirty_ets]
+        return cleaned_ets
+    
+    def _test_lang_in_et(self, ety_str: str) -> list:
+        """Function that checks if any of the languages in language.txt are in the ety_str
+        
+        Args: ety_str(str) etymology string
+        
+        Returns list of possible matches"""
+
+        possible_match = list(set(language for language in self.lang_list if language in ety_str))
+        return possible_match
 
     def _reduce_et(self, etymology: str) -> list:
         """Function to reduce etymology string to list of single words that can be queried later
@@ -16,10 +38,13 @@ class Data_Cleanse:
         
         Returns: list of where the word is from (language of origin)"""
 
-        possible_ets = ld_pull.get_word_lang_list("language")
-        cleaned_ets = [language.lower().split(" (")[0] for language in possible_ets]
         current_et_split = etymology.lower().split(" ")
-        et_options = [word for word in current_et_split if word in cleaned_ets]
+
+        possible_match = self._test_lang_in_et(etymology)
+        et_options = list(set(word for word in current_et_split if word in self.lang_list))
+
+        if len(possible_match) > len(et_options):
+            return possible_match
         
         return et_options
     
