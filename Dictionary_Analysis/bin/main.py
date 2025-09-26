@@ -53,7 +53,8 @@ def main():
     cleaned_words = data_cleaner.cleaned_list(current_record_words)
 
     ld_push.save_clean_et_dict(cleaned_words)
-    
+
+    data_vis.visualiziations("Origin Dates Bar Chart")
     
 
 

@@ -1,4 +1,5 @@
 import collections
+import sys
 import matplotlib.pyplot as plt
 from src import local_data_pull as ld_pull
 
@@ -58,14 +59,55 @@ class Data_Manipulation:
 class Data_Visualizations(Data_Manipulation):
     
     def __init__(self):
-        super().__init__()
+        super().__init__()      
 
-    def lang_origin_pie_chart(self) -> None:
-        """Takes the inherited self.count_ets return and uses it to create two visualizations
-        A pie chart for all known words and pie chart for filtered with an actual etymology
+    def visualiziations(self, user_selection: str) -> None:
+        """Gives you three options to pick a visualization draws that from an internal dictionary.
         
-        Args: None
+        The internal dictionary will return the inherited function with the correct information to 
+        create the visualization.
         
-        Returns: None, displays visualization and saves it."""
+        Args: user_selection (str) a string that the user puts in to pick the visualization they want
+        Options = ['Language Origin Pie Chart', 
+                    'Origin Dates Bar Chart', 
+                    'Origin Dates by Language Bar Chart']
+                    
+        Returns: None, displays visualization"""
 
+        function_dictionary = {"Languages Origin Pie Chart": self.count_ets,
+                               "Origin Dates Bar Chart": self.count_dates,
+                               "Origin Dates by Language Bar Chart": self.count_dates_ets}
+
+        user_function = function_dictionary.get(user_selection)
+
+        language_all = list(user_function()[0].keys())
+        language_all_count = list(user_function()[0].values())
+
+        language_known = list(user_function()[1].keys())
+        language_known_count = list(user_function()[1].values())
         
+        if isinstance(user_function, type(None)):
+            sys.exit("Incorrect key entered.")
+        
+        if "Pie" in user_selection:
+    
+            plt.figure(1)
+            plt.pie(language_all_count, labels = language_all, autopct='%1.1f%%')
+            plt.title("All " +  user_selection)
+
+            plt.figure(2)
+            plt.pie(language_known_count, labels = language_known, autopct='%1.1f%%')
+            plt.title("Known " +  user_selection)
+
+            plt.show()
+        
+        plt.figure(1)
+        plt.bar(x = language_all, height = language_all_count)
+        plt.title("All " + user_selection)
+
+        plt.figure(2)
+        plt.bar(x = language_known, height = language_known_count, )
+        plt.title("Known " +  user_selection)
+        
+        plt.show()
+
