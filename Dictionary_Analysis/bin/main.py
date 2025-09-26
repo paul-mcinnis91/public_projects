@@ -54,7 +54,7 @@ def main():
 
     ld_push.save_clean_et_dict(cleaned_words)
 
-    data_vis.visualiziations("Origin Dates Bar Chart")
+    data_vis.visualiziations("Origin Dates by Language Bar Chart")
     
 
 
