@@ -155,15 +155,18 @@ class Hollander:
         
         Returns list of refined subcategories"""
 
-        part_match_list = []
-        for category_info in part_subcat_list:
-            for info_dict in category_info.keys():
-                clean_list: list = info_dict.get("Clean")
-                url_list: list = info_dict.get("Dirty")
-                for clean, url in zip(clean_list, url_list):
-                    text_match = fuzz.ratio(part, clean.lower())
-                    if text_match > 50:
-                        part_match_list.append({'Display':clean,'URL': url, 'Match Ratio': text_match})
+        clean_list = []
+        url_list = []
+        for part_subcat_dict in part_subcat_list:
+            clean_list.extend(part_subcat_dict.get("Clean"))
+            url_list.extend(part_subcat_dict.get("Dirty"))
+            
+        
+        part_match_list = [{"Display": clean, "URL": url, 
+                            "Match Ration": fuzz.ratio(part, clean.lower())} 
+                            for clean, url in zip(clean_list, url_list) 
+                            if fuzz.ratio(part, clean.lower())]
+        
         return part_match_list
     # Year > Make > Model > Category > Part Type > Fitment
 
