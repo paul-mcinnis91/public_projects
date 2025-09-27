@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "dictionary-analysis"
+version = "0.1.0"
+description = "Python Module to visualize where and when words in the English Language originates from."
+authors = ["Paul McInnis"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
