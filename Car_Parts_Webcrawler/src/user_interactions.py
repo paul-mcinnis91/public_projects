@@ -10,8 +10,11 @@ class User_Interface:
         """Function to have the user pick from a list of matches and returns the number they
         selected corresponding to the part"""
 
+        if len(matches_list) == 0:
+            sys.exit("No parts found, change your query and try again")
+            
         print(matches_list)
-        user_part_choice = input("Select your part by the number next to it. If your part is not present, type quit").lower()
+        user_part_choice = input("Select your part by the number next to it. If your part is not present, type quit ").lower()
 
         if user_part_choice[0] == 'q':
             sys.exit("No part selected")

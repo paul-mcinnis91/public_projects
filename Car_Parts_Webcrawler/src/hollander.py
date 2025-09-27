@@ -9,7 +9,6 @@ from src.user_interactions import User_Interface
 from fuzzywuzzy import fuzz
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions 
 from selenium.webdriver.support.ui import Select
@@ -22,10 +21,10 @@ class Hollander:
     """The purpose of the search bar is to give the user to search easily through hollanders database of parts
         and find the part they are looking for based upon one of 7 options the culmination of this is found in the
         search bar function"""
-    def __init__(self, year: int, make: str, model: str):
-        self.year: int = year
-        self.make: str = make
-        self.model: str = model
+    def __init__(self, year: str, make: str, model: str):
+        self.year: str = year
+        self.make: str = make.lower()
+        self.model: str = model.lower()
         self.get_counter: int = 0
         self.user_interface = User_Interface()
   
@@ -83,8 +82,9 @@ class Hollander:
             
             part_strings = list(part.stripped_strings)
             part_category_list.extend(part_strings)
-
-        return part_category_list
+        
+        lower_cased_parts = [part.lower() for part in part_category_list]
+        return lower_cased_parts
 
     def get_categories(self):
         """Get all categories for your vehicle. E.g. for 2007 Honda C-RV the categories would be:
@@ -100,6 +100,35 @@ class Hollander:
         return refined_part_list
             
 
+    def _get_full_urls(self, part_category: str, parse_subcats: list) -> dict:
+        """Takes the parse_subcats list and pulls out all the different URLs and their 
+        titles to create a dictionary of lists that can be queried later. 
+        The dictionaries have two lists within. The key to each dictionary is part_category.
+
+        This needs some serious redesign...
+        
+        Args: parse_subcats: list that is returned from beautiful soup find all on the part category page
+                of hollanderparts.com
+                
+        Returns: dcitionary of lists of all subcategories available and their URLs"""
+
+
+        dirty_cat_subcat_list = []
+        clean_cat_subcat_list = []
+        cat_subcat_dict = {}
+        for parse in parse_subcats:
+            sub_cat_info = parse.find('a', href= True)
+            sub_cat = sub_cat_info.text
+            clean_cat_subcat_list.append(sub_cat)
+            sub_cat_url = sub_cat_info['href']
+            dirty_cat_subcat_list.append(sub_cat_url)
+
+        cat_subcat_dict['Clean'] = clean_cat_subcat_list
+        cat_subcat_dict['Dirty'] = dirty_cat_subcat_list
+
+        return {part_category:cat_subcat_dict}
+
+        
 
     def get_part_subcategories(self):
         """Get list of part subcategories E.g. if the category selected was Electrical:AC Wire Harness,
@@ -113,20 +142,9 @@ class Hollander:
             part_sub_cat_parser = BeautifulSoup(get(URL).content, 'html.parser')
             self.get_counter += 1
             part_sub_cat_avail = part_sub_cat_parser.find_all('div', 'ymmSelection')
-        
-            dirty_cat_subcat_list = []
-            clean_cat_subcat_list = []
-            cat_subcat_dict= {}
-            for parse in part_sub_cat_avail:
-                sub_cat_info = parse.find('a', href= True)
-                sub_cat = sub_cat_info.text
-                clean_cat_subcat_list.append(sub_cat)
-                sub_cat_url = sub_cat_info['href']
-                dirty_cat_subcat_list.append(sub_cat_url)
-            
-            cat_subcat_dict['Clean'] = clean_cat_subcat_list
-            cat_subcat_dict['Dirty'] = dirty_cat_subcat_list
-            master_subcat_list.append({part_category:cat_subcat_dict})
+
+            url_dictionary = self._get_full_urls(part_category, part_sub_cat_avail)
+            master_subcat_list.append(url_dictionary)
             
         return master_subcat_list
 
@@ -158,8 +176,14 @@ class Hollander:
         clean_list = []
         url_list = []
         for part_subcat_dict in part_subcat_list:
-            clean_list.extend(part_subcat_dict.get("Clean"))
-            url_list.extend(part_subcat_dict.get("Dirty"))
+            clean_item_list: list = part_subcat_dict.get("Clean")
+            url_item_list: list = part_subcat_dict.get("Dirty")
+
+            if not isinstance(clean_item_list, type(None)):
+                clean_list.extend(clean_item_list)
+            
+            if not isinstance(url_item_list, type(None)):
+                url_list.extend(url_item_list)
             
         
         part_match_list = [{"Display": clean, "URL": url, 
@@ -189,6 +213,7 @@ class Hollander:
         else:
             user_part_choice = self.user_interface.user_input_matches(display_matches) - 1
             URL = f"https://www.hollanderparts.com/{highest_ratio[int(user_part_choice)].get(URL)}"
+
 
         fitment_page = BeautifulSoup(get(URL).content, 'html.parser')  
         self.get_counter +=1
@@ -227,6 +252,8 @@ class Hollander:
                     "6": "Mileage (Highest to Lowest)", 
                     "8": "Location (Nearest to Me)"""
         # The culiminating search bar that lets the user search for parts and sort their results
+
+        part = part.lower()
         fitment = self.get_part_fitment(part)
         url_end = fitment.get("URL")
 
@@ -235,7 +262,6 @@ class Hollander:
      
 
         URL = f'https://www.hollanderparts.com/{url_end}'
-
         part_page = self.webpage_sorting(URL, selection, zip_code)
         
         part_parser = BeautifulSoup(part_page, 'html.parser')
