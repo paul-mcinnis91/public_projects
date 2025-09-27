@@ -58,7 +58,7 @@ def save_dirty_list(dirty_list: list) -> None:
     
     record_keeping_path = ld_pull.get_top_level_directories().get("record_keeping")
     unknown_words_path = os.path.join(record_keeping_path, "unknown_words.txt")
-    formatted_dirty_words = "".join([dirty_word + "\n" for dirty_word in dirty_list])
+    formatted_dirty_words = "".join([dirty_word for dirty_word in dirty_list])
     
 
     with open(unknown_words_path, "w") as unknown_words_file:
