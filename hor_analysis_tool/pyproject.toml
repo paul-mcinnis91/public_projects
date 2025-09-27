@@ -2,7 +2,7 @@
 name = "hor-analysis-tool"
 version = "0.1.1"
 description = "Python program to determine soldier distance driving from home of record to Home Station, Fort Benning, Fort Gordon, and Fort Stewart."
-authors = ["William Paul McInnis <william.p.mcinnis4.mil@army.mil>"]
+authors = ["Paul McInnis"]
 license = "MIT"
 readme = "README.md"
 
