@@ -3239,4 +3239,4 @@ aerometry
 aerometric
 aeromotor
 aeron
-aeronatS
+aeronat

@@ -11,7 +11,7 @@ from src import local_data_push as ld_push
 from src.data_cleanse import Data_Cleanse
 from src.data_vis import Data_Visualizations
 
-def main():
+def main(visualization_choice: str):
     """Main
     This function is the main function that runs the program.
 
@@ -59,9 +59,14 @@ def main():
     ld_push.save_clean_et_dict(cleaned_words)
     ld_push.save_dirty_list(dirty_words)
 
-    data_vis.visualiziations("Origin Dates by Language Bar Chart")
+    if not isinstance(visualization_choice, type(None)):
+        data_vis.visualiziations(visualization_choice)
     
-
+    data_vis.exit_gracefully()
 
 if __name__ == "__main__":
-    main()
+    try:
+        visualization_dec = sys.argv[1]
+        main(visualization_dec)
+    except IndexError:
+        main(None)
