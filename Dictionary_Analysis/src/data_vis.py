@@ -65,9 +65,9 @@ class Data_Visualizations(Data_Manipulation):
         "Calls upon sys.exit to exit the program and deliver options"
 
         sys.exit("""Visualization Complete. Visualization Options:
-                                        'Language Origin Pie Chart', 
-                                        'Origin Dates Bar Chart' 
-                                        'Origin Dates by Language Bar Chart'""")
+                                        'Language_Origin_Pie_Chart', 
+                                        'Origin_Dates_Bar_Chart' 
+                                        'Origin_Dates_by_Language_Bar_Chart'""")
 
 
     def _dates_language_vis(self, user_func, user_selection: str) -> None:
@@ -107,15 +107,15 @@ class Data_Visualizations(Data_Manipulation):
         create the visualization.
         
         Args: user_selection (str) a string that the user puts in to pick the visualization they want
-        Options = ['Language Origin Pie Chart', 
-                    'Origin Dates Bar Chart', 
-                    'Origin Dates by Language Bar Chart']
+        Options = ['Language_Origin_Pie_Chart', 
+                    'Origin_Dates_Bar_Chart' 
+                    'Origin_Dates_by_Language_Bar_Chart']
                     
         Returns: list information for language_all"""
 
-        function_dictionary = {"Languages Origin Pie Chart": self.count_ets,
-                               "Origin Dates Bar Chart": self.count_dates,
-                               "Origin Dates by Language Bar Chart": self.count_dates_ets}
+        function_dictionary = {"Language_Origin_Pie_Chart": self.count_ets,
+                               "Origin_Dates_Bar_Chart": self.count_dates,
+                               "Origin_Dates_by_Language_Bar_Chart": self.count_dates_ets}
 
         user_function = function_dictionary.get(user_selection)
 
