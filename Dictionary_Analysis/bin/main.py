@@ -23,13 +23,15 @@ def main():
     """
     dictionary_obj = dictionary_pull()
     current_index =  ld_pull.get_current_index()
-    all_words_list = ld_pull.get_word_lang_list("words_alpha")[current_index+1:]
+    all_words_list = ld_pull.get_word_lang_list("words_alpha")
+    current_words = all_words_list[:current_index]
+    current_idx_all_words_list = all_words_list[current_index+1:]
     current_record_words = ld_pull.get_current_words()
     data_cleaner = Data_Cleanse()
     data_vis = Data_Visualizations()
 
     
-    for idx, word in enumerate(all_words_list, start=current_index):
+    for idx, word in enumerate(current_idx_all_words_list, start=current_index):
         
         if dictionary_obj.call_count >= 1000:
             print(f"Current Call Count: {dictionary_obj.call_count}. Max usage is 1000 calls a day")
@@ -51,7 +53,7 @@ def main():
     ld_push.save_etymology_dict(current_record_words)
 
     cleaned_words = data_cleaner.cleaned_list(current_record_words)
-    dirty_words = data_cleaner.dirty_list(etymology_list=current_record_words, filtered_list=cleaned_words)
+    dirty_words = data_cleaner.dirty_list(current_words, cleaned_words)
 
 
     ld_push.save_clean_et_dict(cleaned_words)

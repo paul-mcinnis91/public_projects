@@ -115,15 +115,15 @@ class Data_Cleanse:
 
 
         
-    def dirty_list(self, etymology_list: list, filtered_list: list) -> list:
-        """Takes the etymology_list and returns every item that is not in the filtered_list
+    def dirty_list(self, all_word_list: list, filtered_list: list) -> list:
+        """Takes the all_word_list and returns every item that is not in the filtered_list
         
-        Args: etymology_list (list) List of Dictionaries pulled from etymology_dict.json
+        Args: all_word_list (list) List of Dictionaries pulled from etymology_dict.json
               filtered_list (list) List of Dictionaries that have known etymology or known orig dates
         
         Returns: unknown_words (list) all words that have unknown etymology and dates"""
-
-        unknown_words = [json_ob.get("Word") for json_ob in etymology_list if json_ob not in filtered_list]
+        filter_list_words = [word.get("Word") for word in filtered_list]
+        unknown_words = [word for word in all_word_list if word not in filter_list_words]
         return unknown_words
 
     def cleaned_list(self, etymology_list: list) -> list:
