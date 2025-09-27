@@ -1,7 +1,5 @@
-from datetime import date
 import re
 import requests
-import sys
 from src import local_data_pull as ld_pull
 from src import local_data_push as ld_push
 
@@ -23,9 +21,7 @@ class dictionary_pull:
     """
     def __init__(self):
         self.college_key = ld_pull.get_user_credentials().get("api_key")
-        self.today_date = date.today().strftime("%Y-%m-%d")
         self.call_count = ld_pull.get_user_credentials().get("api_calls")
-        self.last_date = ld_pull.get_user_credentials().get("api_date")
         
     def pull_dictionary(self, word) -> dict:
         """Pull Dictionary

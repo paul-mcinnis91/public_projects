@@ -1,7 +1,6 @@
 import collections
 import sys
 import matplotlib.pyplot as plt
-import pandas as pd
 from src import local_data_pull as ld_pull
 
 

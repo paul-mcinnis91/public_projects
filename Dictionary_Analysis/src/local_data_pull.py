@@ -67,7 +67,7 @@ def get_user_credentials() -> dict:
 
 
 def get_current_words() -> list:
-    """Pulls current etymology dictionary so the program knows what word to start from for today
+    """Pulls current etymology dictionary from etymology_dict.json so the program knows what word to start from for today
     
     Args: None
     

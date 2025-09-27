@@ -51,8 +51,11 @@ def main():
     ld_push.save_etymology_dict(current_record_words)
 
     cleaned_words = data_cleaner.cleaned_list(current_record_words)
+    dirty_words = data_cleaner.dirty_list(etymology_list=current_record_words, filtered_list=cleaned_words)
+
 
     ld_push.save_clean_et_dict(cleaned_words)
+    ld_push.save_dirty_list(dirty_words)
 
     data_vis.visualiziations("Origin Dates by Language Bar Chart")
     

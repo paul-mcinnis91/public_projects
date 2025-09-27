@@ -6,35 +6,8 @@ class Data_Cleanse:
     """Data Cleanse class. Relies upon ld_pull and push gather and clean data.
     Conducts several different types of data cleansing to make sure data can be sorted and used correctly"""
     def __init__(self):
-        self.etymology_dict: list = ld_pull.get_current_words()
         self.lang_list: list = self._cleaned_lang_list()
         self.all_words_lang: list = [word for sentence in self.lang_list for word in sentence.split()]
-        self.modifier_word_list: list = self._modifier_words()
-        
-
-    
-    def _modifier_words(self) -> list:
-        """Function to gather all modifier words into one master list and pass it to self.modifier_word_list
-        self.modifier_words is used to help reduce the amount of excess words in the etymology lists in 
-        cleaned_dict.json
-        
-        Args: None
-        
-        Returns:
-            modifier_words (list) all first and second words on lines that are 2+ lines long in language.txt"""
-        
-        modifier_words = []
-        for word in self.lang_list:
-            split_word = word.split(" ")
-            
-            if len(split_word) == 3:
-                modifier_words.append(split_word[0])
-            
-            elif len(split_word) == 4:
-                modifier_word = split_word[0] + " " + split_word[1]
-                modifier_words.append(modifier_word)
-        
-        return modifier_words
 
 
     def _cleaned_lang_list(self) -> list:
