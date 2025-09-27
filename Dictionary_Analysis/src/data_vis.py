@@ -51,8 +51,8 @@ class Data_Manipulation:
         ety_counter = collections.Counter(ety_pairs)
         known_counter = collections.Counter(known_pairs)
         
-        ety_result = [(language, date, count) for (language, date), count in ety_counter.items()]
-        known_result = [(language, date, count) for (language, date), count in known_counter.items()]
+        ety_result = [(f"{language}-{date}", count) for (language, date), count in ety_counter.items()]
+        known_result = [(f"{language}-{date}", count) for (language, date), count in known_counter.items()]
 
         return (ety_result, known_result)
     
@@ -61,43 +61,45 @@ class Data_Visualizations(Data_Manipulation):
     
     def __init__(self):
         super().__init__()
+    
+    def exit_gracefully(self) -> None:
+        "Calls upon sys.exit to exit the program and deliver options"
 
-    def _dates_language_vis(self, user_func) -> None:
+        sys.exit("""Visualization Complete. Visualization Options:
+                                        'Language Origin Pie Chart', 
+                                        'Origin Dates Bar Chart' 
+                                        'Origin Dates by Language Bar Chart'""")
+
+
+    def _dates_language_vis(self, user_func, user_selection: str) -> None:
         """Special use case function for the visualization of the Origin Dates by Language count
         since the ouput of that function (count_dates_ets) is a list of tuples
         
-        Args: Function to get the return from self.count_dates_ets
+        Args: Function to get the return from self.count_dates_ets, and the user selection for 
+                the title of the visualization.
         
         Returns: None, visualizes the bar or pie chart (undecided) for the user"""
 
+        # Unpack the count_dates_ets function
         language_all = user_func()[0]
         language_known = user_func()[1]
+        
+        # Build two lists for Matplotlib 
+        lang_date_all = [lang_date_count[0] for lang_date_count in language_all]
+        lang_date_count_list = [lang_date_count[1] for lang_date_count in language_all]
 
-        df_all = pd.DataFrame(language_all, columns = ["Language", "Date", "Count"])
-        df_known = pd.DataFrame(language_known, columns = ["Language", "Date", "Count"])
+        lang_date_known = [lang_date_count[0] for lang_date_count in language_known]
+        lang_date_known_count = [lang_date_count[1] for lang_date_count in language_known]
 
-        df_all["Date"] = pd.to_datetime(df_all["Date"])
-        df_known["Date"] = pd.to_datetime(df_known["Date"])
+        plt.figure(1)
+        plt.bar(height = lang_date_count_list, x = lang_date_all)
+        plt.title("All " +  user_selection)
 
-        pivot_all = df_all.pivot(index="Date", columns="Language", values="Count").fillna(0)
-        pivot_known = df_known.pivot(index="Date", columns="Language", values="Count").fillna(0)
+        plt.figure(2)
+        plt.bar(height = lang_date_known_count, x = lang_date_known)
+        plt.title("Known " +  user_selection)
 
-        pivot_all.plot(marker="o")
-        plt.title("All Languages: Languages over Time")
-        plt.xlabel("Date")
-        plt.ylabel("Count")
-        plt.legend(title="Language")
         plt.show()
-
-        pivot_known.plot(marker="o")
-        plt.title("Known Languages: Languages over Time")
-        plt.xlabel("Date")
-        plt.ylabel("Count")
-        plt.legend(title="Language")
-        plt.show()
-
-
-
 
     def visualiziations(self, user_selection: str) -> None:
         """Gives you three options to pick a visualization draws that from an internal dictionary.
@@ -112,15 +114,15 @@ class Data_Visualizations(Data_Manipulation):
                     
         Returns: list information for language_all"""
 
-        language_all = user_selection()[0]
-        language_known = user_selection()[1]
-
-
         function_dictionary = {"Languages Origin Pie Chart": self.count_ets,
                                "Origin Dates Bar Chart": self.count_dates,
                                "Origin Dates by Language Bar Chart": self.count_dates_ets}
 
         user_function = function_dictionary.get(user_selection)
+
+        language_all = user_function()[0]
+        language_known = user_function()[1]
+
 
         if isinstance(user_function, type(None)):
             sys.exit("Incorrect key entered in visualizations function")
@@ -133,7 +135,8 @@ class Data_Visualizations(Data_Manipulation):
             language_known_count = list(user_function()[1].values())
         
         else:
-            self._dates_language_vis(user_function)
+            self._dates_language_vis(user_function, user_selection)
+            self.exit_gracefully()
         
         
         
@@ -148,6 +151,8 @@ class Data_Visualizations(Data_Manipulation):
             plt.title("Known " +  user_selection)
 
             plt.show()
+
+            self.exit_gracefully()
         
         plt.figure(1)
         plt.bar(x = language_all, height = language_all_count)
@@ -158,4 +163,4 @@ class Data_Visualizations(Data_Manipulation):
         plt.title("Known " +  user_selection)
         
         plt.show()
-
+        self.exit_gracefully()
