@@ -28,7 +28,8 @@ class Hollander:
         self.model: str = model.lower()
         self.get_counter: int = 0
         self.user_interface = User_Interface()
-  
+
+
     def _bypass_cookies(self, URL: str) -> webdriver.Firefox:
         """Interacts with the accept cookies button so the program can get past the cookies to get
         to the HTML data in the back ground.
@@ -49,8 +50,23 @@ class Hollander:
         WebDriverWait(driver, 40).until(expected_conditions.element_to_be_clickable((By.XPATH, x_path))).click()
         return driver
 
-    def _webpage_sorting(self, URL: str, selection=None, zip_code=None):
-        # Pick your sorting method options are listed below
+    def _webpage_sorting(self, URL: str, selection: str = None, zip_code: str = None):
+        """Sorts the data to the preference of the user. Will probably eliminate this in the future.
+        
+        Args: URL (str) the webpage to navigate to.
+              selection (str) 1-6, 8 each one giving the user a set of options:
+                    "1": "Price (Lowest to Highest)",
+                    "2": "Price (Highest to Lowest)",
+                    "3": "Condition (Very Good to ",
+                    "4": "Condition (Fair to Very ",
+                    "5": "Mileage (Lowest to Highest)",
+                    "6": "Mileage (Highest to Lowest)", 
+                    "8": "Location (Nearest to Me)
+
+              zip_code (str) the user's zip code
+        
+        Returns: driver.page_source (str) the HTML string data from the webpage.
+              """
         print("""Pick your sorting method by the number below:
                     "1": "Price (Lowest to Highest)",
                     "2": "Price (Highest to Lowest)",
@@ -59,12 +75,12 @@ class Hollander:
                     "5": "Mileage (Lowest to Highest)",
                     "6": "Mileage (Highest to Lowest)", 
                     "8": "Location (Nearest to Me)""")
-        u_select = input('Enter your preference by number or type "no" or "quit" to quit.').lower()
-        if u_select == '7':
-            u_select = '8'
+        
+        selection = input('Enter your preference by number or type "no" or "quit" to quit.').lower()
 
-        driver = self.bypass_cookies(URL)
+        driver = self._bypass_cookies(URL)
         sleep(3)
+
         if selection == "8":
             location_bar = WebDriverWait(driver, 40).until(expected_conditions.element_to_be_clickable((By.ID, "txtPostalCode")))
             location_bar.send_keys(zip_code)
@@ -72,6 +88,7 @@ class Hollander:
         WebDriverWait(driver, 40).until(expected_conditions.element_to_be_clickable((By.ID, "lstSortOrdinal")))
         select = Select(driver.find_element(By.ID, "lstSortOrdinal"))
         select.select_by_value(selection)
+
         sleep(5)
         return driver.page_source
 
@@ -130,8 +147,8 @@ class Hollander:
             sub_cat_url = sub_cat_info['href']
             dirty_cat_subcat_list.append(sub_cat_url)
 
-        cat_subcat_dict['Clean'] = clean_cat_subcat_list
-        cat_subcat_dict['Dirty'] = dirty_cat_subcat_list
+        cat_subcat_dict['Part Categories'] = clean_cat_subcat_list
+        cat_subcat_dict['Part Category URLs'] = dirty_cat_subcat_list
 
         return {part_category:cat_subcat_dict}
 
@@ -178,25 +195,17 @@ class Hollander:
         
         Args: part_subcat_list (list) list of part subcategories
         
-        Returns list of refined subcategories"""
-
-        clean_list = []
-        url_list = []
-        for part_subcat_dict in part_subcat_list:
-            clean_item_list: list = part_subcat_dict.get("Clean")
-            url_item_list: list = part_subcat_dict.get("Dirty")
-
-            if not isinstance(clean_item_list, type(None)):
-                clean_list.extend(clean_item_list)
-            
-            if not isinstance(url_item_list, type(None)):
-                url_list.extend(url_item_list)
-            
+        Returns list of refined subcategories
         
-        part_match_list = [{"Display": clean, "URL": url, 
-                            "Match Ration": fuzz.ratio(part, clean.lower())} 
-                            for clean, url in zip(clean_list, url_list) 
-                            if fuzz.ratio(part, clean.lower()) > 70]
+        Example part_subcat_list 
+        [{'Brakes':{'Part Categories: [Front Brakes, Back Brakes], 
+                    Part Category URLs: [hollander.com/front_brakes, hollander.com/back_brakes]}]"""
+
+        part_match_list = [part_subcat_dict 
+                           for part_subcat_dict 
+                           in part_subcat_list 
+                           if fuzz.ratio(part, 
+                                         part_subcat_dict.get("Part Categories"))]
         
         return part_match_list
     # Year > Make > Model > Category > Part Type > Fitment
@@ -208,8 +217,8 @@ class Hollander:
         
         part = part.lower()
         part_subcategories = self._get_part_subcategories()
+        print(part_subcategories)
         part_match_list = self._get_part_fitment_matches(part_subcategories, part)
-        print(part_match_list)
 
         highest_ratio = sorted(part_match_list, key= lambda x: x['Match Ratio'])
         part_counter = count()
