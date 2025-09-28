@@ -21,6 +21,7 @@ class Hollander:
     """The purpose of the search bar is to give the user to search easily through hollanders database of parts
         and find the part they are looking for based upon one of 7 options the culmination of this is found in the
         search bar function"""
+    
     def __init__(self, year: str, make: str, model: str):
         self.year: str = year
         self.make: str = make.lower()
@@ -28,8 +29,14 @@ class Hollander:
         self.get_counter: int = 0
         self.user_interface = User_Interface()
   
-    def bypass_cookies(self, URL):
-        # Get past the cookie wall on Hollanders webpage
+    def _bypass_cookies(self, URL: str) -> webdriver.Firefox:
+        """Interacts with the accept cookies button so the program can get past the cookies to get
+        to the HTML data in the back ground.
+        
+        Args: URL (str) the final URL where the cookies need to be bypassed.
+        
+        Returns: driver (webdriver.Firefox) the selenium object to navigate the webpage and press 
+        buttons"""
         quiet = Options()
         quiet.headless = True
         geckodriver_directory = local_data_pull.get_top_level_directories("geckodriver")
@@ -42,7 +49,7 @@ class Hollander:
         WebDriverWait(driver, 40).until(expected_conditions.element_to_be_clickable((By.XPATH, x_path))).click()
         return driver
 
-    def webpage_sorting(self, URL: str, selection=None, zip_code=None):
+    def _webpage_sorting(self, URL: str, selection=None, zip_code=None):
         # Pick your sorting method options are listed below
         print("""Pick your sorting method by the number below:
                     "1": "Price (Lowest to Highest)",
@@ -86,7 +93,7 @@ class Hollander:
         lower_cased_parts = [part.lower() for part in part_category_list]
         return lower_cased_parts
 
-    def get_categories(self):
+    def _get_categories(self):
         """Get all categories for your vehicle. E.g. for 2007 Honda C-RV the categories would be:
         Accessories, Air and Fuel, Axle, Brakes, Center Body, Cooling and Heating, Doors, Electrical, 
         Engine, Engine Accessories, Entertainment, Front Body, Glass and Mirrors, Interior, Lights, 
@@ -130,14 +137,14 @@ class Hollander:
 
         
 
-    def get_part_subcategories(self):
+    def _get_part_subcategories(self):
         """Get list of part subcategories E.g. if the category selected was Electrical:AC Wire Harness,
         Alternator, Antenna, Audio Equipment Radio, Automatic Headlamp Dimmer, Backup Light, Battery,
         Battery Tray, Blower Motor, Body Wire Harness, Camera/Projector"""
         
         master_subcat_list = []
 
-        for part_category in self.get_categories():
+        for part_category in self._get_categories():
             URL = f'https://www.hollanderparts.com/used-auto-parts/{self.year}/{self.make}/{self.model}/{part_category}'
             part_sub_cat_parser = BeautifulSoup(get(URL).content, 'html.parser')
             self.get_counter += 1
@@ -189,19 +196,20 @@ class Hollander:
         part_match_list = [{"Display": clean, "URL": url, 
                             "Match Ration": fuzz.ratio(part, clean.lower())} 
                             for clean, url in zip(clean_list, url_list) 
-                            if fuzz.ratio(part, clean.lower())]
+                            if fuzz.ratio(part, clean.lower()) > 70]
         
         return part_match_list
     # Year > Make > Model > Category > Part Type > Fitment
 
 
-    def get_part_fitment(self, part: str) -> dict:
+    def _get_part_fitment(self, part: str) -> dict:
         """This gives the next to last URL where the parts actually are. Fitment typically has only one result but
         at times more than one option will be available"""
         
         part = part.lower()
-        part_subcategories = self.get_part_subcategories()
+        part_subcategories = self._get_part_subcategories()
         part_match_list = self._get_part_fitment_matches(part_subcategories, part)
+        print(part_match_list)
 
         highest_ratio = sorted(part_match_list, key= lambda x: x['Match Ratio'])
         part_counter = count()
@@ -254,7 +262,7 @@ class Hollander:
         # The culiminating search bar that lets the user search for parts and sort their results
 
         part = part.lower()
-        fitment = self.get_part_fitment(part)
+        fitment = self._get_part_fitment(part)
         url_end = fitment.get("URL")
 
         if isinstance(url_end, type(None)):
@@ -262,7 +270,7 @@ class Hollander:
      
 
         URL = f'https://www.hollanderparts.com/{url_end}'
-        part_page = self.webpage_sorting(URL, selection, zip_code)
+        part_page = self._webpage_sorting(URL, selection, zip_code)
         
         part_parser = BeautifulSoup(part_page, 'html.parser')
         
