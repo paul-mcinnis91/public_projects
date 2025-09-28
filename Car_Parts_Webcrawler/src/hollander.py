@@ -201,12 +201,13 @@ class Hollander:
         [{'Brakes':{'Part Categories: [Front Brakes, Back Brakes], 
                     Part Category URLs: [hollander.com/front_brakes, hollander.com/back_brakes]}]"""
 
-        part_match_list = [part_subcat_dict 
-                           for part_subcat_dict 
-                           in part_subcat_list 
-                           if fuzz.ratio(part, 
-                                         part_subcat_dict.get("Part Categories"))]
-        
+        part_match_list = []
+        for part_subcat_dict in part_subcat_list:
+            part_cat_dict: dict = list(part_subcat_dict.values())[0]
+            print(part_cat_dict)
+            if fuzz.ratio(part_cat_dict.get("Part Categories"), part) > 60:
+                part_match_list.append(part_subcat_dict)
+
         return part_match_list
     # Year > Make > Model > Category > Part Type > Fitment
 
@@ -217,8 +218,8 @@ class Hollander:
         
         part = part.lower()
         part_subcategories = self._get_part_subcategories()
-        print(part_subcategories)
         part_match_list = self._get_part_fitment_matches(part_subcategories, part)
+        print(part_match_list)
 
         highest_ratio = sorted(part_match_list, key= lambda x: x['Match Ratio'])
         part_counter = count()
