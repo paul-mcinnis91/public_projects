@@ -199,20 +199,21 @@ class Hollander:
                     }"""
 
         
-        part_matches_dict: dict = None
+        potential_part_matches_dict: dict = {}
+        match_ratios = {}
         for part_cat in part_subcat_dict.keys():
-            if fuzz.match(part_cat, part) > 50:
-                part_matches_dict = part_subcat_dict[part_cat]
-        
-        if isinstance(part_matches_dict, type(None)):
-            sys.exit("No matches found for " + part + " Try query again")
+            fuzz_ratio = fuzz.ratio(part_cat, part)
+            if fuzz_ratio > 60:
+                potential_part_matches_dict[part_cat] = part_subcat_dict[part_cat]
+                match_ratios[part_cat] = fuzz_ratio
 
-        for part_match in part_matches_dict.keys():
-            if fuzz.match(part_match, part) < 70 and len(part_matches_dict) > 1:
-                del part_matches_dict[part_match]
+        if len(potential_part_matches_dict) == 0:
+            sys.exit("No matches found for " + part + " Try query again")
         
-        return part_matches_dict
-    # Year > Make > Model > Category > Part Type > Fitment
+        max_key = max(match_ratios, key=match_ratios.get)
+               
+        return potential_part_matches_dict[max_key]
+    
 
 
     def _get_part_fitment(self, part: str) -> dict:
@@ -223,6 +224,7 @@ class Hollander:
         part_subcategories = self._get_part_subcategories()
         part_match_list = self._get_part_fitment_matches(part_subcategories, part)
         print(part_match_list)
+        sys.exit()
 
         highest_ratio = sorted(part_match_list, key= lambda x: x['Match Ratio'])
         part_counter = count()
