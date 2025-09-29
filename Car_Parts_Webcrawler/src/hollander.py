@@ -29,7 +29,6 @@ class Hollander:
         self.get_counter: int = 0
         self.user_interface = User_Interface()
 
-
     def _bypass_cookies(self, URL: str) -> webdriver.Firefox:
         """Interacts with the accept cookies button so the program can get past the cookies to get
         to the HTML data in the back ground.
@@ -124,7 +123,7 @@ class Hollander:
         return refined_part_list
             
 
-    def _get_full_urls(self, part_category: str, parse_subcats: list) -> dict:
+    def _get_full_urls(self, parse_subcats: list) -> dict:
         """Takes the parse_subcats list and pulls out all the different URLs and their 
         titles to create a dictionary of lists that can be queried later. 
         The dictionaries have two lists within. The key to each dictionary is part_category.
@@ -137,20 +136,14 @@ class Hollander:
         Returns: dcitionary of lists of all subcategories available and their URLs"""
 
 
-        dirty_cat_subcat_list = []
-        clean_cat_subcat_list = []
-        cat_subcat_dict = {}
+        category_dict = {}
         for parse in parse_subcats:
             sub_cat_info = parse.find('a', href= True)
             sub_cat = sub_cat_info.text
-            clean_cat_subcat_list.append(sub_cat)
             sub_cat_url = sub_cat_info['href']
-            dirty_cat_subcat_list.append(sub_cat_url)
+            category_dict[sub_cat] = sub_cat_url
 
-        cat_subcat_dict['Part Categories'] = clean_cat_subcat_list
-        cat_subcat_dict['Part Category URLs'] = dirty_cat_subcat_list
-
-        return {part_category:cat_subcat_dict}
+        return category_dict
 
         
 
@@ -159,7 +152,7 @@ class Hollander:
         Alternator, Antenna, Audio Equipment Radio, Automatic Headlamp Dimmer, Backup Light, Battery,
         Battery Tray, Blower Motor, Body Wire Harness, Camera/Projector"""
         
-        master_subcat_list = []
+        master_subcat_dict = {}
 
         for part_category in self._get_categories():
             URL = f'https://www.hollanderparts.com/used-auto-parts/{self.year}/{self.make}/{self.model}/{part_category}'
@@ -167,10 +160,10 @@ class Hollander:
             self.get_counter += 1
             part_sub_cat_avail = part_sub_cat_parser.find_all('div', 'ymmSelection')
 
-            url_dictionary = self._get_full_urls(part_category, part_sub_cat_avail)
-            master_subcat_list.append(url_dictionary)
+            url_dictionary = self._get_full_urls(part_sub_cat_avail)
+            master_subcat_dict[part_category]= url_dictionary
             
-        return master_subcat_list
+        return master_subcat_dict
 
 
 
@@ -190,25 +183,35 @@ class Hollander:
         
         return fitment_match_list
     
-    def _get_part_fitment_matches(self, part_subcat_list: list, part: str) -> list:
+    def _get_part_fitment_matches(self, part_subcat_dict: dict, part: str) -> dict:
         """Iterates through the part_subcat_list and refines the list further
         
         Args: part_subcat_list (list) list of part subcategories
         
         Returns list of refined subcategories
         
-        Example part_subcat_list 
-        [{'Brakes':{'Part Categories: [Front Brakes, Back Brakes], 
-                    Part Category URLs: [hollander.com/front_brakes, hollander.com/back_brakes]}]"""
+        Example part_subcat_dict
+            {
+            'Brakes': 
+                    {
+                    'Front Brakes': 'hollander.com/front_brakes', 
+                    'Back Brakes': 'hollander.com/back_brakes'
+                    }"""
 
-        part_match_list = []
-        for part_subcat_dict in part_subcat_list:
-            part_cat_dict: dict = list(part_subcat_dict.values())[0]
-            print(part_cat_dict)
-            if fuzz.ratio(part_cat_dict.get("Part Categories"), part) > 60:
-                part_match_list.append(part_subcat_dict)
+        
+        part_matches_dict: dict = None
+        for part_cat in part_subcat_dict.keys():
+            if fuzz.match(part_cat, part) > 50:
+                part_matches_dict = part_subcat_dict[part_cat]
+        
+        if isinstance(part_matches_dict, type(None)):
+            sys.exit("No matches found for " + part + " Try query again")
 
-        return part_match_list
+        for part_match in part_matches_dict.keys():
+            if fuzz.match(part_match, part) < 70 and len(part_matches_dict) > 1:
+                del part_matches_dict[part_match]
+        
+        return part_matches_dict
     # Year > Make > Model > Category > Part Type > Fitment
 
 
