@@ -49,48 +49,6 @@ class Hollander:
         WebDriverWait(driver, 40).until(expected_conditions.element_to_be_clickable((By.XPATH, x_path))).click()
         return driver
 
-    def _webpage_sorting(self, URL: str, selection: str = None, zip_code: str = None):
-        """Sorts the data to the preference of the user. Will probably eliminate this in the future.
-        
-        Args: URL (str) the webpage to navigate to.
-              selection (str) 1-6, 8 each one giving the user a set of options:
-                    "1": "Price (Lowest to Highest)",
-                    "2": "Price (Highest to Lowest)",
-                    "3": "Condition (Very Good to ",
-                    "4": "Condition (Fair to Very ",
-                    "5": "Mileage (Lowest to Highest)",
-                    "6": "Mileage (Highest to Lowest)", 
-                    "8": "Location (Nearest to Me)
-
-              zip_code (str) the user's zip code
-        
-        Returns: driver.page_source (str) the HTML string data from the webpage.
-              """
-        print("""Pick your sorting method by the number below:
-                    "1": "Price (Lowest to Highest)",
-                    "2": "Price (Highest to Lowest)",
-                    "3": "Condition (Very Good to ",
-                    "4": "Condition (Fair to Very ",
-                    "5": "Mileage (Lowest to Highest)",
-                    "6": "Mileage (Highest to Lowest)", 
-                    "8": "Location (Nearest to Me)""")
-        
-        selection = input('Enter your preference by number or type "no" or "quit" to quit.').lower()
-
-        driver = self._bypass_cookies(URL)
-        sleep(3)
-
-        if selection == "8":
-            location_bar = WebDriverWait(driver, 40).until(expected_conditions.element_to_be_clickable((By.ID, "txtPostalCode")))
-            location_bar.send_keys(zip_code)
-       
-        WebDriverWait(driver, 40).until(expected_conditions.element_to_be_clickable((By.ID, "lstSortOrdinal")))
-        select = Select(driver.find_element(By.ID, "lstSortOrdinal"))
-        select.select_by_value(selection)
-
-        sleep(5)
-        return driver.page_source
-
     def _get_part_category_list(self, parsed_car_parts: list) -> list:
         """Takes list of parsed_car_parts and refines the car part categories then returns it
         
@@ -144,9 +102,7 @@ class Hollander:
             category_dict[sub_cat] = sub_cat_url
 
         return category_dict
-
         
-
     def _get_part_subcategories(self):
         """Get list of part subcategories E.g. if the category selected was Electrical:AC Wire Harness,
         Alternator, Antenna, Audio Equipment Radio, Automatic Headlamp Dimmer, Backup Light, Battery,
@@ -165,23 +121,21 @@ class Hollander:
             
         return master_subcat_dict
 
-
-
-    def _create_fitment_match_list(self, fitment_parse_matches: list) -> list:
+    def _create_fitment_match_list(self, fitment_parse_matches: list) -> dict:
         """Private function called upon in get_part_fitment to create list of fitment matches
         
         Args: fitment_parse_matches (list) return from beautiful soup.find_all function for fitment info
         
         Returns: list of dictionaries with more refined information"""
 
-        fitment_match_list = []
+        fitment_match_dict = {}
         for fitment_refined in fitment_parse_matches:
             fitment_info = fitment_refined.find('a', href= True)
             fitment_url = fitment_info.get('href')
             fitment = fitment_info.text
-            fitment_match_list.append({'Display':fitment,'URL': fitment_url})
+            fitment_match_dict[fitment] = fitment_url 
         
-        return fitment_match_list
+        return fitment_match_dict
     
     def _get_part_fitment_matches(self, part_subcat_dict: dict, part: str) -> dict:
         """Iterates through the part_subcat_list and refines the list further
@@ -213,41 +167,27 @@ class Hollander:
         max_key = max(match_ratios, key=match_ratios.get)
                
         return potential_part_matches_dict[max_key]
-    
 
-
-    def _get_part_fitment(self, part: str) -> dict:
+    def _get_part_fitment(self, part: str) -> str:
         """This gives the next to last URL where the parts actually are. Fitment typically has only one result but
         at times more than one option will be available"""
         
         part = part.lower()
         part_subcategories = self._get_part_subcategories()
-        part_match_list = self._get_part_fitment_matches(part_subcategories, part)
-        print(part_match_list)
-        sys.exit()
-
-        highest_ratio = sorted(part_match_list, key= lambda x: x['Match Ratio'])
-        part_counter = count()
-        display_matches = [(part_counter.__next__() +1, match['Display']) for match in highest_ratio]
-
-        if len(highest_ratio) == 1:
-            URL = f"https://www.hollanderparts.com/{highest_ratio[0]['URL']}"
-
-        else:
-            user_part_choice = self.user_interface.user_input_matches(display_matches) - 1
-            URL = f"https://www.hollanderparts.com/{highest_ratio[int(user_part_choice)].get(URL)}"
-
+        part_match_dict = self._get_part_fitment_matches(part_subcategories, part)
+        
+        user_part_choice = self.user_interface.user_input_matches(part_match_dict)
+       
+        URL = f"https://www.hollanderparts.com/{user_part_choice}"
 
         fitment_page = BeautifulSoup(get(URL).content, 'html.parser')  
         self.get_counter +=1
         fitment_parse = fitment_page.find_all('div', class_ = 'ymmSelection')
-        fitment_match_list = self._create_fitment_match_list(fitment_parse)
+        fitment_match_dict = self._create_fitment_match_list(fitment_parse)
         
-        fitment_counter = count()
-        fitment_display = [(fitment_counter.__next__() +1, match['Display']) for match in fitment_match_list]
-        user_fitment_choice = self.user_interface.user_input_matches(fitment_display) - 1
+        user_fitment_choice = self.user_interface.user_input_matches(fitment_match_dict)
         
-        return fitment_match_list[int(user_fitment_choice)]
+        return user_fitment_choice
 
     def _price_slicer(self, price_text: str) -> str:
         """Takes the price text and checks to see if there is numbers in the end of it. 
@@ -262,42 +202,18 @@ class Hollander:
             return price
         
         return price
-
-
-
-    def get_parts(self, part: str, selection = None, zip_code=None) -> list:
-        """Pick your sorting method by the number below:
-                    "1": "Price (Lowest to Highest)",
-                    "2": "Price (Highest to Lowest)",
-                    "3": "Condition (Very Good to ",
-                    "4": "Condition (Fair to Very ",
-                    "5": "Mileage (Lowest to Highest)",
-                    "6": "Mileage (Highest to Lowest)", 
-                    "8": "Location (Nearest to Me)"""
-        # The culiminating search bar that lets the user search for parts and sort their results
-
-        part = part.lower()
-        fitment = self._get_part_fitment(part)
-        url_end = fitment.get("URL")
-
-        if isinstance(url_end, type(None)):
-            sys.exit("Fitment Information not found")
-     
-
-        URL = f'https://www.hollanderparts.com/{url_end}'
-        part_page = self._webpage_sorting(URL, selection, zip_code)
+    
+    def _part_parser(self, page_source_list: list) -> list:
+        """Takes page_source_list and iterates through  it to return matched information
         
-        part_parser = BeautifulSoup(part_page, 'html.parser')
+        Args: page_source_list (list) the return from Beautiful Soup.find_all
         
-        No_parts = part_parser.find('div', class_="title")
-        if No_parts != None:
-            sys.exit("No Parts Found")
+        Returns: filtered list of parts"""
 
-        part_avail = part_parser.find_all('div', 'individualPartHolder')
 
         part_d_list =[]
 
-        for part_tag in part_avail:
+        for part_tag in page_source_list:
             part_dict = {}
             price_text = part_tag.find('div', class_='partPrice').text
             price = self._price_slicer(price_text)
@@ -338,6 +254,40 @@ class Hollander:
 
         return part_d_list
 
+    def get_parts(self, part: str, selection = None, zip_code=None) -> list:
+        """Pick your sorting method by the number below:
+                    "1": "Price (Lowest to Highest)",
+                    "2": "Price (Highest to Lowest)",
+                    "3": "Condition (Very Good to ",
+                    "4": "Condition (Fair to Very ",
+                    "5": "Mileage (Lowest to Highest)",
+                    "6": "Mileage (Highest to Lowest)", 
+                    "8": "Location (Nearest to Me)"""
+        # The culiminating search bar that lets the user search for parts and sort their results
+
+        part = part.lower()
+        fitment = self._get_part_fitment(part)
+
+        if isinstance(fitment, type(None)):
+            sys.exit("Fitment Information not found")
+     
+        URL = f'https://www.hollanderparts.com{fitment}'
+        
+        driver = self._bypass_cookies(URL)
+        part_page = driver.page_source
+        
+        part_parser = BeautifulSoup(part_page, 'html.parser')
+        
+        No_parts = part_parser.find('div', class_="title")
+
+        if No_parts == None:
+            sys.exit("No Parts Found")
+
+        part_avail = part_parser.find_all('div', 'individualPartHolder')
+        
+        part_list = self._part_parser(part_avail)
+
+        return part_list
  
 
 
