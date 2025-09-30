@@ -39,7 +39,7 @@ class Hollander:
         buttons"""
         quiet = Options()
         quiet.headless = True
-        geckodriver_directory = local_data_pull.get_top_level_directories("geckodriver")
+        geckodriver_directory = local_data_pull.get_top_level_directories().get("geckodriver")
         driver = webdriver.Firefox(options=quiet, service=FirefoxService(geckodriver_directory))
         driver.get(URL)
 
@@ -254,7 +254,7 @@ class Hollander:
 
         return part_d_list
 
-    def get_parts(self, part: str, selection = None, zip_code=None) -> list:
+    def get_parts(self, part: str) -> list:
         """Pick your sorting method by the number below:
                     "1": "Price (Lowest to Highest)",
                     "2": "Price (Highest to Lowest)",

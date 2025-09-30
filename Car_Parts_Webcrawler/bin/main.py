@@ -23,7 +23,7 @@ def main() -> None:
     args = parser.parse_args()
 
     hollander_obj = Hollander(year = args.year, make= args.make, model = args.model)
-    part_list = hollander_obj.get_parts(part = args.parts, selection=1, zip_code=30809)
+    part_list = hollander_obj.get_parts(part = args.parts)
     print(part_list)
 
 
