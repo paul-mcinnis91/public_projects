@@ -14,6 +14,10 @@ class User_Interface:
         
         Returns: key that will unlock the full URL to get to the parts"""
 
+        if len(matches_dict) == 1:
+            max_key = max(matches_dict, key=matches_dict.get)
+            return matches_dict[max_key]
+
         display_dict = {}
         for idx, key_str in enumerate(matches_dict):
             display_dict[idx] = key_str

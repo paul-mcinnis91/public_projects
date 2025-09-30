@@ -1,10 +1,7 @@
+import os
 from requests import get
-from time import sleep
-from itertools import count
 import sys
-
-from src import local_data_pull
-from src.user_interactions import User_Interface
+from time import sleep
 
 from fuzzywuzzy import fuzz
 from bs4 import BeautifulSoup
@@ -15,6 +12,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service as FirefoxService
 
+from src import local_data_pull
+from src.user_interactions import User_Interface
 
 class Hollander:
     """The purpose of the search bar is to give the user to search easily through hollanders database of parts
@@ -39,7 +38,8 @@ class Hollander:
         quiet = Options()
         quiet.headless = True
         geckodriver_directory = local_data_pull.get_top_level_directories().get("geckodriver")
-        driver = webdriver.Firefox(options=quiet, service=FirefoxService(geckodriver_directory))
+        geckodriver_path  = os.path.join(geckodriver_directory, "geckodriver.exe")
+        driver = webdriver.Firefox(options=quiet, service=FirefoxService(executable_path=geckodriver_path))
         driver.get(URL)
 
         self.get_counter +=1
