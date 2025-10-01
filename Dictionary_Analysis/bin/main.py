@@ -1,5 +1,7 @@
+from datetime import date
 import os
 import sys
+import subprocess
 
 dirname = os.path.dirname(__file__)
 joined_paths = os.path.join(dirname, "..")
@@ -59,10 +61,16 @@ def main(visualization_choice: str):
     ld_push.save_clean_et_dict(cleaned_words)
     ld_push.save_dirty_list(dirty_words)
 
+    subprocess.run("cd ..")
+    subprocess.run("git add .")
+    subprocess.run(f'git commit -m "Daily run for date: {date.today()}"')
+    subprocess.run("git push")
+
     if not isinstance(visualization_choice, type(None)):
         data_vis.visualiziations(visualization_choice)
     
     data_vis.exit_gracefully()
+
 
 if __name__ == "__main__":
     try:
