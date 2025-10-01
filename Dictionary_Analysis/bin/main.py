@@ -72,8 +72,6 @@ def main(visualization_choice: str):
     if not isinstance(visualization_choice, type(None)):
         data_vis.visualiziations(visualization_choice)
     
-    time.sleep(20)
-    
     data_vis.exit_gracefully()
 
 
