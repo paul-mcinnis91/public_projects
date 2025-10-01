@@ -64,9 +64,7 @@ def main(visualization_choice: str):
 
 
     parent_dir = ld_pull.get_top_level_directories().get("parent_dir")
-    subprocess.run(["cd", parent_dir], shell = True)
-    subprocess.run(["echo", parent_dir], shell = True)
-    # subprocess.run(["dir"], shell = True)
+    os.chdir(parent_dir)
     subprocess.run(["git", "add", "."], shell = True)
     subprocess.run(["git", "commit", "-m", f"Daily run for date: {date.today()}"], shell = True)
     subprocess.run(["git", "push"], shell = True)
