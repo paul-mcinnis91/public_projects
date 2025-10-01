@@ -2,7 +2,6 @@ from datetime import date
 import os
 import sys
 import subprocess
-import time
 
 dirname = os.path.dirname(__file__)
 joined_paths = os.path.join(dirname, "..")
