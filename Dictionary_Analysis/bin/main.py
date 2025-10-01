@@ -61,10 +61,10 @@ def main(visualization_choice: str):
     ld_push.save_clean_et_dict(cleaned_words)
     ld_push.save_dirty_list(dirty_words)
 
-    subprocess.run("cd ..")
-    subprocess.run("git add .")
-    subprocess.run(f'git commit -m "Daily run for date: {date.today()}"')
-    subprocess.run("git push")
+    subprocess.run(["cd", ".."], shell = True)
+    subprocess.run(["git", "add", "."], shell = True)
+    subprocess.run(["git", "commit", "-m", f"Daily run for date: {date.today()}"], shell = True)
+    subprocess.run(["git", "push"], shell = True)
 
     if not isinstance(visualization_choice, type(None)):
         data_vis.visualiziations(visualization_choice)
