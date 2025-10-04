@@ -12,6 +12,13 @@ def day_of_week_fun() -> int:
     
     return day_of_week
 
+def get_downloads_dir() -> Path:
+    
+
+    downloads_path = Path.home() / "Downloads"
+    return downloads_path
+
+
 def manual_override():
     override_option = input("Do you want to manually override the program to run data loads? Y/N?").lower()
     
@@ -21,7 +28,7 @@ def manual_override():
     return None
     
 
-def day_of_week_check():
+def day_of_week_check() -> tuple:
     """This function is designed to check the day of the week. If the day is Monday different files are 
     are downloaded as opposed to Thursday. Also data loads are only done Mondays or Thursdays so if it is ran
     on a day that is not Monday or Thursday the program will terminate. Later there will be a function to have 
@@ -47,44 +54,26 @@ def get_current_dir() -> str:
     return os.path.dirname(os.path.abspath(__file__))
 
 
-def get_user_creds() -> str:
+def get_user_creds() -> dict:
     current_dir = get_current_dir()
     keys_path = os.path.abspath(os.path.join(current_dir, "..", "keys"))
-    obi_user_path = os.path.abspath(os.path.join(keys_path, "obi_user.txt"))
-    obi_pw_path = os.path.abspath(os.path.join(keys_path, "obi_pw.txt"))
-
-    sf_user_path = os.path.abspath(os.path.join(keys_path, "sf_user.txt"))
-    sf_pw_path = os.path.abspath(os.path.join(keys_path, "sf_pw.txt"))
-    sf_key_path = os.path.abspath(os.path.join(keys_path, "sf_key.txt"))
 
     credentials_dict = {}
 
-    with open(obi_user_path) as obi_user_data:
-        obi_username = obi_user_data.read()
-        credentials_dict["obi_username"] = obi_username
-    
-    with open(obi_pw_path) as obi_pw_data:
-        obi_password = obi_pw_data.read()
-        credentials_dict["obi_password"] = obi_password
-    
-    with open(sf_user_path) as sf_user_data:
-        sf_user = sf_user_data.read()
-        credentials_dict["sf_user"] = sf_user
-    
-    with open(sf_pw_path) as sf_pw_data:
-        sf_password = sf_pw_data.read()
-        credentials_dict["sf_password"] = sf_password
-    
-      
-    with open(sf_key_path) as sf_key_data:
-        sf_key = sf_key_data.read()
-        credentials_dict["sf_password"] = sf_key
-    
+    # Iterate through all files in the keys directory
+    for filename in os.listdir(keys_path):
+        key_name = os.path.splitext(filename)[0]  # remove ".txt"
+        file_path = os.path.join(keys_path, filename)
+        
+        with open(file_path, "r") as f:
+            credentials_dict[key_name] = f.read().strip()
+
     return credentials_dict
 
 
+
 def move_files(file: str, destination: Path) -> None:
-    downloads_dir: str = rf'C:\Users\wxm3287\Downloads\\'
+    downloads_dir: str = get_downloads_dir()
     file_in_downlads: str = downloads_dir + file
     destination_file = destination + file
     shutil.move(file_in_downlads, destination_file)
@@ -92,7 +81,7 @@ def move_files(file: str, destination: Path) -> None:
 def attachment_rate_rename(current_date) -> dict:
     attachment_rate_dict = {0:'Onward 6P by date.csv', 1: 'Onward Accessories - 2023 Attachment Rate.xlsx'}
 
-    filename = r'C:\Users\wxm3287\Downloads\Onward Accessories - 2023 Attachment Rate.xlsx'
+    filename = get_downloads_dir() + r'\Onward Accessories - 2023 Attachment Rate.xlsx'
 
     basename, extension = os.path.splitext(filename)
 

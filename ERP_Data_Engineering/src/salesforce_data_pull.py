@@ -1,5 +1,7 @@
 import datetime
 import csv
+import os
+from pathlib import Path
 import sys
 
 import pandas as pd
@@ -7,7 +9,6 @@ from salesforce_reporting import Connection
 import openpyxl
 
 from helper import get_user_creds
-
 
 def salesforce_UVO_pull():
     """This portion of the program uses API data to pull the UVO Audit All Years Report from Salesforce and return it as a list
@@ -50,15 +51,17 @@ def record_data() -> None:
     print(current_time)
     current_data.insert(0, str(current_time))
     print(current_data)
-
-    SUD_excel = openpyxl.load_workbook(r"K:\Augusta Sales Support\Club Car CX Systems & Data Management\Data Analyst\Python Files\Weekly Data Loads\Salesforce Data\Salesforce_UVO_data.xlsx")
+    
+    k_drive_path: Path = get_user_creds().get("k_path")
+    SUD_excel = openpyxl.load_workbook(k_drive_path)
     SUD_excel_Sheet1 = SUD_excel.get_sheet_by_name("Sheet1")
     SUD_excel_Sheet1.append(current_data)
-    SUD_excel.save(r"K:\Augusta Sales Support\Club Car CX Systems & Data Management\Data Analyst\Python Files\Weekly Data Loads\Salesforce Data\Salesforce_UVO_data.xlsx")
+    SUD_excel.save(k_drive_path)
 
 
-
-    with open(r"K:\Augusta Sales Support\Club Car CX Systems & Data Management\Data Analyst\Python Files\Weekly Data Loads\Salesforce Data\Salesforce_UVO_data.csv", "a", newline='') as SUD_csv:
+    k_path = os.path.split(k_drive_path)[:-1]
+    csv_path = os.path.join(k_path, "Salesforce_UVO_data.csv")
+    with open(csv_path, "a", newline='') as SUD_csv:
         writer = csv.writer(SUD_csv)
         writer.writerow(current_data)
     sys.exit()
