@@ -16,7 +16,8 @@ def get_top_level_directories() -> dict:
     child_dir_list = os.listdir(parent_dir)
 
     top_level_directories = {}
-
+    top_level_directories["parent_directory"] = parent_dir
+    
     for top_level_dir in child_dir_list:
         dir_path_test = os.path.join(parent_dir, top_level_dir)
         if os.path.isdir(dir_path_test):

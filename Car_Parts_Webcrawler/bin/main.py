@@ -28,7 +28,7 @@ def main() -> None:
     
     hollander_obj.create_user_matches(user_matches = part_list)
 
-    hollander_obj.df.to_csv("test.csv")
+    hollander_obj.df.to_csv("test.csv", index = False)
     
     
    

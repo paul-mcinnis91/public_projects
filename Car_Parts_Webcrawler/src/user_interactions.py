@@ -1,6 +1,8 @@
 import sys
 import pandas as pd
 
+from src import local_data_pull as ld_pull
+
 class User_Interface:
     def __init__(self):
         self.df = None
@@ -57,7 +59,6 @@ class User_Interface:
 
         if isinstance(self.df, type(None)):
             sys.exit("There are no results for your query. Try a new query.")
-        
         
 
         
