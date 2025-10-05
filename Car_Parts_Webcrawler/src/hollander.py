@@ -15,7 +15,7 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from src import local_data_pull
 from src.user_interactions import User_Interface
 
-class Hollander:
+class Hollander(User_Interface):
     """The purpose of the search bar is to give the user to search easily through hollanders database of parts
         and find the part they are looking for based upon one of 7 options the culmination of this is found in the
         search bar function"""
@@ -25,7 +25,6 @@ class Hollander:
         self.make: str = make.lower()
         self.model: str = model.lower()
         self.get_counter: int = 0
-        self.user_interface = User_Interface()
 
     def _bypass_cookies(self, URL: str) -> webdriver.Firefox:
         """Interacts with the accept cookies button so the program can get past the cookies to get
@@ -175,7 +174,7 @@ class Hollander:
         part_subcategories = self._get_part_subcategories()
         part_match_dict = self._get_part_fitment_matches(part_subcategories, part)
         
-        user_part_choice = self.user_interface.user_input_matches(part_match_dict)
+        user_part_choice = self.user_input_matches(part_match_dict)
        
         URL = f"https://www.hollanderparts.com/{user_part_choice}"
 
@@ -184,7 +183,7 @@ class Hollander:
         fitment_parse = fitment_page.find_all('div', class_ = 'ymmSelection')
         fitment_match_dict = self._create_fitment_match_list(fitment_parse)
         
-        user_fitment_choice = self.user_interface.user_input_matches(fitment_match_dict)
+        user_fitment_choice = self.user_input_matches(fitment_match_dict)
         
         return user_fitment_choice
 
@@ -200,8 +199,68 @@ class Hollander:
             price = price_text[-5:]
             return price
         
-        return price
+        return price_text
     
+    def _test_none_type(self, obj: BeautifulSoup) -> str:
+        """Function to test if the information going into part_dict is a NoneType. If it is returns
+        'Contact Seller'. If it is not a NoneType returns the string
+        
+        Args: obj return from BeatifulSoup.find()
+        
+        Returns string of information or Contact Seller"""
+
+        if isinstance(obj, type(None)):
+            return "Contact Seller"
+        
+        return obj.text
+    
+    def _part_parser_dict(self, part_tag: str) -> dict:
+        """Takes the part_tag after iterating through the page source and creates a dictionary
+        
+        Args: part_tag (str) the return HTML tags that are nested inside beautifulsoup.find_all()
+
+        Returns: parts_dict (dict) dictionary of parts information for easier parsing
+        """
+
+        part_dict = {}
+        price_result = part_tag.find('div', class_='partPrice')
+        price_text = self._test_none_type(price_result)
+        price = self._price_slicer(price_text)
+       
+
+        grade = part_tag.find('div', class_='gradeText')
+        grade_text = self._test_none_type(grade)
+
+        shipping = part_tag.find('div', class_='partShipping')
+        shipping_text = self._test_none_type(shipping)
+
+        shipping_price = self._price_slicer(shipping_text)
+        
+        
+        info = part_tag.find('a', href=True)
+        more_info = info['href']
+        miles_org_locate = part_tag.find_all('div', class_='location')
+        
+        miles_text = miles_org_locate[0].text
+
+        miles_begin = miles_text.index('Mileage') + len('Mileage') + 1
+        miles_replace = miles_text[miles_begin:].replace(',','')
+        miles = int(miles_replace)
+
+        organization = miles_org_locate[1].text
+
+        location = miles_org_locate[2].text
+        
+        part_dict['Price']= price
+        part_dict['Shipping'] = shipping_price
+        part_dict['Grade'] = grade_text.strip()
+        part_dict['Mileage'] = miles
+        part_dict['Organization'] = organization.strip()
+        part_dict['Location'] = location.strip()
+        part_dict['More Info'] = f'https://www.hollanderparts.com{more_info}'
+        
+        return part_dict
+
     def _part_parser(self, page_source_list: list) -> list:
         """Takes page_source_list and iterates through  it to return matched information
         
@@ -210,45 +269,10 @@ class Hollander:
         Returns: filtered list of parts"""
 
 
-        part_d_list =[]
+        part_d_list = []
 
         for part_tag in page_source_list:
-            part_dict = {}
-            price_text = part_tag.find('div', class_='partPrice').text
-            price = self._price_slicer(price_text)
-            
-            part_dict['Price']= price
-
-
-            grade = part_tag.find('div', class_='gradeText').text
-        
-           
-            shipping = part_tag.find('div', class_='partShipping').text
-            shipping_price = self._price_slicer(shipping)
-            part_dict['Shipping'] = shipping_price
-            part_dict['Shipping'] = 'Call for Price'
-            
-            info = part_tag.find('a', href=True)
-            more_info = info['href']
-            miles_org_locate = part_tag.find_all('div', class_='location')
-            
-            miles_text = miles_org_locate[0].text
-            miles_begin = miles_text.index('Mileage') + len('Mileage') + 1
-            miles_replace = miles_text[miles_begin:].replace(',','')
-            miles = int(miles_replace)
-            
-
-            organization = miles_org_locate[1].text
-            location = miles_org_locate[2].text
-            
-            part_dict['Price']= price
-            part_dict['Grade'] = grade.strip()
-            part_dict['Mileage'] = miles
-            part_dict['Organization'] = organization.strip()
-            part_dict['Location'] = location.strip()
-            part_dict['More Info'] = f'https://www.hollanderparts.com{more_info}'
- 
-            
+            part_dict = self._part_parser_dict(part_tag)
             part_d_list.append(part_dict)
 
         return part_d_list
@@ -277,14 +301,11 @@ class Hollander:
         
         part_parser = BeautifulSoup(part_page, 'html.parser')
         
-        No_parts = part_parser.find('div', class_="title")
-
-        if No_parts == None:
-            sys.exit("No Parts Found")
-
         part_avail = part_parser.find_all('div', 'individualPartHolder')
-        
+
         part_list = self._part_parser(part_avail)
+
+        driver.quit()
 
         return part_list
  

@@ -7,6 +7,7 @@ joined_paths = os.path.join(dirname, "..")
 sys.path.append(joined_paths)
 
 from src.hollander import Hollander
+from src.query_df import DataFrameQueryTerminal
 
 
 
@@ -24,10 +25,19 @@ def main() -> None:
 
     hollander_obj = Hollander(year = args.year, make= args.make, model = args.model)
     part_list = hollander_obj.get_parts(part = args.parts)
-    print(part_list)
+    
+    hollander_obj.create_user_matches(user_matches = part_list)
+
+    df_terminal_menu = DataFrameQueryTerminal(hollander_obj.df)
+
+    df_terminal_menu.run()
+    
+    
+   
 
 
 
 
 if __name__ == "__main__":
+
     main()

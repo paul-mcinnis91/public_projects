@@ -1,10 +1,9 @@
 import sys
-
-
+import pandas as pd
 
 class User_Interface:
     def __init__(self):
-        pass
+        self.df = None
 
     def user_input_matches(self, matches_dict: dict) -> str:
         """Function to have the user pick from a list of matches and returns the number they
@@ -36,3 +35,28 @@ class User_Interface:
         
         except ValueError:
             sys.exit("Invalid user input")
+    
+    def create_user_matches(self, user_matches: list) -> None:
+        """Function  to intake the user_matches list and creates a pandas Dataframe 
+        so that the user can manipulate their returned data without making more requests to 
+        outside sources
+        
+        Args: user_matches (list[dict]) list of dictionaries with relevant information for that
+        make, model, year, and part
+        
+        Returns: None. Takes Same information turns into self.df (pandas DatFrame)"""
+
+        self.df = pd.DataFrame(user_matches)
+    
+    def user_menu(self) -> None:
+        """Function to manipulate the pandas data frame and let the user view their matches
+        
+        Args: None
+        
+        Returns: None"""
+
+        if isinstance(self.df, type(None)):
+            sys.exit("There are no results for your query. Try a new query.")
+        
+
+        
