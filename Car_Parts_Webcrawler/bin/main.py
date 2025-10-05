@@ -28,9 +28,7 @@ def main() -> None:
     
     hollander_obj.create_user_matches(user_matches = part_list)
 
-    df_terminal_menu = DataFrameQueryTerminal(hollander_obj.df)
-
-    df_terminal_menu.run()
+    hollander_obj.df.to_csv("test.csv")
     
     
    

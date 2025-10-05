@@ -58,5 +58,6 @@ class User_Interface:
         if isinstance(self.df, type(None)):
             sys.exit("There are no results for your query. Try a new query.")
         
+        
 
         
