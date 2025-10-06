@@ -23,30 +23,25 @@ Options:
 -Quit == Quit the program"""
         print(help_text)
 
-    def _filter(self, args: argparse.Namespace) -> pd.DataFrame:
+    def _filter(self, args: list) -> pd.DataFrame:
         """Takes parsed args if -filter is present and returns a filtered dataframe.
         
         args: arg_parser (argparse.ArgumentParser) the arguments from self.user_input
         
         returns: fitlered dataframe"""
-        filter_query = " ".join(word for word in args if word != "-Filter")
-        filter_query_list = filter_query.split(" ")
-        
-        for idx, word in enumerate(filter_query_list):
+        print(args)
+        for idx, word in enumerate(args):
             if word in self.boolean_operators:
-                filter_query_list[idx] = self.boolean_operators.get(word)
+                args[idx] = self.boolean_operators.get(word)
             
             if word in self.logical_operators:
-                filter_query_list[idx] = self.logical_operators.get(word)
+                args[idx] = self.logical_operators.get(word)
         
-        new_query_string = " ".join(filter_query_list)
+        new_query_string = " ".join(args)
         print(new_query_string)
 
         
-            
-
-
-        filtered_df = self.df.query()
+        
 
     def user_input(self) -> None:
         """Gathers input from the user and parse it out. Based upon the parsed information, 
@@ -81,8 +76,10 @@ Options:
             if not (args.Filter or args.Sort):
                 parser.error("Operators require -Filter or -Sort")
         
+        args_list = list(vars(args).values())
+
         if hasattr(args, "Filter"):
-            self._filter(args)
+            self._filter(args_list)
         
 
 if __name__ == "__main__":
