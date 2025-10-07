@@ -45,14 +45,15 @@ Options:
         sort_asc = True
         if sort_order != "Ascending":
             sort_asc = False
-
+        
+        if self.manipulated_df is not None:
+            sorted_df = self.df.sort_values(by = sort_column, ascending = sort_asc)
+            self.manipulated_df = sorted_df
+            return sorted_df
+        
         sorted_df = self.df.sort_values(by = sort_column, ascending = sort_asc)
-        
-
+        self.df = sorted_df
         return sorted_df
-        
-
-        
     
     def _filter(self, user_input_str: str) -> pd.DataFrame:
         """Takes parsed args if -filter is present and returns a filtered dataframe.
@@ -80,6 +81,7 @@ Options:
         filtered_df = self.df.query(query_string).reset_index(drop=True)
 
         self.manipulated_df = filtered_df
+
         return filtered_df
         
 
@@ -159,7 +161,7 @@ Options:
         
         Args: None
         
-        Returns: None, decides the function to run"""
+        Returns: None, decides the function to run and then updates self.manipulated_df"""
 
 
         user_input = self.build_parser()
@@ -178,10 +180,15 @@ Options:
             new_df = self._sort(user_input)
 
         if save_test != -1:
-            self._save_df(new_df)
+            records_dir = ld_pull.get_top_level_directories().get("records_keeping")
+            user_file_name = input("Type the name of your file.")
+            csv_path = os.path.join(records_dir, user_file_name)
+            new_df.to_csv(csv_path)
         
         if quit_test != -1:
-            sys.exit("Have a nice day, goodbye.6")
+            sys.exit("Have a nice day, goodbye.")
+        
+        self.manipulated_df = new_df
         
     
 
