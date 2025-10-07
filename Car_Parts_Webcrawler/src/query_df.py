@@ -11,7 +11,7 @@ class DataFrameQueryTerminal:
     
     def __init__(self, dataframe: pd.DataFrame):
         self.df: pd.DataFrame = self.convert_numeric_columns(df)
-        self.main_menu: list = ["Sort", "Filter", "Price", "Save", "Quit", "Ascending", "Descending", "true", "false"]
+        self.main_menu: list = ["Sort", "Filter", "Price", "Save", "Quit", "Ascending", "Descending"]
         self.boolean_operators: dict = {'LT': '<', 'LTEQ': '<=', 'GT': '>', 'GTEQ': '>=', 'EQ': '=='}
         self.logical_operators: dict = {'AND': '&', 'OR': '|', 'NOT': '~'}
         self.manipulated_df = None
@@ -136,10 +136,11 @@ Options:
 
         parser.add_argument("-Sort", required = False, choices = list(self.df.columns))
         parser.add_argument("-Filter", required = False, choices = list(self.df.columns))
-        parser.add_argument("-Save", required = False)
-        parser.add_argument("-Quit", required = False)
-        parser.add_argument("-Ascending", required = False)
-        parser.add_argument("-Descending", required = False)
+        parser.add_argument("-Save", required = False, nargs="?", default= "None", const= "None")
+        parser.add_argument("-Quit", required = False, nargs="?", default= "None", const= "None")
+        parser.add_argument("-View", required = False, nargs="?", default= "None", const= "None")
+        parser.add_argument("-Ascending", required = False, nargs="?", default= "None", const= "None")
+        parser.add_argument("-Descending", required = False, nargs="?", default= "None", const= "None")
     
         # Add in boolean options
         for bool_operator in self.boolean_operators:
@@ -181,7 +182,7 @@ Options:
 
         if save_test != -1:
             records_dir = ld_pull.get_top_level_directories().get("records_keeping")
-            user_file_name = input("Type the name of your file.")
+            user_file_name = input("Type the name of your file. ")
             csv_path = os.path.join(records_dir, user_file_name)
             new_df.to_csv(csv_path)
         
@@ -190,7 +191,19 @@ Options:
         
         self.manipulated_df = new_df
         
-    
+    def run(self):
+        """Runs infinite loop until user puts in quit command
+        
+        Args: None
+        
+        Returns: None"""
+        try:
+            while True:
+                self.make_selection()
+        
+        except KeyboardInterrupt:
+            sys.exit("Keyboard interrupt detected. Shutting down")
+
 
 
 if __name__ == "__main__":
@@ -199,7 +212,7 @@ if __name__ == "__main__":
     df = pd.read_csv(test_csv_path, index_col = None)
 
     test_obj = DataFrameQueryTerminal(df)
-    test_obj.make_selection()
+    test_obj.run()
     
     
 
