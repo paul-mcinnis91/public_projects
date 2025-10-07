@@ -207,8 +207,8 @@ Options:
 
 
 if __name__ == "__main__":
-    parent_dir = ld_pull.get_top_level_directories().get("parent_directory")
-    test_csv_path = os.path.join(parent_dir, "test.csv")
+    records_dir = ld_pull.get_top_level_directories().get("records_keeping")
+    test_csv_path = os.path.join(records_dir, "test.csv")
     df = pd.read_csv(test_csv_path, index_col = None)
 
     test_obj = DataFrameQueryTerminal(df)
