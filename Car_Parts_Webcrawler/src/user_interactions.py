@@ -1,8 +1,6 @@
 import sys
 import pandas as pd
 
-from src import local_data_pull as ld_pull
-
 class User_Interface:
     def __init__(self):
         self.df = None
@@ -25,10 +23,10 @@ class User_Interface:
 
         for key, value in display_dict.items():
             print(f"{key} -- {value}")
-        user_part_choice = input("Select your part by the number next to it. If your part is not present, type quit ").lower()
+        user_part_choice = input("Select your choice by the number next to it. If your choice is not present, type quit ").lower()
 
         if user_part_choice[0] == 'q':
-            sys.exit("No part selected")
+            sys.exit("No choice selected")
         
         try: 
             int_key = int(user_part_choice)

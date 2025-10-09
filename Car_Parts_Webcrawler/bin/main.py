@@ -10,6 +10,7 @@ sys.path.append(joined_paths)
 
 from src.hollander import Hollander
 from src.query_df import DataFrameQueryTerminal
+from src.user_interactions import User_Interface
 from src import local_data_pull as ld_pull
 from src import local_data_push as ld_push
 
@@ -17,6 +18,7 @@ from src import local_data_push as ld_push
 
 def main() -> None:
     """Main function to run Car Parts Web Crawler Module"""
+
 
     parser = argparse.ArgumentParser(description="Car info parser")
 
@@ -26,6 +28,8 @@ def main() -> None:
     parser.add_argument("-p", "--parts", required = True, help = "Car Part")
 
     args = parser.parse_args()
+
+    user_interactions = User_Interface()
 
     hollander_obj = Hollander(year = args.year, make = args.make, model = args.model)
     part_list = hollander_obj.get_parts(part = args.parts)
@@ -38,7 +42,12 @@ def main() -> None:
                                     car_part = args.parts)
     ld_push.save_csv_records(df = hollander_obj.df, csv_file_path = csv_path)
 
-    df = pd.read_csv(csv_path, index_col = 0)
+    query_selections = ld_pull.package_records_keeping()
+    
+    df_path = user_interactions.user_input_matches(query_selections)
+
+    df = pd.read_csv(df_path, index = 0)
+
 
     df_query = DataFrameQueryTerminal(df)
     df_query.run()
