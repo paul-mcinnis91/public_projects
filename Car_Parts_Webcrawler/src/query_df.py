@@ -1,7 +1,6 @@
 import argparse
 import os
 import sys
-import time
 
 import pandas as pd
 
@@ -29,7 +28,8 @@ Options:
 -Quit == Quit the program
 -View == View current results of query. Built into -Filter and -Sort. 
          Can view one or more column(s) by using -View <col_name1> <col_name2>. 
-         If no columns provided willl print full dataframe"""
+         If no columns provided willl print full dataframe
+-Help == Prints this text so you have a reference"""
         print(help_text)
 
     def _view(self, view_args: list) -> None:
@@ -41,11 +41,9 @@ Options:
 
         if self.manipulated_df is None:
             print(self.df[view_args])
-            time.sleep(5)
             return None
         
         print(self.manipulated_df[view_args])
-        time.sleep(5)
         return None
     
     def _scrub_args(self, user_input_str: str) -> list:
@@ -84,14 +82,14 @@ Options:
         column_name = sort_args[0]
         order = self._test_sort_order(sort_args)
 
-        if self.manipulated_df is not None:
+        if self.manipulated_df is None:
             sorted_df = self.df.sort_values(by = column_name, ascending = order)
             self.manipulated_df = sorted_df
             self._view(sorted_df.columns)
             return sorted_df
         
-        sorted_df = self.df.sort_values(by = column_name, ascending = order)
-        self.df = sorted_df
+        sorted_df = self.manipulated_df.sort_values(by = column_name, ascending = order)
+        self.manipulated_df = sorted_df
         
         self._view(sorted_df.columns)
         return sorted_df
@@ -188,8 +186,7 @@ Options:
         options were if the options are not None."""
 
 
-        self.help_info()
-        user_decision = input("")
+        user_decision = input("Enter your command here: ").strip()
 
         parser = argparse.ArgumentParser()
 
@@ -201,6 +198,7 @@ Options:
         parser.add_argument("-Save", required = False, nargs ="?", default = "None", const = "None")
         parser.add_argument("-Quit", required = False, nargs ="?", default = "None", const = "None")
         parser.add_argument("-View", required = False, nargs = "*", default = df_columns_list)
+        parser.add_argument("-Help", required=False, nargs = "?")
     
         # Add in boolean options
         for bool_operator in self.boolean_operators:
@@ -229,6 +227,9 @@ Options:
         view_test = user_input.find("View")       
 
         new_df = self.df
+        print("yay")
+        if self.manipulated_df is not None:
+            new_df = self.manipulated_df
 
         if view_test != -1:
             self._view(args.View)
@@ -245,6 +246,8 @@ Options:
         if quit_test != -1:
             sys.exit("Have a nice day, goodbye.")
         
+        if args.Help:
+            self.help_info()
         
         self.manipulated_df = new_df
         
@@ -254,12 +257,15 @@ Options:
         Args: None
         
         Returns: None"""
+        self.help_info()
+
         try:
             while True:
                 self.make_selection()
         
         except KeyboardInterrupt:
             sys.exit("Keyboard interrupt detected. Shutting down")
+        
 
 
 
