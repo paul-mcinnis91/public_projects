@@ -1,10 +1,11 @@
 import argparse
 import os
 import sys
+import time
 
 import pandas as pd
 
-import local_data_pull as ld_pull
+from src import local_data_pull as ld_pull
 
 class DataFrameQueryTerminal:
     """Simple terminal interface for querying pandas DataFrames."""
@@ -134,7 +135,7 @@ Options:
         user_file_name = input("Type the name of your file. ")
         removed_file_ext = os.path.splitext(user_file_name)[0] 
         csv_path = os.path.join(records_dir, removed_file_ext + ".csv")
-        new_df.to_csv(csv_path)
+        new_df.to_csv(csv_path, index = False)
         
     def _numeric_conversion(self, series: pd.Series) -> pd.Series:
         """Checks if a column has numeric valuies. If does returns the column with 
@@ -209,6 +210,7 @@ Options:
 
         args = parser.parse_args(user_decision.split(" "))
 
+
         return (user_decision, args)
         
     def make_selection(self) -> None:
@@ -221,13 +223,14 @@ Options:
 
         user_input, args = self._build_parser()
 
+
         filter_test = user_input.find("Filter")
         save_test = user_input.find("Save")
         quit_test = user_input.find("Quit")
-        view_test = user_input.find("View")       
+        view_test = user_input.find("View")
+        help_test = user_input.find("Help")       
 
         new_df = self.df
-        print("yay")
         if self.manipulated_df is not None:
             new_df = self.manipulated_df
 
@@ -246,7 +249,7 @@ Options:
         if quit_test != -1:
             sys.exit("Have a nice day, goodbye.")
         
-        if args.Help:
+        if help_test != -1:
             self.help_info()
         
         self.manipulated_df = new_df
@@ -266,13 +269,17 @@ Options:
         except KeyboardInterrupt:
             sys.exit("Keyboard interrupt detected. Shutting down")
         
+        except SystemExit:
+            print("Unknown arguments detected. Pick an argument from below.")
+            time.sleep(3)
+            self.help_info()
 
 
 
 if __name__ == "__main__":
     records_dir = ld_pull.get_top_level_directories().get("records_keeping")
     test_csv_path = os.path.join(records_dir, "test.csv")
-    df = pd.read_csv(test_csv_path, index_col = None)
+    df = pd.read_csv(test_csv_path, index_col = 0)
 
     test_obj = DataFrameQueryTerminal(df)
     test_obj.run()
