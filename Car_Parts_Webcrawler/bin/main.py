@@ -44,7 +44,7 @@ def main() -> None:
 
     query_selections = ld_pull.package_records_keeping()
     
-    df_path = user_interactions.user_input_matches(query_selections)
+    df_path = user_interactions.create_user_matches(query_selections)
 
     df = pd.read_csv(df_path, index = 0)
 
