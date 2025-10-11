@@ -1,5 +1,6 @@
 import os
 
+import pandas as pd
 
 def get_top_level_directories() -> dict:
     """Returns dictionary of all top level directories in module.
@@ -25,36 +26,56 @@ def get_top_level_directories() -> dict:
     
     return top_level_directories
 
-def parse_query_display(table_name: str) -> str:
-    """Parses out query display information for easier readability for end user
-    
-    Args: Table_name: csv file name without the path or extension information
-          Table name format: YYYY-MM-DD_car-year_car-make_car-model_car-part
-
-    Returns: Reformatted name
-             Display format: Car-Part for Car-Year Car-Make Car-Model """
-    
-    table_name_list = table_name.split("_")
-    table_string = f"""{table_name_list[-1]} for {table_name_list[1]} {table_name_list[2]} {table_name_list[3]}"""
-    return table_string
-
-def package_records_keeping() -> dict:
+def package_records_keeping() -> list:
     """Function to package the files and their file paths for 
     user_interactions.user_input_matches
     
     Args: None
     
-    Returns: dictionary of the tables and their file paths"""
+    Returns: list of file paths"""
 
     records_keeping_dir = get_top_level_directories().get("records_keeping")
-    file_list = [file for file in os.listdir(records_keeping_dir) if os.path.isfile(file)]
-    file_path_dict = dict()
-
-    for file_info in file_list:
-        file_name = os.path.split(file_info)
-        file_wo_ext = os.path.splitext(file_name)
-        display_name = parse_query_display(file_wo_ext)
-        file_path_dict[display_name] = file_info
+    file_list = [file for file in os.listdir(records_keeping_dir)]
+    return file_list
     
-    return file_path_dict
+
+def build_records_keeping_df() -> pd.DataFrame:
+        """Draws upon ld_pull.package_records_keeping to get file information. 
+        Parses out information to make a list of dictionaries.
         
+        Args: None
+        
+        Returns pd.DataFrame of csv's available with columns for date, index, 
+        make, model, year, part"""
+
+        file_list = package_records_keeping()
+
+        date_column = []
+        year_column = []
+        make_column = []
+        model_column = []
+        part_column = []
+        file_path_column = []
+
+
+        for file_info in file_list:
+            file_name = os.path.split(file_info)[1]
+            file_wo_ext = os.path.splitext(file_name)[0]
+            date, year, make, model, part = file_wo_ext.split("_")
+            date_column.append(date)
+            year_column.append(year)
+            make_column.append(make)
+            model_column.append(model)
+            part_column.append(part)
+            file_path_column.append(file_info)
+        
+
+        dict_to_df = dict()
+        dict_to_df["Query Date"] = date_column
+        dict_to_df["Car Year"] = year_column
+        dict_to_df["Car Make"] = make_column
+        dict_to_df["Car Model"] = model_column
+        dict_to_df["Car Part"] = part_column
+        dict_to_df["File Path"] = file_path_column
+        
+        return pd.DataFrame(dict_to_df)

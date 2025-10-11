@@ -1,3 +1,4 @@
+import argparse
 import os
 from requests import get
 import sys
@@ -13,7 +14,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service as FirefoxService
 
 from src import local_data_pull
-from src.user_interactions import User_Interface
+from src.local_terminal import User_Interface
 
 class Hollander(User_Interface):
     """The purpose of the search bar is to give the user to search easily through hollanders database of parts
@@ -310,6 +311,90 @@ class Hollander(User_Interface):
         return part_list
  
 
+class Query_Webpages(Hollander):
+
+    def __init__(self):
+        self.part: str = None
+        self.get_counter: int = 0
+
+    def help_info(self):
+        """Prints out helpful information for the user"""
+        help_text = f"""Filter and Sort Queries available are related to these columns:
+Options: 
+-Query == Create a new web query that will add to the tables currently available
+          When Query is ran it requires the args: -year <car year>
+                                                  -make <car make>
+                                                  -model <car model>
+                                                  -part <car part>
+-Quit == Quit the program
+-Help == Prints this text so you have a reference"""
+        print(help_text)
+    
+    def _build_web_menu(self) -> argparse.Namespace:
+        """Builds the actual argumentparser object with the car information to pass on"""
+
+        parser = argparse.ArgumentParser(description="Car info parser")
+       
+        user_decision = input("Enter your command here: ").strip()
+
+        parser = argparse.ArgumentParser()
+        parser.add_argument("-Query", action = "store_true", help = "Run a web query")
+        parser.add_argument("-Quit", action = "store_true", help = "Quit program")
+        parser.add_argument("-Help", action = "store_true", help = "View help text")
+        parser.add_argument("-make", type=str, help = "Car make")
+        parser.add_argument("-model", type=str, help = "Car model")
+        parser.add_argument("-year", type=str, help = "Year")
+        parser.add_argument("-part", type=str, help = "Part")
+
+        args = parser.parse_args(user_decision.split(" "))
+
+        return args
+    
+    def _check_query_args(self, args: argparse.Namespace) -> bool:
+        query_req_args = ["make", "model", "year", "part"]
+        missing = [name for name in query_req_args if getattr(args, name) is None]
+        if missing:
+            sys.exit("Query arg required -year -make -model and -part flags")
+
+    def _parse_user_input(self) -> list:
+        """Determines what function will be ran based upon the arguments passed into it
+        
+        Args: None uses self.build_web_menu to determine what the user picked
+        
+        Returns: None, picks the function"""
+
+        args = self._build_web_menu()
+
+        if args.Query:
+            self._check_query_args(args)
+            self.year = args.year
+            self.make = args.make
+            self.model = args.model
+            self.part = args.part
+            parts_list = self.get_parts(args.part)
+
+            return parts_list
+
+
+        if args.Quit:
+            sys.exit("Goodbye.")
+        
+        if args.Help:
+            self.help_info()
+
+    
+    def run_webpage(self) -> list:
+        """Gets user input to actually get the parts information"""
+
+        self.help_info()
+
+        while True:
+            try:
+                parts_list = self._parse_user_input()
+                if isinstance(parts_list, list):
+                    return parts_list
+            except KeyboardInterrupt:
+                sys.exit("Keyboard interrupt detected. Exiting.")
 
 
 

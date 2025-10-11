@@ -1,5 +1,6 @@
 import argparse
 import os
+from pathlib import Path
 import sys
 import time
 
@@ -7,7 +8,65 @@ import pandas as pd
 
 from src import local_data_pull as ld_pull
 
-class DataFrameQueryTerminal:
+class User_Interface:
+    def __init__(self):
+        self.df = None
+
+    def user_input_matches(self, matches_dict: dict) -> str:
+        """Function to have the user pick from a list of matches and returns the number they
+        selected corresponding to the part
+        
+        Args: matches_dict (dict) dictionary of links with the highest match value
+        
+        Returns: key that will unlock the full URL to get to the parts"""
+
+        if len(matches_dict) == 1:
+            max_key = max(matches_dict, key=matches_dict.get)
+            return matches_dict[max_key]
+
+        display_dict = {}
+        for idx, key_str in enumerate(matches_dict):
+            display_dict[idx] = key_str
+
+        for key, value in display_dict.items():
+            print(f"{key} -- {value}")
+        user_part_choice = input("Select your choice by the number next to it. If your choice is not present, type quit ").lower()
+
+        if user_part_choice[0] == 'q':
+            sys.exit("No choice selected")
+        
+        try: 
+            int_key = int(user_part_choice)
+            str_key = display_dict[int_key]
+            return matches_dict[str_key]
+        
+        except ValueError:
+            sys.exit("Invalid user input")
+    
+    def create_user_matches(self, user_matches: list) -> None:
+        """Function  to intake the user_matches list and creates a pandas Dataframe 
+        so that the user can manipulate their returned data without making more requests to 
+        outside sources
+        
+        Args: user_matches (list[dict]) list of dictionaries with relevant information for that
+        make, model, year, and part
+        
+        Returns: None. Takes Same information turns into self.df (pandas DatFrame)"""
+
+        self.df = pd.DataFrame(user_matches)
+    
+    def user_menu(self) -> None:
+        """Function to manipulate the pandas data frame and let the user view their matches
+        
+        Args: None
+        
+        Returns: None"""
+
+        if isinstance(self.df, type(None)):
+            sys.exit("There are no results for your query. Try a new query.")
+        
+
+class Query_Df:
     """Simple terminal interface for querying pandas DataFrames."""
     
     def __init__(self, dataframe: pd.DataFrame):
@@ -30,8 +89,20 @@ Options:
 -View == View current results of query. Built into -Filter and -Sort. 
          Can view one or more column(s) by using -View <col_name1> <col_name2>. 
          If no columns provided willl print full dataframe
--Help == Prints this text so you have a reference"""
+-Help == Prints this text so you have a reference
+-Open == If you are dealing with the local data files this option will be available
+         Requires file path -Open <FILE_PATH> """
         print(help_text)
+
+    def _open(self, file_path: Path) -> pd.DataFrame:
+        """Takes a file path to a csv and turns it into a pandas DataFrame
+        
+        Args: file_path (Path)
+        
+        Returns: pd.DataFrame"""
+        
+        df = pd.read_csv(file_path, index_col = 0)
+        return df
 
     def _view(self, view_args: list) -> None:
         """Checks if self.manipulated_df is None. If it is, prints self.df Otherwise prints
@@ -71,7 +142,6 @@ Options:
             return False
         
         return True
-
 
     def _sort(self, sort_args: list) -> pd.DataFrame:
         """Takes user input str and returns a sorted Dataframe
@@ -151,7 +221,6 @@ Options:
         
         return series 
 
-
     def _convert_numeric_columns(self, df: pd.DataFrame):
         """Takes pandas dataframe, finds all columns with numeric columns and converts them from 
         string to numeric columns.
@@ -186,7 +255,6 @@ Options:
         Returns: filtered_dict (dict) dictionary of the arguments and what the selected 
         options were if the options are not None."""
 
-
         user_decision = input("Enter your command here: ").strip()
 
         parser = argparse.ArgumentParser()
@@ -194,12 +262,15 @@ Options:
         df_columns_list = list(self.df.columns)
         
 
-        parser.add_argument("-Sort", required=False, nargs="+", metavar=('COLUMN', 'ORDER'))
+        parser.add_argument("-Sort", required = False, nargs="+", metavar=('COLUMN', 'ORDER'))
         parser.add_argument("-Filter", required = False, choices = df_columns_list)
         parser.add_argument("-Save", required = False, nargs ="?", default = "None", const = "None")
         parser.add_argument("-Quit", required = False, nargs ="?", default = "None", const = "None")
         parser.add_argument("-View", required = False, nargs = "*", default = df_columns_list)
         parser.add_argument("-Help", required=False, nargs = "?")
+
+        if "File Path" in df_columns_list:
+            parser.add_argument("-Open", required = False, nargs="+", metavar=('FILE PATH'))
     
         # Add in boolean options
         for bool_operator in self.boolean_operators:
@@ -274,15 +345,5 @@ Options:
             time.sleep(3)
             self.help_info()
 
-
-
-if __name__ == "__main__":
-    records_dir = ld_pull.get_top_level_directories().get("records_keeping")
-    test_csv_path = os.path.join(records_dir, "test.csv")
-    df = pd.read_csv(test_csv_path, index_col = 0)
-
-    test_obj = DataFrameQueryTerminal(df)
-    test_obj.run()
-    
-    
+        
 
