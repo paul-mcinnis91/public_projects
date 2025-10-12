@@ -356,6 +356,6 @@ Options:
 
         if args.Create:
             hollander_obj = Hollander()
-            hollander_obj.run_webpage()
+            hollander_obj.get_parts()
 
 

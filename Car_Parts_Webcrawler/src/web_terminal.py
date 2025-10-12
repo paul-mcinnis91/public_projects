@@ -1,4 +1,3 @@
-import argparse
 import os
 from requests import get
 import sys
@@ -13,7 +12,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service as FirefoxService
 
-from src import local_data_pull
+from src import local_data_pull as ld_pull
+from src import local_data_push as ld_push
 from src.base_classes import User_Interface, Query_Webpages
 
 
@@ -35,7 +35,7 @@ class Hollander(User_Interface, Query_Webpages):
         buttons"""
         quiet = Options()
         quiet.headless = True
-        geckodriver_directory = local_data_pull.get_top_level_directories().get("geckodriver")
+        geckodriver_directory = ld_pull.get_top_level_directories().get("geckodriver")
         geckodriver_path  = os.path.join(geckodriver_directory, "geckodriver.exe")
         driver = webdriver.Firefox(options=quiet, service=FirefoxService(executable_path=geckodriver_path))
         driver.get(URL)
@@ -276,7 +276,7 @@ class Hollander(User_Interface, Query_Webpages):
 
         return part_d_list
 
-    def get_parts(self, part: str) -> list:
+    def get_parts(self) -> list:
         """Pick your sorting method by the number below:
                     "1": "Price (Lowest to Highest)",
                     "2": "Price (Highest to Lowest)",
@@ -286,8 +286,9 @@ class Hollander(User_Interface, Query_Webpages):
                     "6": "Mileage (Highest to Lowest)", 
                     "8": "Location (Nearest to Me)"""
         # The culiminating search bar that lets the user search for parts and sort their results
+        self.run_webpage()
 
-        part = part.lower()
+        part = self.part.lower()
         fitment = self._get_part_fitment(part)
 
         if isinstance(fitment, type(None)):
@@ -304,9 +305,19 @@ class Hollander(User_Interface, Query_Webpages):
 
         part_list = self._part_parser(part_avail)
 
+        self.create_user_matches(user_matches = part_list)
+
+        csv_save_path = ld_push.csv_file_name(car_year = self.year, 
+                                              car_make = self.make,
+                                              car_model = self.model,
+                                              car_part = self.part)
+        ld_push.save_csv_records(df = self.df, csv_file_path= csv_save_path)
+
         driver.quit()
 
-        return part_list
+        sys.exit("New Table Created. Restart program to view it.")
+        
+        
  
 
 
