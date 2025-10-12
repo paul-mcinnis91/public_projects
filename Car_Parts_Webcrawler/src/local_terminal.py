@@ -333,7 +333,9 @@ Options:
         parser.add_argument("-Quit", required = False, nargs ="?")
         parser.add_argument("-Help", required=False, nargs = "?")
 
-        return parser.parse_args()
+        args = parser.parse_args(sys.argv)
+
+        return args
     
     def run(self) -> None:
         """Function to run the main menu"""
@@ -357,5 +359,9 @@ Options:
         if args.Create:
             hollander_obj = Hollander()
             hollander_obj.get_parts()
+
+        if len(sys.argv) == 1:
+            print("No arguments detected. Please rerun program with argument listed below.")
+            self.help_info()
 
 
