@@ -9,7 +9,8 @@ class User_Interface:
         self.df = None
 
     def _get_int(self, input_str: str) -> int:
-        if user_input[0] == 'q':
+        
+        if input_str[0] == 'q':
             sys.exit("No choice selected")
 
         while True:

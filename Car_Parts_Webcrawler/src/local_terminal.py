@@ -34,7 +34,8 @@ Options:
          If no columns provided willl print full dataframe
 -Help == Prints this text so you have a reference
 -Open == If you are dealing with the local data files this option will be available
-         Requires file path -Open <FILE_PATH> 
+         When entered will open print the available file paths and ask you to select 
+         your choice. 
 -Save == Save results as a Comma Seperated Values (.csv) file. 
          Only available if -Open is not"""
         
@@ -216,7 +217,7 @@ Options:
         parser.add_argument("-Help", required=False, nargs = "?")
 
         if "File Path" in df_columns_list:
-            parser.add_argument("-Open", required = False, nargs="+", metavar=('FILE PATH'))
+            parser.add_argument("-Open", required = False, action = "store_true")
     
         else:
             parser.add_argument("-Save", required = False, nargs ="?", default = "None", const = "None")
@@ -275,7 +276,9 @@ Options:
         if args.Open:
             print(new_df)
             user_index = self._get_int("Select the number next to the file path you want")
-            file_path = new_df["File Path"][user_index]
+            partial_path = ld_pull.get_top_level_directories().get("records_keeping")
+            file_name = new_df["File Path"][user_index]
+            file_path = os.path.join(partial_path, file_name)
             pass_up_df = self._open(file_path)
             return pass_up_df
 
@@ -305,63 +308,14 @@ Options:
             self.help_info()
 
 
-class Main_Menu(User_Interface):
+class Main_Menu:
     def __init__(self):
-        super().__init__()
+        pass
     
-    def help_info(self) -> None:
-        """Function to print this terminal's help information"""
-        help_text = f"""
-Options: 
--View == View available tables and pick one or exit the program
--Create == Create new table or exit the program
--Quit == Quit the program
--Help == View this information again
-"""
-        print(help_text)
+   
     
-    def _build_arg_parser(self) -> None:
-        """Function to build main menus argument parser.
-        
-        Args: None
-        
-        Returns: None"""
-
-        parser = argparse.ArgumentParser()
-        parser.add_argument("-View", required = False, nargs ="?")
-        parser.add_argument("-Create", required = False, nargs ="?")
-        parser.add_argument("-Quit", required = False, nargs ="?")
-        parser.add_argument("-Help", required=False, nargs = "?")
-
-        args = parser.parse_args(sys.argv)
-
-        return args
     
-    def run(self) -> None:
-        """Function to run the main menu"""
 
-        args = self._build_arg_parser()
-
-        if args.Help:
-            self.help_info()
         
-        if args.Quit:
-            sys.exit("Goodbye.")
-        
-        if args.View:
-            local_df = ld_pull.build_records_keeping_df()
-            table_viewer = Query_Df(local_df)
-            archived_df = table_viewer.run()
-            if archived_df is not None:
-                archive_viewer = Query_Df(archived_df)
-                archive_viewer.run()
-
-        if args.Create:
-            hollander_obj = Hollander()
-            hollander_obj.get_parts()
-
-        if len(sys.argv) == 1:
-            print("No arguments detected. Please rerun program with argument listed below.")
-            self.help_info()
 
 
