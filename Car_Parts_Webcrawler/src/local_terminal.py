@@ -71,7 +71,6 @@ class User_Interface:
 
         if self.df is None:
             sys.exit("There are no results for your query. Try a new query.")
-        
 
 class Query_Df(User_Interface):
     """Simple terminal interface for querying pandas DataFrames."""
@@ -354,7 +353,10 @@ Options:
 
         try:
             while True:
-                self.make_selection()
+                pass_up_df: pd.DataFrame = self.make_selection()
+                if pass_up_df is not None:
+                    return pass_up_df
+
         
         except KeyboardInterrupt:
             sys.exit("Keyboard interrupt detected. Shutting down")
@@ -364,5 +366,57 @@ Options:
             time.sleep(3)
             self.help_info()
 
+
+class Main_Menu(User_Interface):
+    def __init__(self):
+        super().__init__()
+    
+    def help_info(self) -> None:
+        """Function to print this terminal's help information"""
+        help_text = f"""
+Options: 
+-View == View available tables and pick one or exit the program
+-Create == Create new table or exit the program
+-Quit == Quit the program
+-Help == View this information again
+"""
+        print(help_text)
+    
+    def _build_arg_parser(self) -> None:
+        """Function to build main menus argument parser.
         
+        Args: None
+        
+        Returns: None"""
+
+        parser = argparse.ArgumentParser()
+        parser.add_argument("-View", required = False, nargs ="?")
+        parser.add_argument("-Create", required = False, nargs ="?")
+        parser.add_argument("-Quit", required = False, nargs ="?")
+        parser.add_argument("-Help", required=False, nargs = "?")
+
+        return parser.parse_args()
+    
+    def run(self) -> None:
+        """Function to run the main menu"""
+
+        args = self._build_arg_parser()
+
+        if args.Help:
+            self.help_info()
+        
+        if args.Quit:
+            sys.exit("Goodbye.")
+        
+        if args.View:
+            local_df = ld_pull.build_records_keeping_df()
+            table_viewer = Query_Df(local_df)
+            archived_df = table_viewer.run()
+            if archived_df is not None:
+                archive_viewer = Query_Df(archived_df)
+                archive_viewer.run()
+
+        if args.Create:
+            pass ####TO DO: FIGURE THIS OUT####
+
 
