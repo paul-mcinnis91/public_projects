@@ -12,6 +12,18 @@ class User_Interface:
     def __init__(self):
         self.df = None
 
+    def _get_int(self, input_str: str) -> int:
+        if user_input[0] == 'q':
+            sys.exit("No choice selected")
+
+        while True:
+            try:
+                user_input = input(input_str + " ")
+                int_input = int(user_input)
+                return int_input
+            except ValueError:
+                print("Invalid input. Try Again.")
+
     def user_input_matches(self, matches_dict: dict) -> str:
         """Function to have the user pick from a list of matches and returns the number they
         selected corresponding to the part
@@ -30,18 +42,13 @@ class User_Interface:
 
         for key, value in display_dict.items():
             print(f"{key} -- {value}")
-        user_part_choice = input("Select your choice by the number next to it. If your choice is not present, type quit ").lower()
+        user_part_choice = self._get_int("Select your choice by the number next to it. If your choice is not present, type quit ").lower()
 
-        if user_part_choice[0] == 'q':
-            sys.exit("No choice selected")
+        int_key = user_part_choice
+        str_key = display_dict[int_key]
+        return matches_dict[str_key]
         
-        try: 
-            int_key = int(user_part_choice)
-            str_key = display_dict[int_key]
-            return matches_dict[str_key]
         
-        except ValueError:
-            sys.exit("Invalid user input")
     
     def create_user_matches(self, user_matches: list) -> None:
         """Function  to intake the user_matches list and creates a pandas Dataframe 
@@ -62,11 +69,11 @@ class User_Interface:
         
         Returns: None"""
 
-        if isinstance(self.df, type(None)):
+        if self.df is None:
             sys.exit("There are no results for your query. Try a new query.")
         
 
-class Query_Df:
+class Query_Df(User_Interface):
     """Simple terminal interface for querying pandas DataFrames."""
     
     def __init__(self, dataframe: pd.DataFrame):
@@ -84,14 +91,17 @@ Options:
 -Sort == Sort results based upon column of choice. 
          Defaults to Ascending unless Descending is supplied as an option
 -Filter == Filter results based upon column(s) of choice (boolean search allowed)
--Save == Save results as a Comma Seperated Values (.csv) file
 -Quit == Quit the program
 -View == View current results of query. Built into -Filter and -Sort. 
          Can view one or more column(s) by using -View <col_name1> <col_name2>. 
          If no columns provided willl print full dataframe
 -Help == Prints this text so you have a reference
 -Open == If you are dealing with the local data files this option will be available
-         Requires file path -Open <FILE_PATH> """
+         Requires file path -Open <FILE_PATH> 
+-Save == Save results as a Comma Seperated Values (.csv) file. 
+         Only available if -Open is not"""
+        
+
         print(help_text)
 
     def _open(self, file_path: Path) -> pd.DataFrame:
@@ -100,7 +110,7 @@ Options:
         Args: file_path (Path)
         
         Returns: pd.DataFrame"""
-        
+
         df = pd.read_csv(file_path, index_col = 0)
         return df
 
@@ -264,7 +274,6 @@ Options:
 
         parser.add_argument("-Sort", required = False, nargs="+", metavar=('COLUMN', 'ORDER'))
         parser.add_argument("-Filter", required = False, choices = df_columns_list)
-        parser.add_argument("-Save", required = False, nargs ="?", default = "None", const = "None")
         parser.add_argument("-Quit", required = False, nargs ="?", default = "None", const = "None")
         parser.add_argument("-View", required = False, nargs = "*", default = df_columns_list)
         parser.add_argument("-Help", required=False, nargs = "?")
@@ -272,6 +281,9 @@ Options:
         if "File Path" in df_columns_list:
             parser.add_argument("-Open", required = False, nargs="+", metavar=('FILE PATH'))
     
+        else:
+            parser.add_argument("-Save", required = False, nargs ="?", default = "None", const = "None")
+
         # Add in boolean options
         for bool_operator in self.boolean_operators:
             parser.add_argument(f"-{bool_operator}", required = False)
@@ -323,6 +335,13 @@ Options:
         if help_test != -1:
             self.help_info()
         
+        if args.Open:
+            print(new_df)
+            user_index = self._get_int("Select the number next to the file path you want")
+            file_path = new_df["File Path"][user_index]
+            pass_up_df = self._open(file_path)
+            return pass_up_df
+
         self.manipulated_df = new_df
         
     def run(self):
