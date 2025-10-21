@@ -83,6 +83,8 @@ class dictionary_pull:
 
         Returns: bool
         """
+        if len(json_response) == 0:
+            return False
 
         if isinstance(json_response[0], str):
             return False
