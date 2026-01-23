@@ -1,5 +1,0 @@
-Log into dictionary.com developer portal
-Generate & Copy your developer key
-Delete all text in this file
-Paste your developer key in the file
-Rename file to api.txt
