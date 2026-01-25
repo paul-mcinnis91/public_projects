@@ -1,6 +1,5 @@
 import os
 
-
 def get_current_dir() -> str:
     """Returns current directory file is running in.
     
@@ -35,3 +34,4 @@ def get_source_documents_directory() -> str:
     Returns: absolute source_documents directory"""
     current_dir = get_current_dir()
     return os.path.abspath(os.path.join(current_dir, "..", "source_documents"))
+

@@ -13,6 +13,7 @@ class Driving_Distance:
         self.FSGA = "266 W General Screven Way, Fort Stewart, GA 31313"
         self.FMGA = "Pearman St, Fort Moore, GA 31905"
         self.api_key = helper.get_key("maps")
+        self.df = self._open_hor_csv()
 
     
     def _open_hor_csv(self) -> pd.DataFrame:
@@ -42,7 +43,7 @@ class Driving_Distance:
         
         Returns: Pandas Dataframe with new column: FullAddress"""
 
-        df = self._open_hor_csv()
+        df = self.df
         full_address = []
         for homeaddress in zip(df['Home Address'], df['Home City'], df['Home State'], df['Home ZIP Code']):
             address, city, state, zipcode = homeaddress

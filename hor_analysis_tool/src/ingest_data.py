@@ -24,26 +24,6 @@ class Ingest_Data:
         hor_template = pd.read_csv(hor_template_path)
         return hor_template.columns.to_list()
 
-    def _eliminate_columns(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Function to remove unneeded columns to fit criteria for columns. 
-        Hopefully makes things a little bit simpler
-        
-        Args: df a pandas dataframe that is fed into the the function
-        
-        Returns: df with less columns to pass column test"""
-
-        # Fetch the names for the template
-        template_column_names = self.template_columns
-        # Iterate through them and drop all unneeded ones
-        for column in df.columns:
-            if column not in template_column_names:
-                df = df.drop(axis=1, columns=column)
-        
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        csv_path = os.path.abspath(os.path.join(current_dir, "..", "source_documents", f"HORs.csv"))
-        df.to_csv(csv_path, index=False)
-        return df
-
 
     def _test_file_columns(self, csv_columns: list, from_email: bool = False) -> None:
         """Checks the file columns of the given list against a list pulled from the hor_template.csv
@@ -69,20 +49,10 @@ class Ingest_Data:
         
         current_hor_csv_path = hor_csv_path
         current_hor_csv = pd.read_csv(hor_csv_path)
-        reduced_columns_csv = self._eliminate_columns(current_hor_csv)
-        current_hor_columns = reduced_columns_csv.columns.to_list()
+        current_hor_columns = current_hor_csv.columns.to_list()
         self._test_file_columns(csv_columns=current_hor_columns)
 
         return current_hor_csv_path
 
-    def read_json_file(self, json_file_path: str) -> dict:
-        """Function to read json file and return data as a dictionary. Used to reduce McCabe Score
-        
-        Args: json_file_path = string path leading to the json file
-        
-        Returns: Dictionary"""
-
-        with open(json_file_path, 'r') as file_data:
-            data = json.load(file_data)
-            return data
+   
 
