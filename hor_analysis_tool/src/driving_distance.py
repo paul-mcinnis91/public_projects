@@ -105,8 +105,11 @@ class Driving_Distance:
 
             address_info = gmaps.geocode(source_address)[0]
             county_json = [addr_com for addr_com in address_info.get("address_components") if "administrative_area_level_2" in addr_com["types"]]
-            county_name = county_json[0].get("long_name").split(" ")[0]
-            home_county.append(county_name)
+            try:
+                county_name = county_json[0].get("long_name").split(" ")[0]
+                home_county.append(county_name)
+            except IndexError:
+                home_county.append("Unknown")
 
             FGEGA_raw_data = gmaps.distance_matrix(source_address, row["FGEGA_Address"])['rows'][0]['elements'][0]
             FGEGA_Distance_Column.append("{:.2f}".format(self.get_miles(FGEGA_raw_data['distance']['value'])))

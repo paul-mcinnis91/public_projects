@@ -56,7 +56,7 @@ class Ingest_Data:
         
         Returns: list of correct columns"""
 
-        hor_template_path = os.path.join(helper.get_source_documents_directory(), "hor_template.csv")
+        hor_template_path = os.path.join(helper.get_source_documents_directory(), "HOR_template.csv")
         hor_template = pd.read_csv(hor_template_path)
         return hor_template.columns.to_list()
 

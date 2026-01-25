@@ -30,7 +30,7 @@ def get_key(key_type) -> str:
 
 
 def get_downloads_directory() -> str:
-    """Function to get the absolute current downloads directory
+    """Function to get the absolute current downloads directory. Only works for Windows currently
     
     Args: None
     
