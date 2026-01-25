@@ -1,4 +1,3 @@
-import json
 import os
 
 
@@ -27,18 +26,6 @@ def get_key(key_type) -> str:
     
     with open(pat_path) as pat_data:
         return pat_data.read()
-
-
-def get_downloads_directory() -> str:
-    """Function to get the absolute current downloads directory. Only works for Windows currently
-    
-    Args: None
-    
-    Returns: Absolute Path to current machine downloads directory"""
-
-    current_user = os.getlogin()
-    downloads_path = os.path.join("C:\\", "Users",  current_user, "Downloads")
-    return downloads_path
 
 def get_source_documents_directory() -> str:
     """Function to get the absolute source_documents directory
