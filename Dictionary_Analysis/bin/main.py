@@ -64,9 +64,9 @@ def main(visualization_choice: str):
 
     parent_dir = ld_pull.get_top_level_directories().get("parent_dir")
     os.chdir(parent_dir)
-    subprocess.run(["git", "add", "."], shell = True)
-    subprocess.run(["git", "commit", "-m", f"Daily run for date: {date.today()}"], shell = True)
-    subprocess.run(["git", "push"], shell = True)
+    subprocess.run(["git", "add", "."], check = True)
+    subprocess.run(["git", "commit", "-m", f"Daily run for date: {date.today()}"], check = True)
+    subprocess.run(["git", "push"], check = True)
 
     if not isinstance(visualization_choice, type(None)):
         data_vis.visualiziations(visualization_choice)
