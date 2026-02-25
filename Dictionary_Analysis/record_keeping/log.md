@@ -188,3 +188,75 @@ Visualization Complete. Visualization Options:
                                         'Language_Origin_Pie_Chart', 
                                         'Origin_Dates_Bar_Chart' 
                                         'Origin_Dates_by_Language_Bar_Chart'
+[main fe2ac2d] Daily run for date: 2026-02-23
+ 5 files changed, 4383 insertions(+), 1 deletion(-)
+To github.com:paul-mcinnis91/public_projects.git
+   8095186..fe2ac2d  main -> main
+Current Call Count: 1000. Max usage is 1000 calls a day
+Visualization Complete. Visualization Options:
+                                        'Language_Origin_Pie_Chart', 
+                                        'Origin_Dates_Bar_Chart' 
+                                        'Origin_Dates_by_Language_Bar_Chart'
+Traceback (most recent call last):
+  File "/home/lutherius/public_projects/Dictionary_Analysis/bin/main.py", line 79, in <module>
+    visualization_dec = sys.argv[1]
+                        ~~~~~~~~^^^
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 705, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 388, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 1050, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 467, in connect
+    _match_hostname(cert, self.assert_hostname or server_hostname)
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 540, in _match_hostname
+    match_hostname(cert, asserted_hostname)
+  File "/usr/lib/python3/dist-packages/urllib3/util/ssl_match_hostname.py", line 155, in match_hostname
+    raise CertificateError("hostname %r doesn't match %r" % (hostname, dnsnames[0]))
+urllib3.util.ssl_match_hostname.CertificateError: hostname 'www.dictionaryapi.com' doesn't match 'walledgarden.wowway.com'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 789, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 594, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.dictionaryapi.com', port=443): Max retries exceeded with url: /api/v3/references/collegiate/json/chowders%0A?key=a3f3c8cb-520d-4265-9edf-f5af5fbe924c (Caused by SSLError(CertificateError("hostname 'www.dictionaryapi.com' doesn't match 'walledgarden.wowway.com'")))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lutherius/public_projects/Dictionary_Analysis/bin/main.py", line 82, in <module>
+    main(None)
+  File "/home/lutherius/public_projects/Dictionary_Analysis/bin/main.py", line 42, in main
+    word_json = dictionary_obj.pull_dictionary(word)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lutherius/public_projects/Dictionary_Analysis/bin/../src/dictionary_pull.py", line 37, in pull_dictionary
+    response = requests.get(url)
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.dictionaryapi.com', port=443): Max retries exceeded with url: /api/v3/references/collegiate/json/chowders%0A?key=a3f3c8cb-520d-4265-9edf-f5af5fbe924c (Caused by SSLError(CertificateError("hostname 'www.dictionaryapi.com' doesn't match 'walledgarden.wowway.com'")))
