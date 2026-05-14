@@ -1,6 +1,4 @@
-import json
 import os
-
 
 def get_current_dir() -> str:
     """Returns current directory file is running in.
@@ -28,18 +26,6 @@ def get_key(key_type) -> str:
     with open(pat_path) as pat_data:
         return pat_data.read()
 
-
-def get_downloads_directory() -> str:
-    """Function to get the absolute current downloads directory
-    
-    Args: None
-    
-    Returns: Absolute Path to current machine downloads directory"""
-
-    current_user = os.getlogin()
-    downloads_path = os.path.join("C:\\", "Users",  current_user, "Downloads")
-    return downloads_path
-
 def get_source_documents_directory() -> str:
     """Function to get the absolute source_documents directory
     
@@ -48,3 +34,4 @@ def get_source_documents_directory() -> str:
     Returns: absolute source_documents directory"""
     current_dir = get_current_dir()
     return os.path.abspath(os.path.join(current_dir, "..", "source_documents"))
+

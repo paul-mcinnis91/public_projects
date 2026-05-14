@@ -74226,6 +74226,15 @@
     "Origination Date": "before 12th centuryds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 35018,
+    "Word": "bishops\n",
+    "Etymology": "text Middle English itbisshopit from Old English itbisceopit from Late Latin itepiscopusit from Greek itepiskoposit literally overseer from itepiit  itskeptesthaiit to look mamatspyma",
+    "Origination Date": "before 12th centuryds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 35047,
     "Word": "bismarck\n",
     "Etymology": "Unknown",
@@ -75498,12 +75507,15 @@
     "Origination Date": "1944"
   },
   {
+<<<<<<< HEAD
     "Index": 35532,
     "Word": "blacklegged\n",
     "Etymology": "Unknown",
     "Origination Date": "1944"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 35536,
     "Word": "blacklegs\n",
     "Etymology": "Unknown",
@@ -77028,6 +77040,15 @@
     "Origination Date": "14th century"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 36017,
+    "Word": "blemishes\n",
+    "Etymology": "text Middle English itblemisshenit to damage injure sully from AngloFrench itblemissit stem of itblemir blesmirit from Old French literally to make pale by wounding of Germanic origin akin to Old High German itblasitros horse with a blaze Old Norse itblesiit blaze mamatblazema",
+    "Origination Date": "14th century"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 36018,
     "Word": "blemishing\n",
     "Etymology": "text Middle English itblemisshenit to damage injure sully from AngloFrench itblemissit stem of itblemir blesmirit from Old French literally to make pale by wounding of Germanic origin akin to Old High German itblasitros horse with a blaze Old Norse itblesiit blaze mamatblazema",
@@ -78438,12 +78459,15 @@
     "Origination Date": "Unknown"
   },
   {
+<<<<<<< HEAD
     "Index": 36530,
     "Word": "bloomsbury\n",
     "Etymology": "Unknown",
     "Origination Date": "Unknown"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 36532,
     "Word": "bloop\n",
     "Etymology": "text backformation from itblooperit",
@@ -80136,6 +80160,15 @@
     "Origination Date": "13th century"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 37014,
+    "Word": "boatman\n",
+    "Etymology": "Unknown",
+    "Origination Date": "13th century"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 37017,
     "Word": "boatmen\n",
     "Etymology": "Unknown",
@@ -80148,6 +80181,21 @@
     "Origination Date": "before 12th centuryds1a"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 37019,
+    "Word": "boats\n",
+    "Etymology": "text Middle English itbootit from Old English itbtit akin to Old Norse itbeitit boat",
+    "Origination Date": "before 12th centuryds1a"
+  },
+  {
+    "Index": 37019,
+    "Word": "boats\n",
+    "Etymology": "text Middle English itbootit from Old English itbtit akin to Old Norse itbeitit boat",
+    "Origination Date": "before 12th centuryds1a"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 37027,
     "Word": "boatswain\n",
     "Etymology": "text Middle English itbootsweinit from itbootit boat  itsweinit boy servant mamatswainma",
@@ -81462,12 +81510,15 @@
     "Origination Date": "14th century"
   },
   {
+<<<<<<< HEAD
     "Index": 37524,
     "Word": "bole\n",
     "Etymology": "text Middle English from Old Norse itbolrit",
     "Origination Date": "14th century"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 37531,
     "Word": "bolero\n",
     "Etymology": "text Spanish",
@@ -82794,6 +82845,15 @@
     "Origination Date": "1625ds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 38017,
+    "Word": "boodles\n",
+    "Etymology": "text Dutch itboedelit estate lot from Middle Dutch akin to Old Norse itbthit booth",
+    "Origination Date": "1625ds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 38019,
     "Word": "booed\n",
     "Etymology": "text derivative of etlinkboo2boo2",
@@ -84282,12 +84342,15 @@
     "Origination Date": "before 12th centurydst1a"
   },
   {
+<<<<<<< HEAD
     "Index": 38523,
     "Word": "borrowing\n",
     "Etymology": "text Middle English itborwenit from Old English itborgianit akin to Old English itbeorganit to preserve mamatburyma",
     "Origination Date": "before 12th centurydst1a"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 38524,
     "Word": "borrows\n",
     "Etymology": "text Middle English itborwenit from Old English itborgianit akin to Old English itbeorganit to preserve mamatburyma",
@@ -85686,6 +85749,15 @@
     "Origination Date": "1596ds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 39012,
+    "Word": "bourbons\n",
+    "Etymology": "text sense 1 after the lordship of itBourbonit in central France where the family originated sense 2 after French itrose de Bourbonit after the itle Bourbonit now etlinkrunionReuniong where the rose likely originated sense 3 probably after itBourbonit County Kentucky or its prestatehood predecessor a county of Virginia that included much of northeastern Kentucky sense 4 after the association of the itBourbonit dynasty with conservative royalist politics in France",
+    "Origination Date": "1596ds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 39019,
     "Word": "bourg\n",
     "Etymology": "text Middle English from AngloFrench itburc borgheit from Latin itburgusit fortified place of Germanic origin akin to Old High German itburgit fortified place mamatboroughma",
@@ -86778,12 +86850,15 @@
     "Origination Date": "1574ds1"
   },
   {
+<<<<<<< HEAD
     "Index": 39520,
     "Word": "brackets\n",
     "Etymology": "text perhaps from Middle French itbraguetteit codpiece from diminutive of itbragueit breeches from Old Occitan itbragait from Latin itbracait of Celtic origin mamatbreechma",
     "Origination Date": "1574ds1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 39525,
     "Word": "brackish\n",
     "Etymology": "text Dutch itbracit salty akin to Middle Low German itbracit salty",
@@ -87834,6 +87909,15 @@
     "Origination Date": "1673ds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 40011,
+    "Word": "brassbound\n",
+    "Etymology": "Unknown",
+    "Origination Date": "1673ds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 40014,
     "Word": "brassed\n",
     "Etymology": "Unknown",
@@ -89376,12 +89460,15 @@
     "Origination Date": "1542ds1"
   },
   {
+<<<<<<< HEAD
     "Index": 40519,
     "Word": "brewages\n",
     "Etymology": "Unknown",
     "Origination Date": "1542ds1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 40520,
     "Word": "brewed\n",
     "Etymology": "text Middle English from Old English itbrowanit akin to Latin itfervreit to boil mamatbarmma",
@@ -90762,6 +90849,15 @@
     "Origination Date": "1945"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 41010,
+    "Word": "brittany\n",
+    "Etymology": "text itBrittanyit region in France",
+    "Origination Date": "1945"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 41011,
     "Word": "britten\n",
     "Etymology": "Unknown",
@@ -91908,12 +92004,15 @@
     "Origination Date": "1807"
   },
   {
+<<<<<<< HEAD
     "Index": 41518,
     "Word": "brooklets\n",
     "Etymology": "Unknown",
     "Origination Date": "1807"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 41521,
     "Word": "brooklyn\n",
     "Etymology": "Unknown",
@@ -93084,6 +93183,15 @@
     "Origination Date": "Unknown"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 42009,
+    "Word": "buchanan\n",
+    "Etymology": "Unknown",
+    "Origination Date": "Unknown"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 42011,
     "Word": "bucharest\n",
     "Etymology": "Unknown",
@@ -94506,12 +94614,15 @@
     "Origination Date": "1905"
   },
   {
+<<<<<<< HEAD
     "Index": 42514,
     "Word": "bulldogging\n",
     "Etymology": "Unknown",
     "Origination Date": "1905"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 42519,
     "Word": "bulldogs\n",
     "Etymology": "Unknown",
@@ -95928,6 +96039,15 @@
     "Origination Date": "15th century"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 43008,
+    "Word": "burdock\n",
+    "Etymology": "Unknown",
+    "Origination Date": "15th century"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 43009,
     "Word": "burdocks\n",
     "Etymology": "Unknown",
@@ -97548,12 +97668,15 @@
     "Origination Date": "circa 1909dsi1"
   },
   {
+<<<<<<< HEAD
     "Index": 43512,
     "Word": "bussed\n",
     "Etymology": "text dxetysee dxtbus1dxety",
     "Origination Date": "circa 1909dsi1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 43514,
     "Word": "busses\n",
     "Etymology": "text short for itomnibusit",
@@ -98880,6 +99003,15 @@
     "Origination Date": "1801ds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 44001,
+    "Word": "cabotages\n",
+    "Etymology": "text French from itcaboterit to sail along the coast",
+    "Origination Date": "1801ds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 44014,
     "Word": "cabretta\n",
     "Etymology": "text perhaps borrowed from Spanish or Portuguese itcabrait goat  itettait variant of etlinketteette as a commercial name for imitations of natural fabrics as etlinkleatheretteleatherette mamatcabrillama etsnote t The history of this name which first appears in commercial transactions in the 1890s is obscure The leather called itcabrettait does not appear to ever have been made from goatskin",
@@ -99840,12 +99972,15 @@
     "Origination Date": "1577ds1"
   },
   {
+<<<<<<< HEAD
     "Index": 44511,
     "Word": "caged\n",
     "Etymology": "text derivative of etlinkcage1cage1",
     "Origination Date": "1577ds1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 44512,
     "Word": "cageful\n",
     "Etymology": "text Middle English borrowed from AngloFrench going back to Latin itcaveait enclosure for poultry cage auditorium of a theater of uncertain origin etsnote t Latin itcaveait is usually taken to be a noun derivative of an unattested adjective itcaveusit from itcavusit hollow concave see etlinkcave1cave1 etlinkhole1hole1 the sense something hollow cavity being extended to enclosed space and then enclosure however iteusit is normally a denominal suffix meaning made of see etlinkeouseous so that the resulting sense of the derivative is not clear Perhaps of relevance is the suffix of italveusit trough hull channel see etlinkalveolusalveolus",
@@ -100908,6 +101043,15 @@
     "Origination Date": "circa 1681"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 44998,
+    "Word": "calefactories\n",
+    "Etymology": "text Medieval Latin itcalefactoriumit from Latin itcalefacereit to warm mamatchafema",
+    "Origination Date": "circa 1681"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 45007,
     "Word": "calendar\n",
     "Etymology": "text Middle English itkalendarit borrowed from AngloFrench borrowed from Medieval Latin itkalendriumit going back to Latin book in which monthly interest on loans due on the first of the month was recorded account book ledger from itkalendaeit etlinkcalendscalends  itriumit etlinkary1ary1",
@@ -102066,12 +102210,15 @@
     "Origination Date": "1729"
   },
   {
+<<<<<<< HEAD
     "Index": 45509,
     "Word": "calvarium\n",
     "Etymology": "text New Latin from Latin itcalvariait skull from itcalvusit bald probably akin to Sanskrit itkulvait bald",
     "Origination Date": "1729"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 45511,
     "Word": "calve\n",
     "Etymology": "text Middle English itcalvenit going back to Old English Anglian itcalfianit West Saxon itcealfianit derivative of itclf cealfit etlinkcalf1calf1",
@@ -103092,6 +103239,15 @@
     "Origination Date": "15th centuryds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 45997,
+    "Word": "canal\n",
+    "Etymology": "text Middle English from Latin itcanalisit pipe channel from itcannait reed mamatcanema",
+    "Origination Date": "15th centuryds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 46002,
     "Word": "canaled\n",
     "Etymology": "Unknown",
@@ -104394,12 +104550,15 @@
     "Origination Date": "14th centuryds1"
   },
   {
+<<<<<<< HEAD
     "Index": 46508,
     "Word": "canonizations\n",
     "Etymology": "text Middle English from Medieval Latin itcanonizareit from Late Latin itcanonit catalog of saints from Latin standard",
     "Origination Date": "14th centuryds1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 46509,
     "Word": "canonize\n",
     "Etymology": "text Middle English from Medieval Latin itcanonizareit from Late Latin itcanonit catalog of saints from Latin standard",
@@ -105714,6 +105873,15 @@
     "Origination Date": "Unknown"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 46989,
+    "Word": "capone\n",
+    "Etymology": "Unknown",
+    "Origination Date": "Unknown"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 47006,
     "Word": "capons\n",
     "Etymology": "text Middle English from Old English itcapnit probably from Old French itcapon chapunit from Latin itcapon capoit akin to Lithuanian itkapotiit to mince Greek itkopteinit to cut",
@@ -106962,12 +107130,15 @@
     "Origination Date": "1788"
   },
   {
+<<<<<<< HEAD
     "Index": 47507,
     "Word": "carbonate\n",
     "Etymology": "Unknown",
     "Origination Date": "1788"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 47508,
     "Word": "carbonated\n",
     "Etymology": "Unknown",
@@ -108036,6 +108207,15 @@
     "Origination Date": "Unknown"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 47988,
+    "Word": "cary\n",
+    "Etymology": "text New Latin from Greek itkaryonit nut mamatcareenma",
+    "Origination Date": "Unknown"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 47994,
     "Word": "carian\n",
     "Etymology": "Unknown",
@@ -109230,12 +109410,15 @@
     "Origination Date": "14th centuryds1a"
   },
   {
+<<<<<<< HEAD
     "Index": 48504,
     "Word": "carriage\n",
     "Etymology": "text Middle English itcariage carrageit act of transporting conveyances collectively vehicle burden baggage borrowed from AngloFrench transporting means of transport baggage train from itcarier charierit to transport etlinkcarry1carry1  itageit etlinkageage",
     "Origination Date": "14th centuryds1a"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 48508,
     "Word": "carriages\n",
     "Etymology": "text Middle English itcariage carrageit act of transporting conveyances collectively vehicle burden baggage borrowed from AngloFrench transporting means of transport baggage train from itcarier charierit to transport etlinkcarry1carry1  itageit etlinkageage",
@@ -110502,6 +110685,15 @@
     "Origination Date": "1774"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 48982,
+    "Word": "cassimere\n",
+    "Etymology": "text obsolete itCassimereit Kashmir",
+    "Origination Date": "1774"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 48988,
     "Word": "cassino\n",
     "Etymology": "text Italian from itcasait house from Latin cottage",
@@ -111876,12 +112068,15 @@
     "Origination Date": "1564"
   },
   {
+<<<<<<< HEAD
     "Index": 49503,
     "Word": "catechists\n",
     "Etymology": "Unknown",
     "Origination Date": "1564"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 49505,
     "Word": "catechization\n",
     "Etymology": "text Late Latin itcatechizareit from Greek itkatcheinit to teach literally to din into from itkatait cata  itcheinit to resound from itchit sound mamatechoma",
@@ -113046,6 +113241,15 @@
     "Origination Date": "1756"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 49978,
+    "Word": "cauline\n",
+    "Etymology": "text probably from New Latin itcaulinusit from Latin itcaulisit",
+    "Origination Date": "1756"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 49982,
     "Word": "caulk\n",
     "Etymology": "text Middle English itcaulkenit from AngloFrench itcauker calcher chalcherit to trample from Latin itcalcareit from itcalc calxit heel",
@@ -114396,12 +114600,15 @@
     "Origination Date": "1646ds1"
   },
   {
+<<<<<<< HEAD
     "Index": 50502,
     "Word": "celibacy\n",
     "Etymology": "text itcelibitate state of not being married borrowed from Latin itcaelibtusit from itcaelebsit not having a spouse unmarried  ittusit etlinkate2ate2  etlinkacyacy mamatcelibate1ma",
     "Origination Date": "1646ds1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 50503,
     "Word": "celibacies\n",
     "Etymology": "text itcelibitate state of not being married borrowed from Latin itcaelibtusit from itcaelebsit not having a spouse unmarried  ittusit etlinkate2ate2  etlinkacyacy mamatcelibate1ma",
@@ -115530,6 +115737,15 @@
     "Origination Date": "1709ds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 50976,
+    "Word": "centrifugal\n",
+    "Etymology": "text New Latin itcentrifugusit from itcentrit  Latin itfugereit to flee mamatfugitivema",
+    "Origination Date": "1709ds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 50984,
     "Word": "centrifugally\n",
     "Etymology": "text New Latin itcentrifugusit from itcentrit  Latin itfugereit to flee mamatfugitivema",
@@ -116238,12 +116454,15 @@
     "Origination Date": "15th century"
   },
   {
+<<<<<<< HEAD
     "Index": 51497,
     "Word": "cering\n",
     "Etymology": "text Middle English to impregnate with wax from Middle French itcirerit from Latin itcerareit from itcerait",
     "Origination Date": "15th century"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 51507,
     "Word": "cerise\n",
     "Etymology": "text French literally cherry from Late Latin itceresiait mamatcherryma",
@@ -117144,6 +117363,15 @@
     "Origination Date": "14th centuryds1a"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 51972,
+    "Word": "chain\n",
+    "Etymology": "text Middle English itcheyneit from AngloFrench itchaeneit from Latin itcatenait",
+    "Origination Date": "14th centuryds1a"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 51976,
     "Word": "chaine\n",
     "Etymology": "text French from past participle of itchanerit to chain",
@@ -118356,12 +118584,15 @@
     "Origination Date": "13th centurydst2"
   },
   {
+<<<<<<< HEAD
     "Index": 52495,
     "Word": "changing\n",
     "Etymology": "text Middle English from AngloFrench itchangerit from Latin itcambiareit to exchange probably of Celtic origin akin to Old Irish itcammit crooked",
     "Origination Date": "13th centurydst2"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 52504,
     "Word": "channel\n",
     "Etymology": "text Middle English itchanelit from AngloFrench from Latin itcanalisit channel mamatcanalma",
@@ -119115,13 +119346,21 @@
     "Index": 52781,
     "Word": "charcuterie\n",
     "Etymology": "text French literally porkbutchers shop from Middle French itchaircuiterieit from itchaircutierit pork butcher from itchair cuiteit cooked meat",
+<<<<<<< HEAD
     "Origination Date": "1825ds1a"
+=======
+    "Origination Date": "1825"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 52782,
     "Word": "charcuteries\n",
     "Etymology": "text French literally porkbutchers shop from Middle French itchaircuiterieit from itchaircutierit pork butcher from itchair cuiteit cooked meat",
+<<<<<<< HEAD
     "Origination Date": "1825ds1a"
+=======
+    "Origination Date": "1825"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 52785,
@@ -119622,6 +119861,15 @@
     "Origination Date": "15th centuryds1a"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 52970,
+    "Word": "charterers\n",
+    "Etymology": "text dxetysee dxtcharter1dxety",
+    "Origination Date": "15th centuryds1a"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 52972,
     "Word": "chartering\n",
     "Etymology": "text dxetysee dxtcharter1dxety",
@@ -120387,7 +120635,11 @@
     "Index": 53272,
     "Word": "cheapjack\n",
     "Etymology": "text itcheapit  the name itJackit",
+<<<<<<< HEAD
     "Origination Date": "1818ds1"
+=======
+    "Origination Date": "1851ds1"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 53273,
@@ -121002,12 +121254,15 @@
     "Origination Date": "before 12th centuryds1a"
   },
   {
+<<<<<<< HEAD
     "Index": 53474,
     "Word": "cheeseboard\n",
     "Etymology": "Unknown",
     "Origination Date": "1963"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 53476,
     "Word": "cheeseburger\n",
     "Etymology": "text itcheeseit  hamitburgerit",
@@ -121056,12 +121311,15 @@
     "Origination Date": "12th century"
   },
   {
+<<<<<<< HEAD
     "Index": 53490,
     "Word": "cheesemonger\n",
     "Etymology": "text Middle English itchesemangere chesemongerit in AngloFrench  Latin contexts from itcheseit etlinkcheese1cheese1  itmangere mongerit etlinkmonger1monger1",
     "Origination Date": "12th century"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 53495,
     "Word": "cheeseparing\n",
     "Etymology": "Unknown",
@@ -121962,6 +122220,15 @@
     "Origination Date": "1973"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 53962,
+    "Word": "chetrums\n",
+    "Etymology": "text Tibetan",
+    "Origination Date": "1973"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 53971,
     "Word": "cheval\n",
     "Etymology": "text borrowed from French literally on horseback",
@@ -122637,13 +122904,21 @@
     "Index": 54217,
     "Word": "chiefs\n",
     "Etymology": "text Middle English from AngloFrench itchief chefit head chief from Latin itcaputit head mamatheadma",
+<<<<<<< HEAD
     "Origination Date": "1586ds1"
+=======
+    "Origination Date": "15th centuryds1"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 54218,
     "Word": "chiefship\n",
     "Etymology": "text Middle English from AngloFrench itchief chefit head chief from Latin itcaputit head mamatheadma",
+<<<<<<< HEAD
     "Origination Date": "1586ds1"
+=======
+    "Origination Date": "15th centuryds1"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 54219,
@@ -123270,12 +123545,15 @@
     "Origination Date": "1638ds1"
   },
   {
+<<<<<<< HEAD
     "Index": 54488,
     "Word": "chimerically\n",
     "Etymology": "text itchimerait",
     "Origination Date": "1638ds1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 54490,
     "Word": "chimerism\n",
     "Etymology": "Unknown",
@@ -124254,6 +124532,15 @@
     "Origination Date": "14th centuryds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 54952,
+    "Word": "chivalrousness\n",
+    "Etymology": "text Middle English itchivalerous chevalrous chyvalrousit excelling in warfare valiant exemplifying the ideals of chivalry borrowed from AngloFrench itchevalerus chevalrousit continental Old French itchevalerousit from itchevalerieit body of knights serving an overlord etlinkchivalrychivalry  itus ousit etlinkousous etsnote t As noted by the itOxford English Dictionaryit first edition itchivalrousit was apparently obsolescent by the mideighteenth century Samuel Johnson in his dictionary 1755 has only a citation from Edmund Spensers itThe Faerie Queeneit 1590 and remarks a word now out of use It was revived in the later eighteenth and nineteenth centuries by Romanticism and a renewed interest in the Middle Ages The pronunciation of this word and etlinkchivalrychivalry with sh rather than ch as if they were taken from Modern French presumably arose at that period",
+    "Origination Date": "14th centuryds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 54966,
     "Word": "chive\n",
     "Etymology": "text Middle English from AngloFrench from Latin itcepait onion",
@@ -124743,7 +125030,11 @@
     "Index": 55285,
     "Word": "chocolate\n",
     "Etymology": "text Spanish from Nahuatl itchocoltlit probably an alteration of eastern Nahuatl dialect itchikoltlit from itchikolliit hook probably used to refer to the beater used to mix chocolate with water  ittlit water liquid",
+<<<<<<< HEAD
     "Origination Date": "1604ds3"
+=======
+    "Origination Date": "1604ds1"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 55286,
@@ -124755,7 +125046,11 @@
     "Index": 55287,
     "Word": "chocolates\n",
     "Etymology": "text Spanish from Nahuatl itchocoltlit probably an alteration of eastern Nahuatl dialect itchikoltlit from itchikolliit hook probably used to refer to the beater used to mix chocolate with water  ittlit water liquid",
+<<<<<<< HEAD
     "Origination Date": "1604ds3"
+=======
+    "Origination Date": "1604ds1"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 55288,
@@ -125082,12 +125377,15 @@
     "Origination Date": "1894"
   },
   {
+<<<<<<< HEAD
     "Index": 55477,
     "Word": "cholesterol\n",
     "Etymology": "text International Scientific Vocabulary from itcholit  Greek itstereosit solid",
     "Origination Date": "1894"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 55488,
     "Word": "cholic\n",
     "Etymology": "text Greek itcholikosit bilious from itcholit",
@@ -125988,6 +126286,15 @@
     "Origination Date": "1751"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 55951,
+    "Word": "chowders\n",
+    "Etymology": "text French itchaudireit kettle contents of a kettle from Late Latin itcaldariait mamatcauldronma",
+    "Origination Date": "1751"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 55952,
     "Word": "chowed\n",
     "Etymology": "Unknown",
@@ -126972,12 +127279,15 @@
     "Origination Date": "1830"
   },
   {
+<<<<<<< HEAD
     "Index": 56466,
     "Word": "chronometrically\n",
     "Etymology": "text etlinkchronometerchronometer or etlinkchronometrychronometry  etlinkic1ic1",
     "Origination Date": "1830"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 56495,
     "Word": "chthonian\n",
     "Etymology": "text Greek itchthon chthnit earth mamathumblema",
@@ -127986,6 +128296,15 @@
     "Origination Date": "1951"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 56950,
+    "Word": "cybernetician\n",
+    "Etymology": "Unknown",
+    "Origination Date": "1951"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 56951,
     "Word": "cyberneticist\n",
     "Etymology": "Unknown",
@@ -128079,13 +128398,21 @@
     "Index": 56997,
     "Word": "cicala\n",
     "Etymology": "text Italian from Medieval Latin alteration of Latin itcicadait",
+<<<<<<< HEAD
     "Origination Date": "1791"
+=======
+    "Origination Date": "1794"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 56998,
     "Word": "cicalas\n",
     "Etymology": "text Italian from Medieval Latin alteration of Latin itcicadait",
+<<<<<<< HEAD
     "Origination Date": "1791"
+=======
+    "Origination Date": "1794"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 57002,
@@ -128940,12 +129267,15 @@
     "Origination Date": "before 12th century"
   },
   {
+<<<<<<< HEAD
     "Index": 57464,
     "Word": "cymbal\n",
     "Etymology": "text Middle English from Old English itcymbalit  AngloFrench itcymbeleit from Latin itcymbalumit from Greek itkymbalonit from itkymbit bowl boat",
     "Origination Date": "before 12th century"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 57471,
     "Word": "cymbalist\n",
     "Etymology": "text Middle English from Old English itcymbalit  AngloFrench itcymbeleit from Latin itcymbalumit from Greek itkymbalonit from itkymbit bowl boat",
@@ -129231,7 +129561,11 @@
     "Index": 57668,
     "Word": "cinematograph\n",
     "Etymology": "text French itcinmatographeit from Greek itkinmat kinmait movement from itkineinit to move  French itoit  itgrapheit graph mamatkinesisma",
+<<<<<<< HEAD
     "Origination Date": "1895"
+=======
+    "Origination Date": "1896"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 57669,
@@ -129602,12 +129936,18 @@
   {
     "Index": 57926,
     "Word": "cypriot\n",
+<<<<<<< HEAD
     "Etymology": "text borrowed from French itchypriote cyprioteit from itchyprioteit noun from itChypreit Cyprus  itioteit borrowed from Greek ititsit from itiosit suffix of appurtenance  ittsit extended form of ittsit personal suffix",
     "Origination Date": "1878"
+=======
+    "Etymology": "Unknown",
+    "Origination Date": "Unknown"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 57927,
     "Word": "cypriote\n",
+<<<<<<< HEAD
     "Etymology": "text borrowed from French itchypriote cyprioteit from itchyprioteit noun from itChypreit Cyprus  itioteit borrowed from Greek ititsit from itiosit suffix of appurtenance  ittsit extended form of ittsit personal suffix",
     "Origination Date": "1878"
   },
@@ -129622,6 +129962,10 @@
     "Word": "cypriots\n",
     "Etymology": "text borrowed from French itchypriote cyprioteit from itchyprioteit noun from itChypreit Cyprus  itioteit borrowed from Greek ititsit from itiosit suffix of appurtenance  ittsit extended form of ittsit personal suffix",
     "Origination Date": "1878"
+=======
+    "Etymology": "Unknown",
+    "Origination Date": "Unknown"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 57931,
@@ -129648,6 +129992,15 @@
     "Origination Date": "Unknown"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 57935,
+    "Word": "cyprus\n",
+    "Etymology": "Unknown",
+    "Origination Date": "Unknown"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 57952,
     "Word": "cir\n",
     "Etymology": "Unknown",
@@ -130644,12 +130997,15 @@
     "Origination Date": "circa 1860"
   },
   {
+<<<<<<< HEAD
     "Index": 58463,
     "Word": "cisternal\n",
     "Etymology": "text New Latin from Latin reservoir",
     "Origination Date": "circa 1860"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 58464,
     "Word": "cisterns\n",
     "Etymology": "text Middle English from Latin itcisternait from itcistait box chest mamatchestma",
@@ -131568,6 +131924,15 @@
     "Origination Date": "1533ds2"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 58934,
+    "Word": "civilities\n",
+    "Etymology": "text dxetysee dxtcivildxety",
+    "Origination Date": "1533ds2"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 58937,
     "Word": "civilization\n",
     "Etymology": "text dxetysee dxtcivildxety",
@@ -133092,12 +133457,15 @@
     "Origination Date": "1906"
   },
   {
+<<<<<<< HEAD
     "Index": 59456,
     "Word": "clathrate\n",
     "Etymology": "text Latin itclathratusit furnished with a lattice from itclathriit plural lattice from Greek itklithronit bar from itkleieinit to close mamatclaviclema",
     "Origination Date": "1906"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 59464,
     "Word": "clatter\n",
     "Etymology": "text Middle English itclatrenit from Old English itclatrianit of imitative origin",
@@ -134352,6 +134720,15 @@
     "Origination Date": "before 12th century"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 59931,
+    "Word": "cliffiest\n",
+    "Etymology": "text Middle English itclifit from Old English akin to Old High German itklepit cliff Old Norse itklifit",
+    "Origination Date": "before 12th century"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 59936,
     "Word": "clifford\n",
     "Etymology": "Unknown",
@@ -135678,12 +136055,15 @@
     "Origination Date": "14th centuryds14a"
   },
   {
+<<<<<<< HEAD
     "Index": 60455,
     "Word": "closer\n",
     "Etymology": "text Middle English itclosit from AngloFrench from Latin itclaususit past participle of itclaudereit dxetysee dxtclose1dxety",
     "Origination Date": "14th centuryds14a"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 60456,
     "Word": "closers\n",
     "Etymology": "Unknown",
@@ -136155,7 +136535,11 @@
     "Index": 60598,
     "Word": "clown\n",
     "Etymology": "text probably of Low German origin akin to Frisian itklnneit clumsy fellow Old English itclyneit lump of metal",
+<<<<<<< HEAD
     "Origination Date": "circa 1552ds3"
+=======
+    "Origination Date": "circa 1552ds1"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 60601,
@@ -136203,7 +136587,11 @@
     "Index": 60609,
     "Word": "clowns\n",
     "Etymology": "text probably of Low German origin akin to Frisian itklnneit clumsy fellow Old English itclyneit lump of metal",
+<<<<<<< HEAD
     "Origination Date": "circa 1552ds3"
+=======
+    "Origination Date": "circa 1552ds1"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 60613,
@@ -136908,6 +137296,15 @@
     "Origination Date": "15th centurydst1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 60930,
+    "Word": "coagulated\n",
+    "Etymology": "text Latin itcoagulatusit past participle of itcoagulareit to curdle from itcoagulumit curdling agent from itcogereit to drive together mamatcogentma",
+    "Origination Date": "15th centurydst1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 60931,
     "Word": "coagulates\n",
     "Etymology": "text Latin itcoagulatusit past participle of itcoagulareit to curdle from itcoagulumit curdling agent from itcogereit to drive together mamatcogentma",
@@ -137994,12 +138391,15 @@
     "Origination Date": "1962"
   },
   {
+<<<<<<< HEAD
     "Index": 61453,
     "Word": "cockamamie\n",
     "Etymology": "text perhaps alteration of itdecalcomaniait",
     "Origination Date": "1962"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 61456,
     "Word": "cockapoo\n",
     "Etymology": "text alteration of itcockerit itspanielit  itpooitdle",
@@ -138560,8 +138960,13 @@
   {
     "Index": 61675,
     "Word": "codas\n",
+<<<<<<< HEAD
     "Etymology": "text itcithild itoitf itditeaf itaitdults",
     "Origination Date": "1991"
+=======
+    "Etymology": "text Italian literally tail from Latin itcaudait",
+    "Origination Date": "1740ds1a"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 61678,
@@ -138570,12 +138975,15 @@
     "Origination Date": "Unknown"
   },
   {
+<<<<<<< HEAD
     "Index": 61679,
     "Word": "codders\n",
     "Etymology": "Unknown",
     "Origination Date": "Unknown"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 61682,
     "Word": "coddle\n",
     "Etymology": "text perhaps altered from itcaudleit to administer a caudle to verbal derivative of etlinkcaudlecaudle  etsnote t The meaning to pamper earlier to treat as if in need of nursing attested from the second half of the 18th century cannot be related with certainty to the cooking sense and may be of distinct origin",
@@ -138644,8 +139052,13 @@
   {
     "Index": 61699,
     "Word": "coded\n",
+<<<<<<< HEAD
     "Etymology": "text backformation from etlinkvibe codingvibe coding",
     "Origination Date": "2025"
+=======
+    "Etymology": "Unknown",
+    "Origination Date": "1815dst"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 61700,
@@ -138842,6 +139255,7 @@
   {
     "Index": 61772,
     "Word": "coding\n",
+<<<<<<< HEAD
     "Etymology": "text etlinkcode2code2  etlinking1ing1",
     "Origination Date": "1947"
   },
@@ -138850,6 +139264,10 @@
     "Word": "codings\n",
     "Etymology": "text etlinkcode2code2  etlinking1ing1",
     "Origination Date": "1947"
+=======
+    "Etymology": "Unknown",
+    "Origination Date": "1815dst"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 61775,
@@ -139122,6 +139540,15 @@
     "Origination Date": "1875"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 61904,
+    "Word": "coeloms\n",
+    "Etymology": "text German from Greek itkoilmait cavity from itkoilosit",
+    "Origination Date": "1875"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 61976,
     "Word": "coeno\n",
     "Etymology": "text New Latin from Greek itkoin koinoit from itkoinosit",
@@ -140250,12 +140677,15 @@
     "Origination Date": "1605"
   },
   {
+<<<<<<< HEAD
     "Index": 62447,
     "Word": "coign\n",
     "Etymology": "text itcoignit earlier spelling of etlinkcoin1coin1 in sense corner",
     "Origination Date": "1605"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 62453,
     "Word": "coigns\n",
     "Etymology": "text itcoignit earlier spelling of etlinkcoin1coin1 in sense corner",
@@ -141213,13 +141643,21 @@
     "Index": 62843,
     "Word": "collard\n",
     "Etymology": "text alteration of itcolewortit",
+<<<<<<< HEAD
     "Origination Date": "1795"
+=======
+    "Origination Date": "1755"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62844,
     "Word": "collards\n",
     "Etymology": "text alteration of itcolewortit",
+<<<<<<< HEAD
     "Origination Date": "1795"
+=======
+    "Origination Date": "1755"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62846,
@@ -141438,6 +141876,15 @@
     "Origination Date": "14th centuryds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 62901,
+    "Word": "collection\n",
+    "Etymology": "text Middle English itcolleccioun collectionit borrowed from AngloFrench itcollectionit borrowed from Latin itcollctin collctiit bringing together accumulation from itcollegit variant stem of itcolligereit to gather together assemble accumulate pull oneself together  ittin tiit suffix of verbal action mamatcollect2ma",
+    "Origination Date": "14th centuryds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 62904,
     "Word": "collections\n",
     "Etymology": "text Middle English itcolleccioun collectionit borrowed from AngloFrench itcollectionit borrowed from Latin itcollctin collctiit bringing together accumulation from itcollegit variant stem of itcolligereit to gather together assemble accumulate pull oneself together  ittin tiit suffix of verbal action mamatcollect2ma",
@@ -141705,25 +142152,41 @@
     "Index": 62992,
     "Word": "collide\n",
     "Etymology": "text Latin itcollidereit from itcomit  itlaedereit to injure by striking",
+<<<<<<< HEAD
     "Origination Date": "1646ds1"
+=======
+    "Origination Date": "1700ds1"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62993,
     "Word": "collided\n",
     "Etymology": "text Latin itcollidereit from itcomit  itlaedereit to injure by striking",
+<<<<<<< HEAD
     "Origination Date": "1646ds1"
+=======
+    "Origination Date": "1700ds1"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62994,
     "Word": "collides\n",
     "Etymology": "text Latin itcollidereit from itcomit  itlaedereit to injure by striking",
+<<<<<<< HEAD
     "Origination Date": "1646ds1"
+=======
+    "Origination Date": "1700ds1"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62997,
     "Word": "colliding\n",
     "Etymology": "text Latin itcollidereit from itcomit  itlaedereit to injure by striking",
+<<<<<<< HEAD
     "Origination Date": "1646ds1"
+=======
+    "Origination Date": "1700ds1"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62998,
@@ -141998,25 +142461,41 @@
   {
     "Index": 63094,
     "Word": "colloid\n",
+<<<<<<< HEAD
     "Etymology": "text noun derivative of itcolloidit adjective pertaining to colloidal tissue probably borrowed from New Latin itcollodsit literally gluelike from Greek itkllait glue  New Latin itodsit etlinkoid2oid2 mamatprotocolma",
+=======
+    "Etymology": "text International Scientific Vocabulary itcollit  itoidit",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "circa 1852ds1"
   },
   {
     "Index": 63095,
     "Word": "colloidal\n",
+<<<<<<< HEAD
     "Etymology": "text noun derivative of itcolloidit adjective pertaining to colloidal tissue probably borrowed from New Latin itcollodsit literally gluelike from Greek itkllait glue  New Latin itodsit etlinkoid2oid2 mamatprotocolma",
+=======
+    "Etymology": "text International Scientific Vocabulary itcollit  itoidit",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "circa 1852ds1"
   },
   {
     "Index": 63097,
     "Word": "colloidally\n",
+<<<<<<< HEAD
     "Etymology": "text noun derivative of itcolloidit adjective pertaining to colloidal tissue probably borrowed from New Latin itcollodsit literally gluelike from Greek itkllait glue  New Latin itodsit etlinkoid2oid2 mamatprotocolma",
+=======
+    "Etymology": "text International Scientific Vocabulary itcollit  itoidit",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "circa 1852ds1"
   },
   {
     "Index": 63101,
     "Word": "colloids\n",
+<<<<<<< HEAD
     "Etymology": "text noun derivative of itcolloidit adjective pertaining to colloidal tissue probably borrowed from New Latin itcollodsit literally gluelike from Greek itkllait glue  New Latin itodsit etlinkoid2oid2 mamatprotocolma",
+=======
+    "Etymology": "text International Scientific Vocabulary itcollit  itoidit",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "circa 1852ds1"
   },
   {
@@ -142040,115 +142519,191 @@
   {
     "Index": 63111,
     "Word": "colloquy\n",
+<<<<<<< HEAD
     "Etymology": "text Middle English itcolloquieit discourse borrowed from Latin itcolloquiumit talk conversation conference discussion from itcolloquor colloquit to talk converse discuss from itcolit etlinkcolcom  itloquit to talk speak  itiumit suffix of deverbal compounds mamateloquentma",
+=======
+    "Etymology": "text Latin itcolloquiumit from itcolloquiit to converse from itcomit  itloquiit to speak",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "15th centuryds1"
   },
   {
     "Index": 63112,
     "Word": "colloquia\n",
+<<<<<<< HEAD
     "Etymology": "text borrowed from Latin talk conversation conference discussion mamatcolloquyma",
+=======
+    "Etymology": "text Latin colloquy",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1844"
   },
   {
     "Index": 63113,
     "Word": "colloquial\n",
+<<<<<<< HEAD
     "Etymology": "text  etlinkcolloquycolloquy or its source Latin itcolloquiumit  etlinkal1al1",
+=======
+    "Etymology": "text dxetysee dxtcolloquydxety",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1751ds2"
   },
   {
     "Index": 63114,
     "Word": "colloquialism\n",
+<<<<<<< HEAD
     "Etymology": "text  etlinkcolloquialcolloquial  etlinkismism",
+=======
+    "Etymology": "text dxetysee dxtcolloquydxety",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1810ds1a"
   },
   {
     "Index": 63115,
     "Word": "colloquialisms\n",
+<<<<<<< HEAD
     "Etymology": "text  etlinkcolloquialcolloquial  etlinkismism",
+=======
+    "Etymology": "text dxetysee dxtcolloquydxety",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1810ds1a"
   },
   {
     "Index": 63117,
     "Word": "colloquiality\n",
+<<<<<<< HEAD
     "Etymology": "text  etlinkcolloquycolloquy or its source Latin itcolloquiumit  etlinkal1al1",
+=======
+    "Etymology": "text dxetysee dxtcolloquydxety",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1751ds2"
   },
   {
     "Index": 63120,
     "Word": "colloquially\n",
+<<<<<<< HEAD
     "Etymology": "text  etlinkcolloquycolloquy or its source Latin itcolloquiumit  etlinkal1al1",
+=======
+    "Etymology": "text dxetysee dxtcolloquydxety",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1751ds2"
   },
   {
     "Index": 63122,
     "Word": "colloquies\n",
+<<<<<<< HEAD
     "Etymology": "text Middle English itcolloquieit discourse borrowed from Latin itcolloquiumit talk conversation conference discussion from itcolloquor colloquit to talk converse discuss from itcolit etlinkcolcom  itloquit to talk speak  itiumit suffix of deverbal compounds mamateloquentma",
+=======
+    "Etymology": "text Latin itcolloquiumit from itcolloquiit to converse from itcomit  itloquiit to speak",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "15th centuryds1"
   },
   {
     "Index": 63125,
     "Word": "colloquist\n",
+<<<<<<< HEAD
     "Etymology": "text etlinkcolloquycolloquy  etlinkist1ist1",
+=======
+    "Etymology": "Unknown",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1792"
   },
   {
     "Index": 63126,
     "Word": "colloquium\n",
+<<<<<<< HEAD
     "Etymology": "text borrowed from Latin talk conversation conference discussion mamatcolloquyma",
+=======
+    "Etymology": "text Latin colloquy",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1844"
   },
   {
     "Index": 63127,
     "Word": "colloquiums\n",
+<<<<<<< HEAD
     "Etymology": "text borrowed from Latin talk conversation conference discussion mamatcolloquyma",
+=======
+    "Etymology": "text Latin colloquy",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1844"
   },
   {
     "Index": 63134,
     "Word": "collotype\n",
+<<<<<<< HEAD
     "Etymology": "text  etlinkcollocoll  etlinktype1type1",
+=======
+    "Etymology": "text International Scientific Vocabulary",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1881ds1"
   },
   {
     "Index": 63142,
     "Word": "collude\n",
+<<<<<<< HEAD
     "Etymology": "text borrowed from Latin itcolldereit to play with make sport in law act in collusion with from itcolit etlinkcolcom  itldereit to play mamatludicrousma",
+=======
+    "Etymology": "text Latin itcolludereit from itcomit  itludereit to play from itludusit game mamatludicrousma",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1525"
   },
   {
     "Index": 63143,
     "Word": "colluded\n",
+<<<<<<< HEAD
     "Etymology": "text borrowed from Latin itcolldereit to play with make sport in law act in collusion with from itcolit etlinkcolcom  itldereit to play mamatludicrousma",
+=======
+    "Etymology": "text Latin itcolludereit from itcomit  itludereit to play from itludusit game mamatludicrousma",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1525"
   },
   {
     "Index": 63146,
     "Word": "colludes\n",
+<<<<<<< HEAD
     "Etymology": "text borrowed from Latin itcolldereit to play with make sport in law act in collusion with from itcolit etlinkcolcom  itldereit to play mamatludicrousma",
+=======
+    "Etymology": "text Latin itcolludereit from itcomit  itludereit to play from itludusit game mamatludicrousma",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1525"
   },
   {
     "Index": 63147,
     "Word": "colluding\n",
+<<<<<<< HEAD
     "Etymology": "text borrowed from Latin itcolldereit to play with make sport in law act in collusion with from itcolit etlinkcolcom  itldereit to play mamatludicrousma",
+=======
+    "Etymology": "text Latin itcolludereit from itcomit  itludereit to play from itludusit game mamatludicrousma",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "1525"
   },
   {
     "Index": 63153,
     "Word": "collusion\n",
+<<<<<<< HEAD
     "Etymology": "text Middle English itcollusiounit borrowed from AngloFrench  Latin AngloFrench itcollusionit borrowed from Latin itcollsin collsiit from itcolldereit to play with make sport etlinkcolludecollude  ittin tiit suffix of verbal action",
+=======
+    "Etymology": "text Middle English from AngloFrench from Latin itcollusion collusioit from itcolludereit dxetysee dxtcolludedxety",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "14th century"
   },
   {
     "Index": 63154,
     "Word": "collusive\n",
+<<<<<<< HEAD
     "Etymology": "text Middle English itcollusiounit borrowed from AngloFrench  Latin AngloFrench itcollusionit borrowed from Latin itcollsin collsiit from itcolldereit to play with make sport etlinkcolludecollude  ittin tiit suffix of verbal action",
+=======
+    "Etymology": "text Middle English from AngloFrench from Latin itcollusion collusioit from itcolludereit dxetysee dxtcolludedxety",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "14th century"
   },
   {
     "Index": 63155,
     "Word": "collusively\n",
+<<<<<<< HEAD
     "Etymology": "text Middle English itcollusiounit borrowed from AngloFrench  Latin AngloFrench itcollusionit borrowed from Latin itcollsin collsiit from itcolldereit to play with make sport etlinkcolludecollude  ittin tiit suffix of verbal action",
+=======
+    "Etymology": "text Middle English from AngloFrench from Latin itcollusion collusioit from itcolludereit dxetysee dxtcolludedxety",
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": "14th century"
   },
   {
@@ -142263,6 +142818,7 @@
     "Index": 63204,
     "Word": "colombian\n",
     "Etymology": "Unknown",
+<<<<<<< HEAD
     "Origination Date": "1820"
   },
   {
@@ -142270,6 +142826,9 @@
     "Word": "colombians\n",
     "Etymology": "Unknown",
     "Origination Date": "1820"
+=======
+    "Origination Date": "Unknown"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 63209,
@@ -142593,6 +143152,7 @@
     "Index": 63310,
     "Word": "coloradan\n",
     "Etymology": "Unknown",
+<<<<<<< HEAD
     "Origination Date": "1862"
   },
   {
@@ -142600,6 +143160,9 @@
     "Word": "coloradans\n",
     "Etymology": "Unknown",
     "Origination Date": "1862"
+=======
+    "Origination Date": "Unknown"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 63312,
@@ -142926,12 +143489,15 @@
     "Origination Date": "Unknown"
   },
   {
+<<<<<<< HEAD
     "Index": 63430,
     "Word": "colours\n",
     "Etymology": "Unknown",
     "Origination Date": "Unknown"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 63456,
     "Word": "colportage\n",
     "Etymology": "Unknown",
@@ -144120,6 +144686,15 @@
     "Origination Date": "1554ds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 63900,
+    "Word": "commas\n",
+    "Etymology": "text Late Latin from Latin part of a sentence from Greek itkommait segment clause from itkopteinit to cut mamatcaponma",
+    "Origination Date": "1554ds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 63903,
     "Word": "commata\n",
     "Etymology": "text Late Latin from Latin part of a sentence from Greek itkommait segment clause from itkopteinit to cut mamatcaponma",
@@ -144567,13 +145142,21 @@
     "Index": 64034,
     "Word": "commie\n",
     "Etymology": "text by shortening  alteration",
+<<<<<<< HEAD
     "Origination Date": "1924"
+=======
+    "Origination Date": "1940"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 64035,
     "Word": "commies\n",
     "Etymology": "text by shortening  alteration",
+<<<<<<< HEAD
     "Origination Date": "1924"
+=======
+    "Origination Date": "1940"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 64041,
@@ -145884,12 +146467,15 @@
     "Origination Date": "1925"
   },
   {
+<<<<<<< HEAD
     "Index": 64429,
     "Word": "compartmentalization\n",
     "Etymology": "Unknown",
     "Origination Date": "1925"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 64430,
     "Word": "compartmentalize\n",
     "Etymology": "Unknown",
@@ -147492,6 +148078,15 @@
     "Origination Date": "15th centuryds3"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 64888,
+    "Word": "comprising\n",
+    "Etymology": "text Middle English from AngloFrench itcomprisit past participle of itcomprendreit from Latin itcomprehendereit dxetysee dxtcomprehenddxety",
+    "Origination Date": "15th centuryds3"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 64900,
     "Word": "compromise\n",
     "Etymology": "text Middle English mutual promise to abide by an arbiters decision from AngloFrench itcompromisseit from Latin itcompromissumit from neuter of itcompromissusit past participle of itcompromittereit to promise mutually from itcomit  itpromittereit to promise mamatpromisema",
@@ -149130,12 +149725,15 @@
     "Origination Date": "1852"
   },
   {
+<<<<<<< HEAD
     "Index": 65427,
     "Word": "concords\n",
     "Etymology": "text after etlinkconcordConcordg Massachusetts near where the cultivar was first grown",
     "Origination Date": "1852"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 65433,
     "Word": "concours\n",
     "Etymology": "text French itconcours dlganceit literally competition of elegance",
@@ -150612,6 +151210,15 @@
     "Origination Date": "1740ds3"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 65887,
+    "Word": "confidentiality\n",
+    "Etymology": "text Latin itconfdentiait taken as base of etlinkconfidence1confidence1  etlinkal1al1 perhaps after French itconfidentielit",
+    "Origination Date": "1740ds3"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 65888,
     "Word": "confidentially\n",
     "Etymology": "text Latin itconfdentiait taken as base of etlinkconfidence1confidence1  etlinkal1al1 perhaps after French itconfidentielit",
@@ -152328,12 +152935,15 @@
     "Origination Date": "15th centuryds1a"
   },
   {
+<<<<<<< HEAD
     "Index": 66422,
     "Word": "conjugations\n",
     "Etymology": "Unknown",
     "Origination Date": "15th centuryds1a"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 66428,
     "Word": "conjunct\n",
     "Etymology": "text Middle English from Latin itconjunctusit past participle of itconjungereit",
@@ -153798,6 +154408,15 @@
     "Origination Date": "14th centuryds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 66885,
+    "Word": "consolations\n",
+    "Etymology": "text dxetysee dxtconsole2dxety",
+    "Origination Date": "14th centuryds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 66888,
     "Word": "consolatory\n",
     "Etymology": "text dxetysee dxtconsole2dxety",
@@ -155694,12 +156313,15 @@
     "Origination Date": "1577ds1"
   },
   {
+<<<<<<< HEAD
     "Index": 67421,
     "Word": "context\n",
     "Etymology": "text Middle English itcontexteit text composition borrowed from Medieval Latin itcontextusit sequence connection setting going back to Latin action of weaving connection coherence ordered scheme structure from itcontexereit to weave together connect words compose combine from itconit etlinkconcom  ittexereit to weave construct  ittusit suffix of action nouns mamattechnical1ma",
     "Origination Date": "1577ds1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 67423,
     "Word": "contexts\n",
     "Etymology": "text Middle English itcontexteit text composition borrowed from Medieval Latin itcontextusit sequence connection setting going back to Latin action of weaving connection coherence ordered scheme structure from itcontexereit to weave together connect words compose combine from itconit etlinkconcom  ittexereit to weave construct  ittusit suffix of action nouns mamattechnical1ma",
@@ -157050,6 +157672,15 @@
     "Origination Date": "circa 1860ds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 67881,
+    "Word": "conus\n",
+    "Etymology": "text New Latin literally arterial cone",
+    "Origination Date": "circa 1860ds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 67891,
     "Word": "conv\n",
     "Etymology": "Unknown",
@@ -158796,12 +159427,15 @@
     "Origination Date": "15th century"
   },
   {
+<<<<<<< HEAD
     "Index": 68420,
     "Word": "coparcener\n",
     "Etymology": "Unknown",
     "Origination Date": "15th century"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 68429,
     "Word": "copartner\n",
     "Etymology": "Unknown",
@@ -159906,6 +160540,15 @@
     "Origination Date": "1901"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 68880,
+    "Word": "corbinas\n",
+    "Etymology": "text borrowed from American Spanish itcorbina corvinait any of various Pacific marine fishes of the family Sciaenidae going back to Spanish the marine fish itArgyrosomus regiusit noun derivative from feminine of itcorvinoit of a raven going back to Latin itcorvnusit mamatcorvinema",
+    "Origination Date": "1901"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 68889,
     "Word": "corcir\n",
     "Etymology": "Unknown",
@@ -161142,12 +161785,15 @@
     "Origination Date": "circa 1753"
   },
   {
+<<<<<<< HEAD
     "Index": 69417,
     "Word": "corollate\n",
     "Etymology": "text borrowed from New Latin itcorllait going back to Latin small wreath of flowers garland by syncope and assimilation from itkornelait from itcornait wreath garland worn on the head as a mark of honor or emblem of majesty  itelait diminutive suffix mamatcrown1ma",
     "Origination Date": "circa 1753"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 69426,
     "Word": "coromandel\n",
     "Etymology": "text itCoromandelit coast region India",
@@ -162444,6 +163090,15 @@
     "Origination Date": "Unknown"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 69873,
+    "Word": "cortina\n",
+    "Etymology": "Unknown",
+    "Origination Date": "Unknown"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 69880,
     "Word": "cortisol\n",
     "Etymology": "text itcortisitone  etlinkol1ol1",
@@ -163566,12 +164221,15 @@
     "Origination Date": "1848"
   },
   {
+<<<<<<< HEAD
     "Index": 70414,
     "Word": "cottas\n",
     "Etymology": "text Medieval Latin of Germanic origin akin to Old High German itkozzait coarse mantle mamatcoatma",
     "Origination Date": "1848"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 70417,
     "Word": "cotter\n",
     "Etymology": "text origin unknown",
@@ -164586,6 +165244,15 @@
     "Origination Date": "1844ds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 70872,
+    "Word": "counterirritant\n",
+    "Etymology": "Unknown",
+    "Origination Date": "1844ds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 70896,
     "Word": "counterman\n",
     "Etymology": "Unknown",
@@ -165774,12 +166441,15 @@
     "Origination Date": "1719"
   },
   {
+<<<<<<< HEAD
     "Index": 71411,
     "Word": "couthiest\n",
     "Etymology": "text Middle English itcouthit familiar from Old English itcthit mamatuncouthma",
     "Origination Date": "1719"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 71416,
     "Word": "couths\n",
     "Etymology": "text dxetysee dxtcouth1dxety",
@@ -167304,6 +167974,15 @@
     "Origination Date": "before 12th centuryds1a"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 71871,
+    "Word": "cradle\n",
+    "Etymology": "text Middle English itcradelit from Old English itcradolit perhaps akin to Old High German itkrattoit basket Sanskrit itgranthait knot",
+    "Origination Date": "before 12th centuryds1a"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 71874,
     "Word": "cradled\n",
     "Etymology": "Unknown",
@@ -168696,12 +169375,15 @@
     "Origination Date": "1578ds1"
   },
   {
+<<<<<<< HEAD
     "Index": 72409,
     "Word": "creases\n",
     "Etymology": "text probably alteration of earlier itcreasteit from Middle English itcresteit crest",
     "Origination Date": "1578ds1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 72414,
     "Word": "creasing\n",
     "Etymology": "Unknown",
@@ -169902,6 +170584,15 @@
     "Origination Date": "1841ds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 72870,
+    "Word": "cribbing\n",
+    "Etymology": "Unknown",
+    "Origination Date": "1841ds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 72871,
     "Word": "cribbings\n",
     "Etymology": "Unknown",
@@ -171114,12 +171805,15 @@
     "Origination Date": "1600dst1"
   },
   {
+<<<<<<< HEAD
     "Index": 73408,
     "Word": "crystallizer\n",
     "Etymology": "text etlinkcrystal1crystal1  etlinkizeize",
     "Origination Date": "1600dst1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 73409,
     "Word": "crystallizes\n",
     "Etymology": "text etlinkcrystal1crystal1  etlinkizeize",
@@ -172302,6 +172996,15 @@
     "Origination Date": "1686ds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 73869,
+    "Word": "crossroads\n",
+    "Etymology": "Unknown",
+    "Origination Date": "1686ds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 73871,
     "Word": "crossruff\n",
     "Etymology": "Unknown",
@@ -173784,12 +174487,15 @@
     "Origination Date": "1893"
   },
   {
+<<<<<<< HEAD
     "Index": 74400,
     "Word": "cuadrillas\n",
     "Etymology": "text Spanish diminutive of itcuadrait square from Latin itquadrait",
     "Origination Date": "1893"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 74413,
     "Word": "cub\n",
     "Etymology": "text probably akin to Middle English itcobbeit leader of a group head mamatcobma",
@@ -174912,6 +175618,15 @@
     "Origination Date": "15th century"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 74867,
+    "Word": "culverins\n",
+    "Etymology": "text Middle English from Middle French itcouleuvrineit from itcouleuvreit snake from Latin itcolubrait",
+    "Origination Date": "15th century"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 74870,
     "Word": "culvers\n",
     "Etymology": "text Middle English from Old English itculferit from Vulgar Latin itcolumbrait from Latin itcolumbulait diminutive of Latin itcolumbait dove mamatcolumbinema",
@@ -176268,12 +176983,15 @@
     "Origination Date": "14th centuryds1"
   },
   {
+<<<<<<< HEAD
     "Index": 75398,
     "Word": "currants\n",
     "Etymology": "text backformation from earlier itcorawnce currantesit ellipsis from Middle English itreysouns of coransit borrowed from AngloFrench itraisins de Curanceit raisins of Corinth from Corinth Greece",
     "Origination Date": "14th centuryds1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 75403,
     "Word": "curred\n",
     "Etymology": "text imitative",
@@ -177726,6 +178444,15 @@
     "Origination Date": "1547"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 75865,
+    "Word": "cuttlebones\n",
+    "Etymology": "text Middle English itcotulit cuttlefish from Old English itcudeleit  English itboneit",
+    "Origination Date": "1547"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 75867,
     "Word": "cuttlefish\n",
     "Etymology": "text Middle English itcotulit  English itfishit",
@@ -178926,12 +179653,15 @@
     "Origination Date": "before 12th centuryds1"
   },
   {
+<<<<<<< HEAD
     "Index": 76397,
     "Word": "daisies\n",
     "Etymology": "text Middle English itdayeseyeit from Old English itdgesageit from itdgit day  itageit eye",
     "Origination Date": "before 12th centuryds1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 76402,
     "Word": "daystar\n",
     "Etymology": "Unknown",
@@ -180168,6 +180898,15 @@
     "Origination Date": "1563"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 76859,
+    "Word": "daphnis\n",
+    "Etymology": "text Latin from Greek",
+    "Origination Date": "1563"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 76865,
     "Word": "dapped\n",
     "Etymology": "text derivative of etlinkdap1dap1",
@@ -181464,12 +182203,15 @@
     "Origination Date": "1898ds1a"
   },
   {
+<<<<<<< HEAD
     "Index": 77395,
     "Word": "dc\n",
     "Etymology": "text itAitlternating itCiturrentitDitirect itCiturrent",
     "Origination Date": "1898ds1a"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 77403,
     "Word": "dd\n",
     "Etymology": "Unknown",
@@ -182844,6 +183586,15 @@
     "Origination Date": "13th centuryds1"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 77857,
+    "Word": "debtors\n",
+    "Etymology": "Unknown",
+    "Origination Date": "13th centuryds1"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 77859,
     "Word": "debts\n",
     "Etymology": "text Middle English itdette debteit from AngloFrench itdetteit something owed from Vulgar Latin itdebitait from Latin plural of itdebitumit debt from neuter of itdebitusit past participle of itdebreit to owe from itdeit  ithabreit to have mamatgivema",
@@ -184254,12 +185005,15 @@
     "Origination Date": "1545ds1"
   },
   {
+<<<<<<< HEAD
     "Index": 78394,
     "Word": "deciphers\n",
     "Etymology": "Unknown",
     "Origination Date": "1545ds1"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 78398,
     "Word": "decision\n",
     "Etymology": "text Middle English itdecisiounit borrowed from AngloFrench itdecisionit judgment Middle French also act of deciding coming to a definitive conclusion borrowed from Latin itdcsin dcsioit curtailment diminishment settlement agreement from itdcdereit to cut off cut out mark by cutting settle choose as a course of action  ittin tiit suffix of verbal action mamatdecidema",
@@ -185712,6 +186466,15 @@
     "Origination Date": "1835"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 78854,
+    "Word": "decurved\n",
+    "Etymology": "text partial translation of Late Latin itdecurvatusit from Latin itdeit  itcurvatusit curved",
+    "Origination Date": "1835"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 78859,
     "Word": "decussate\n",
     "Etymology": "text Latin itdecussatusit past participle of itdecussareit to arrange crosswise from itdecussisit the number ten numeral X intersection from itdecitem  itass asit unit mamatacema",
@@ -187506,12 +188269,15 @@
     "Origination Date": "1826"
   },
   {
+<<<<<<< HEAD
     "Index": 79386,
     "Word": "deflexed\n",
     "Etymology": "text Latin itdeflexusit past participle of itdeflectereit",
     "Origination Date": "1826"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 79401,
     "Word": "defloration\n",
     "Etymology": "text Middle English itdefloraciounit from Middle French  Late Latin Middle French itdefloracionit from Late Latin itdefloration defloratioit from itdeflorareit dxetysee dxtdeflowerdxety",
@@ -188856,6 +189622,15 @@
     "Origination Date": "1682"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 79853,
+    "Word": "deisms\n",
+    "Etymology": "Unknown",
+    "Origination Date": "1682"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 79854,
     "Word": "deist\n",
     "Etymology": "Unknown",
@@ -190512,12 +191287,15 @@
     "Origination Date": "1834"
   },
   {
+<<<<<<< HEAD
     "Index": 80384,
     "Word": "demarks\n",
     "Etymology": "Unknown",
     "Origination Date": "1834"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 80401,
     "Word": "dematerialization\n",
     "Etymology": "Unknown",
@@ -191484,6 +192262,15 @@
     "Origination Date": "Unknown"
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 80852,
+    "Word": "demonstrandum\n",
+    "Etymology": "Unknown",
+    "Origination Date": "Unknown"
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 80856,
     "Word": "demonstrate\n",
     "Etymology": "text borrowed from Latin itdmonstrtusit past participle of itdmonstrreit to draw attention to indicate describe show from itdit etlinkdede  itmonstrreit to point out show mamatmuster2ma",
@@ -192882,12 +193669,15 @@
     "Origination Date": "1902"
   },
   {
+<<<<<<< HEAD
     "Index": 81382,
     "Word": "denumerably\n",
     "Etymology": "Unknown",
     "Origination Date": "1902"
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 81393,
     "Word": "denunciation\n",
     "Etymology": "text borrowed from Middle French  Latin Middle French itdenonciacionit announcement accusation borrowed from Latin itdnntitin dnntitiit notification injunction Medieval Latin also denunciation from itdnntireit to give notice of enjoin  ittin tiit suffix of verbal action mamatdenouncema",
@@ -194236,6 +195026,7 @@
     "Word": "depressant\n",
     "Etymology": "Unknown",
     "Origination Date": "1824"
+<<<<<<< HEAD
   },
   {
     "Index": 81852,
@@ -207646,5 +208437,7 @@
     "Word": "disciplinarian\n",
     "Etymology": "text etlinkdisciplinarydisciplinary  etlinkarianarian",
     "Origination Date": "1598"
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   }
 ]

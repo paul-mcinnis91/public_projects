@@ -1,6 +1,7 @@
 import argparse
 import os
 from pathlib import Path
+import shlex
 import sys
 import time
 
@@ -194,7 +195,7 @@ Options:
 
         return df
         
-    def _build_parser(self) -> tuple:
+    def _build_parser(self, parser: argparse.ArgumentParser) -> tuple:
         """Gathers input from the user and parses it out. Returns the parsed argument as a 
         dictionary
         
@@ -205,36 +206,28 @@ Options:
 
         user_decision = input("Enter your command here: ").strip()
 
-        parser = argparse.ArgumentParser()
+        split_correctly = shlex.split(user_decision)
 
         df_columns_list = list(self.df.columns)
+
+        try:
+            parser.add_argument("-Sort", required = False, nargs="+", metavar=('COLUMN', 'ORDER'))
+            parser.add_argument("-Filter", required = False, choices = df_columns_list)
+            parser.add_argument("-Quit", required = False, action = "store_false")
+            parser.add_argument("-View", required = False, nargs = "?", choices = df_columns_list)
+            parser.add_argument("-Help", required=False, action = "store_false")
+            parser.add_argument("-Open", required = False, action = "store_false", default = argparse.SUPPRESS)
+            parser.add_argument("-Save", required = False, nargs ="?", default = argparse.SUPPRESS, const = "None")
         
+        except argparse.ArgumentError:
+            pass
 
-        parser.add_argument("-Sort", required = False, nargs="+", metavar=('COLUMN', 'ORDER'))
-        parser.add_argument("-Filter", required = False, choices = df_columns_list)
-        parser.add_argument("-Quit", required = False, nargs ="?", default = "None", const = "None")
-        parser.add_argument("-View", required = False, nargs = "*", default = df_columns_list)
-        parser.add_argument("-Help", required=False, nargs = "?")
-
-        if "File Path" in df_columns_list:
-            parser.add_argument("-Open", required = False, action = "store_true")
-    
-        else:
-            parser.add_argument("-Save", required = False, nargs ="?", default = "None", const = "None")
-
-        # Add in boolean options
-        for bool_operator in self.boolean_operators:
-            parser.add_argument(f"-{bool_operator}", required = False)
-        
-        for logic_operator in self.logical_operators:
-            parser.add_argument(f"-{logic_operator}", required = False)
-
-        args = parser.parse_args(user_decision.split(" "))
+        args = parser.parse_args(split_correctly)
 
 
         return (user_decision, args)
         
-    def make_selection(self) -> None:
+    def make_selection(self, parser: argparse.ArgumentParser) -> None:
         """Takes the return from build_parser and selects the correct function to run.
         
         Args: None
@@ -242,35 +235,26 @@ Options:
         Returns: None, decides the function to run and then updates self.manipulated_df"""
 
 
-        user_input, args = self._build_parser()
-
-
-        filter_test = user_input.find("Filter")
-        save_test = user_input.find("Save")
-        quit_test = user_input.find("Quit")
-        view_test = user_input.find("View")
-        help_test = user_input.find("Help")       
+        user_input, args = self._build_parser(parser)   
 
         new_df = self.df
+
         if self.manipulated_df is not None:
             new_df = self.manipulated_df
 
-        if view_test != -1:
+        if args.View:
             self._view(args.View)
             
-        if filter_test != -1:
+        if args.Filter:
             new_df = self._filter(user_input)
         
         if args.Sort:
             new_df = self._sort(args.Sort)
-
-        if save_test != -1:
-            self._save(new_df)
         
-        if quit_test != -1:
+        if args.Quit:
             sys.exit("Have a nice day, goodbye.")
         
-        if help_test != -1:
+        if args.Help:
             self.help_info()
         
         if args.Open:
@@ -281,8 +265,13 @@ Options:
             file_path = os.path.join(partial_path, file_name)
             pass_up_df = self._open(file_path)
             return pass_up_df
+        
+        if args.Save:
+            self._save(new_df)
 
         self.manipulated_df = new_df
+        
+        
         
     def run(self):
         """Runs infinite loop until user puts in quit command
@@ -290,22 +279,34 @@ Options:
         Args: None
         
         Returns: None"""
+        parser = argparse.ArgumentParser()
+
+        # Adding the boolean option here to reduce the amount of loops in the program
+
+        for bool_operator in self.boolean_operators:
+            parser.add_argument(f"-{bool_operator}", required = False)
+        
+        for logic_operator in self.logical_operators:
+            parser.add_argument(f"-{logic_operator}", required = False)
+
         self.help_info()
 
-        try:
-            while True:
-                pass_up_df: pd.DataFrame = self.make_selection()
+        while True:
+            try:
+                pass_up_df: pd.DataFrame = self.make_selection(parser)
                 if pass_up_df is not None:
                     return pass_up_df
 
-        
-        except KeyboardInterrupt:
-            sys.exit("Keyboard interrupt detected. Shutting down")
-        
-        except SystemExit:
-            print("Unknown arguments detected. Pick an argument from below.")
-            time.sleep(3)
-            self.help_info()
+            
+            except KeyboardInterrupt:
+                sys.exit("Keyboard interrupt detected. Shutting down")
+            
+            except SystemExit:
+                print("Unknown arguments detected. Pick an argument from below.")
+                time.sleep(1)
+                self.help_info()
+            
+            
 
 
 class Main_Menu:

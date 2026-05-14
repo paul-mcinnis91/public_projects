@@ -86180,6 +86180,18 @@
     "Origination Date": 1200
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 35018,
+    "Word": "bishops\n",
+    "Etymology": [
+      "Middle English",
+      "Old English"
+    ],
+    "Origination Date": 1200
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 35059,
     "Word": "bismuth\n",
     "Etymology": [
@@ -87612,12 +87624,15 @@
     "Origination Date": 1944
   },
   {
+<<<<<<< HEAD
     "Index": 35532,
     "Word": "blacklegged\n",
     "Etymology": [],
     "Origination Date": 1944
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 35536,
     "Word": "blacklegs\n",
     "Etymology": [],
@@ -89473,6 +89488,18 @@
     "Origination Date": 1400
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 36017,
+    "Word": "blemishes\n",
+    "Etymology": [
+      "Middle English",
+      "Old French"
+    ],
+    "Origination Date": 1400
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 36018,
     "Word": "blemishing\n",
     "Etymology": [
@@ -92971,6 +92998,15 @@
     "Origination Date": 1300
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 37014,
+    "Word": "boatman\n",
+    "Etymology": [],
+    "Origination Date": 1300
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 37017,
     "Word": "boatmen\n",
     "Etymology": [],
@@ -92986,6 +93022,27 @@
     "Origination Date": 1200
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 37019,
+    "Word": "boats\n",
+    "Etymology": [
+      "Middle English",
+      "Old English"
+    ],
+    "Origination Date": 1200
+  },
+  {
+    "Index": 37019,
+    "Word": "boats\n",
+    "Etymology": [
+      "Middle English",
+      "Old English"
+    ],
+    "Origination Date": 1200
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 37027,
     "Word": "boatswain\n",
     "Etymology": [
@@ -94463,6 +94520,7 @@
     "Origination Date": 1400
   },
   {
+<<<<<<< HEAD
     "Index": 37524,
     "Word": "bole\n",
     "Etymology": [
@@ -94471,6 +94529,8 @@
     "Origination Date": 1400
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 37531,
     "Word": "bolero\n",
     "Etymology": [
@@ -95985,6 +96045,17 @@
     "Origination Date": 1625
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 38017,
+    "Word": "boodles\n",
+    "Etymology": [
+      "Middle Dutch"
+    ],
+    "Origination Date": 1625
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 38019,
     "Word": "booed\n",
     "Etymology": [],
@@ -97632,6 +97703,7 @@
     "Origination Date": 1200
   },
   {
+<<<<<<< HEAD
     "Index": 38523,
     "Word": "borrowing\n",
     "Etymology": [
@@ -97641,6 +97713,8 @@
     "Origination Date": 1200
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 38524,
     "Word": "borrows\n",
     "Etymology": [
@@ -99255,6 +99329,17 @@
     "Origination Date": 1596
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 39012,
+    "Word": "bourbons\n",
+    "Etymology": [
+      "French"
+    ],
+    "Origination Date": 1596
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 39019,
     "Word": "bourg\n",
     "Etymology": [
@@ -100541,6 +100626,7 @@
     "Origination Date": 1574
   },
   {
+<<<<<<< HEAD
     "Index": 39520,
     "Word": "brackets\n",
     "Etymology": [
@@ -100549,6 +100635,8 @@
     "Origination Date": 1574
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 39525,
     "Word": "brackish\n",
     "Etymology": [
@@ -101773,6 +101861,15 @@
     "Origination Date": 1673
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 40011,
+    "Word": "brassbound\n",
+    "Etymology": [],
+    "Origination Date": 1673
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 40018,
     "Word": "brasserie\n",
     "Etymology": [
@@ -103517,12 +103614,15 @@
     "Origination Date": 1542
   },
   {
+<<<<<<< HEAD
     "Index": 40519,
     "Word": "brewages\n",
     "Etymology": [],
     "Origination Date": 1542
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 40520,
     "Word": "brewed\n",
     "Etymology": [
@@ -105120,6 +105220,15 @@
     "Origination Date": 1945
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 41010,
+    "Word": "brittany\n",
+    "Etymology": [],
+    "Origination Date": 1945
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 41012,
     "Word": "brittle\n",
     "Etymology": [
@@ -106525,12 +106634,15 @@
     "Origination Date": 1807
   },
   {
+<<<<<<< HEAD
     "Index": 41518,
     "Word": "brooklets\n",
     "Etymology": [],
     "Origination Date": 1807
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 41523,
     "Word": "brooks\n",
     "Etymology": [
@@ -109479,12 +109591,15 @@
     "Origination Date": 1905
   },
   {
+<<<<<<< HEAD
     "Index": 42514,
     "Word": "bulldogging\n",
     "Etymology": [],
     "Origination Date": 1905
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 42519,
     "Word": "bulldogs\n",
     "Etymology": [],
@@ -111097,6 +111212,15 @@
     "Origination Date": 1500
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 43008,
+    "Word": "burdock\n",
+    "Etymology": [],
+    "Origination Date": 1500
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 43009,
     "Word": "burdocks\n",
     "Etymology": [],
@@ -112981,12 +113105,15 @@
     "Origination Date": 1909
   },
   {
+<<<<<<< HEAD
     "Index": 43512,
     "Word": "bussed\n",
     "Etymology": [],
     "Origination Date": 1909
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 43514,
     "Word": "busses\n",
     "Etymology": [],
@@ -114514,6 +114641,17 @@
     "Origination Date": 1801
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 44001,
+    "Word": "cabotages\n",
+    "Etymology": [
+      "French"
+    ],
+    "Origination Date": 1801
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 44014,
     "Word": "cabretta\n",
     "Etymology": [
@@ -115736,12 +115874,15 @@
     "Origination Date": 1577
   },
   {
+<<<<<<< HEAD
     "Index": 44511,
     "Word": "caged\n",
     "Etymology": [],
     "Origination Date": 1577
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 44512,
     "Word": "cageful\n",
     "Etymology": [
@@ -116988,6 +117129,17 @@
     "Origination Date": 1681
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 44998,
+    "Word": "calefactories\n",
+    "Etymology": [
+      "Latin"
+    ],
+    "Origination Date": 1681
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 45007,
     "Word": "calendar\n",
     "Etymology": [
@@ -118362,6 +118514,7 @@
     "Origination Date": 1729
   },
   {
+<<<<<<< HEAD
     "Index": 45509,
     "Word": "calvarium\n",
     "Etymology": [
@@ -118370,6 +118523,8 @@
     "Origination Date": 1729
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 45511,
     "Word": "calve\n",
     "Etymology": [
@@ -119558,6 +119713,17 @@
     "Origination Date": 1500
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 45997,
+    "Word": "canal\n",
+    "Etymology": [
+      "Middle English"
+    ],
+    "Origination Date": 1500
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 46002,
     "Word": "canaled\n",
     "Etymology": [],
@@ -121094,6 +121260,7 @@
     "Origination Date": 1400
   },
   {
+<<<<<<< HEAD
     "Index": 46508,
     "Word": "canonizations\n",
     "Etymology": [
@@ -121103,6 +121270,8 @@
     "Origination Date": 1400
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 46509,
     "Word": "canonize\n",
     "Etymology": [
@@ -124122,12 +124291,15 @@
     "Origination Date": 1788
   },
   {
+<<<<<<< HEAD
     "Index": 47507,
     "Word": "carbonate\n",
     "Etymology": [],
     "Origination Date": 1788
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 47508,
     "Word": "carbonated\n",
     "Etymology": [],
@@ -126664,6 +126836,7 @@
     "Origination Date": 1400
   },
   {
+<<<<<<< HEAD
     "Index": 48504,
     "Word": "carriage\n",
     "Etymology": [
@@ -126673,6 +126846,8 @@
     "Origination Date": 1400
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 48508,
     "Word": "carriages\n",
     "Etymology": [
@@ -128121,6 +128296,15 @@
     "Origination Date": 1774
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 48982,
+    "Word": "cassimere\n",
+    "Etymology": [],
+    "Origination Date": 1774
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 48988,
     "Word": "cassino\n",
     "Etymology": [
@@ -129805,12 +129989,15 @@
     "Origination Date": 1564
   },
   {
+<<<<<<< HEAD
     "Index": 49503,
     "Word": "catechists\n",
     "Etymology": [],
     "Origination Date": 1564
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 49505,
     "Word": "catechization\n",
     "Etymology": [
@@ -131135,6 +131322,17 @@
     "Origination Date": 1756
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 49978,
+    "Word": "cauline\n",
+    "Etymology": [
+      "Latin"
+    ],
+    "Origination Date": 1756
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 49982,
     "Word": "caulk\n",
     "Etymology": [
@@ -132770,6 +132968,7 @@
     "Origination Date": 1646
   },
   {
+<<<<<<< HEAD
     "Index": 50502,
     "Word": "celibacy\n",
     "Etymology": [
@@ -132778,6 +132977,8 @@
     "Origination Date": 1646
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 50503,
     "Word": "celibacies\n",
     "Etymology": [
@@ -134084,6 +134285,17 @@
     "Origination Date": 1709
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 50976,
+    "Word": "centrifugal\n",
+    "Etymology": [
+      "Latin"
+    ],
+    "Origination Date": 1709
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 50984,
     "Word": "centrifugally\n",
     "Etymology": [
@@ -134916,6 +135128,7 @@
     "Origination Date": 1500
   },
   {
+<<<<<<< HEAD
     "Index": 51497,
     "Word": "cering\n",
     "Etymology": [
@@ -134925,6 +135138,8 @@
     "Origination Date": 1500
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 51507,
     "Word": "cerise\n",
     "Etymology": [
@@ -135966,6 +136181,17 @@
     "Origination Date": 1400
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 51972,
+    "Word": "chain\n",
+    "Etymology": [
+      "Middle English"
+    ],
+    "Origination Date": 1400
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 51976,
     "Word": "chaine\n",
     "Etymology": [
@@ -137440,6 +137666,7 @@
     "Origination Date": 1300
   },
   {
+<<<<<<< HEAD
     "Index": 52495,
     "Word": "changing\n",
     "Etymology": [
@@ -137448,6 +137675,8 @@
     "Origination Date": 1300
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 52504,
     "Word": "channel\n",
     "Etymology": [
@@ -138934,6 +139163,15 @@
     "Origination Date": 1500
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 52970,
+    "Word": "charterers\n",
+    "Etymology": [],
+    "Origination Date": 1500
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 52972,
     "Word": "chartering\n",
     "Etymology": [],
@@ -139824,7 +140062,11 @@
     "Index": 53272,
     "Word": "cheapjack\n",
     "Etymology": [],
+<<<<<<< HEAD
     "Origination Date": 1818
+=======
+    "Origination Date": 1851
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 53273,
@@ -140487,12 +140729,15 @@
     "Origination Date": 1200
   },
   {
+<<<<<<< HEAD
     "Index": 53474,
     "Word": "cheeseboard\n",
     "Etymology": [],
     "Origination Date": 1963
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 53476,
     "Word": "cheeseburger\n",
     "Etymology": [],
@@ -140543,6 +140788,7 @@
     "Origination Date": 1200
   },
   {
+<<<<<<< HEAD
     "Index": 53490,
     "Word": "cheesemonger\n",
     "Etymology": [
@@ -140551,6 +140797,8 @@
     "Origination Date": 1200
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 53495,
     "Word": "cheeseparing\n",
     "Etymology": [],
@@ -141580,6 +141828,15 @@
     "Origination Date": 1973
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 53962,
+    "Word": "chetrums\n",
+    "Etymology": [],
+    "Origination Date": 1973
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 53971,
     "Word": "cheval\n",
     "Etymology": [
@@ -142398,7 +142655,11 @@
     "Etymology": [
       "Middle English"
     ],
+<<<<<<< HEAD
     "Origination Date": 1586
+=======
+    "Origination Date": 1500
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 54218,
@@ -142406,7 +142667,11 @@
     "Etymology": [
       "Middle English"
     ],
+<<<<<<< HEAD
     "Origination Date": 1586
+=======
+    "Origination Date": 1500
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 54219,
@@ -143141,12 +143406,15 @@
     "Origination Date": 1638
   },
   {
+<<<<<<< HEAD
     "Index": 54488,
     "Word": "chimerically\n",
     "Etymology": [],
     "Origination Date": 1638
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 54490,
     "Word": "chimerism\n",
     "Etymology": [],
@@ -144272,6 +144540,18 @@
     "Origination Date": 1400
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 54952,
+    "Word": "chivalrousness\n",
+    "Etymology": [
+      "Middle English",
+      "Old French"
+    ],
+    "Origination Date": 1400
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 54966,
     "Word": "chive\n",
     "Etymology": [
@@ -145184,12 +145464,15 @@
     "Origination Date": 1894
   },
   {
+<<<<<<< HEAD
     "Index": 55477,
     "Word": "cholesterol\n",
     "Etymology": [],
     "Origination Date": 1894
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 55488,
     "Word": "cholic\n",
     "Etymology": [],
@@ -146286,6 +146569,18 @@
     "Origination Date": 1751
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 55951,
+    "Word": "chowders\n",
+    "Etymology": [
+      "French",
+      "Latin"
+    ],
+    "Origination Date": 1751
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 55952,
     "Word": "chowed\n",
     "Etymology": [],
@@ -147488,12 +147783,15 @@
     "Origination Date": 1830
   },
   {
+<<<<<<< HEAD
     "Index": 56466,
     "Word": "chronometrically\n",
     "Etymology": [],
     "Origination Date": 1830
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 56495,
     "Word": "chthonian\n",
     "Etymology": [],
@@ -148561,6 +148859,15 @@
     "Origination Date": 1951
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 56950,
+    "Word": "cybernetician\n",
+    "Etymology": [],
+    "Origination Date": 1951
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 56951,
     "Word": "cyberneticist\n",
     "Etymology": [],
@@ -148682,7 +148989,11 @@
     "Etymology": [
       "Latin"
     ],
+<<<<<<< HEAD
     "Origination Date": 1791
+=======
+    "Origination Date": 1794
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 56998,
@@ -148690,7 +149001,11 @@
     "Etymology": [
       "Latin"
     ],
+<<<<<<< HEAD
     "Origination Date": 1791
+=======
+    "Origination Date": 1794
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 57002,
@@ -149585,6 +149900,7 @@
     "Origination Date": 1200
   },
   {
+<<<<<<< HEAD
     "Index": 57464,
     "Word": "cymbal\n",
     "Etymology": [
@@ -149594,6 +149910,8 @@
     "Origination Date": 1200
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 57471,
     "Word": "cymbalist\n",
     "Etymology": [
@@ -149912,7 +150230,11 @@
       "French",
       "French"
     ],
+<<<<<<< HEAD
     "Origination Date": 1895
+=======
+    "Origination Date": 1896
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 57669,
@@ -150351,6 +150673,7 @@
     "Origination Date": 1861
   },
   {
+<<<<<<< HEAD
     "Index": 57926,
     "Word": "cypriot\n",
     "Etymology": [
@@ -150383,6 +150706,8 @@
     "Origination Date": 1878
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 57931,
     "Word": "cypripedium\n",
     "Etymology": [
@@ -151582,6 +151907,7 @@
     "Origination Date": 1860
   },
   {
+<<<<<<< HEAD
     "Index": 58463,
     "Word": "cisternal\n",
     "Etymology": [
@@ -151590,6 +151916,8 @@
     "Origination Date": 1860
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 58464,
     "Word": "cisterns\n",
     "Etymology": [
@@ -152569,6 +152897,15 @@
     "Origination Date": 1533
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 58934,
+    "Word": "civilities\n",
+    "Etymology": [],
+    "Origination Date": 1533
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 58937,
     "Word": "civilization\n",
     "Etymology": [],
@@ -154316,6 +154653,7 @@
     "Origination Date": 1906
   },
   {
+<<<<<<< HEAD
     "Index": 59456,
     "Word": "clathrate\n",
     "Etymology": [
@@ -154324,6 +154662,8 @@
     "Origination Date": 1906
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 59464,
     "Word": "clatter\n",
     "Etymology": [
@@ -155839,6 +156179,18 @@
     "Origination Date": 1200
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 59931,
+    "Word": "cliffiest\n",
+    "Etymology": [
+      "Middle English",
+      "Old English"
+    ],
+    "Origination Date": 1200
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 59937,
     "Word": "cliffs\n",
     "Etymology": [
@@ -157342,6 +157694,7 @@
     "Origination Date": 1400
   },
   {
+<<<<<<< HEAD
     "Index": 60455,
     "Word": "closer\n",
     "Etymology": [
@@ -157350,6 +157703,8 @@
     "Origination Date": 1400
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 60456,
     "Word": "closers\n",
     "Etymology": [],
@@ -158738,6 +159093,17 @@
     "Origination Date": 1500
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 60930,
+    "Word": "coagulated\n",
+    "Etymology": [
+      "Latin"
+    ],
+    "Origination Date": 1500
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 60931,
     "Word": "coagulates\n",
     "Etymology": [
@@ -160037,12 +160403,15 @@
     "Origination Date": 1962
   },
   {
+<<<<<<< HEAD
     "Index": 61453,
     "Word": "cockamamie\n",
     "Etymology": [],
     "Origination Date": 1962
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 61456,
     "Word": "cockapoo\n",
     "Etymology": [],
@@ -160682,8 +161051,15 @@
   {
     "Index": 61675,
     "Word": "codas\n",
+<<<<<<< HEAD
     "Etymology": [],
     "Origination Date": 1991
+=======
+    "Etymology": [
+      "Latin"
+    ],
+    "Origination Date": 1740
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 61682,
@@ -160758,7 +161134,11 @@
     "Index": 61699,
     "Word": "coded\n",
     "Etymology": [],
+<<<<<<< HEAD
     "Origination Date": 2025
+=======
+    "Origination Date": 1815
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 61700,
@@ -160980,6 +161360,7 @@
     "Index": 61772,
     "Word": "coding\n",
     "Etymology": [],
+<<<<<<< HEAD
     "Origination Date": 1947
   },
   {
@@ -160987,6 +161368,9 @@
     "Word": "codings\n",
     "Etymology": [],
     "Origination Date": 1947
+=======
+    "Origination Date": 1815
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 61775,
@@ -161286,6 +161670,17 @@
     "Origination Date": 1875
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 61904,
+    "Word": "coeloms\n",
+    "Etymology": [
+      "German"
+    ],
+    "Origination Date": 1875
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 61983,
     "Word": "coenobite\n",
     "Etymology": [
@@ -162621,12 +163016,15 @@
     "Origination Date": 1605
   },
   {
+<<<<<<< HEAD
     "Index": 62447,
     "Word": "coign\n",
     "Etymology": [],
     "Origination Date": 1605
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 62453,
     "Word": "coigns\n",
     "Etymology": [],
@@ -163765,13 +164163,21 @@
     "Index": 62843,
     "Word": "collard\n",
     "Etymology": [],
+<<<<<<< HEAD
     "Origination Date": 1795
+=======
+    "Origination Date": 1755
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62844,
     "Word": "collards\n",
     "Etymology": [],
+<<<<<<< HEAD
     "Origination Date": 1795
+=======
+    "Origination Date": 1755
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62846,
@@ -164015,6 +164421,17 @@
     "Origination Date": 1400
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 62901,
+    "Word": "collection\n",
+    "Etymology": [
+      "Middle English"
+    ],
+    "Origination Date": 1400
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 62904,
     "Word": "collections\n",
     "Etymology": [
@@ -164342,7 +164759,11 @@
     "Etymology": [
       "Latin"
     ],
+<<<<<<< HEAD
     "Origination Date": 1646
+=======
+    "Origination Date": 1700
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62993,
@@ -164350,7 +164771,11 @@
     "Etymology": [
       "Latin"
     ],
+<<<<<<< HEAD
     "Origination Date": 1646
+=======
+    "Origination Date": 1700
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62994,
@@ -164358,7 +164783,11 @@
     "Etymology": [
       "Latin"
     ],
+<<<<<<< HEAD
     "Origination Date": 1646
+=======
+    "Origination Date": 1700
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62997,
@@ -164366,7 +164795,11 @@
     "Etymology": [
       "Latin"
     ],
+<<<<<<< HEAD
     "Origination Date": 1646
+=======
+    "Origination Date": 1700
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 62998,
@@ -164693,33 +165126,49 @@
   {
     "Index": 63094,
     "Word": "colloid\n",
+<<<<<<< HEAD
     "Etymology": [
       "Latin"
     ],
+=======
+    "Etymology": [],
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": 1852
   },
   {
     "Index": 63095,
     "Word": "colloidal\n",
+<<<<<<< HEAD
     "Etymology": [
       "Latin"
     ],
+=======
+    "Etymology": [],
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": 1852
   },
   {
     "Index": 63097,
     "Word": "colloidally\n",
+<<<<<<< HEAD
     "Etymology": [
       "Latin"
     ],
+=======
+    "Etymology": [],
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": 1852
   },
   {
     "Index": 63101,
     "Word": "colloids\n",
+<<<<<<< HEAD
     "Etymology": [
       "Latin"
     ],
+=======
+    "Etymology": [],
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": 1852
   },
   {
@@ -164744,7 +165193,11 @@
     "Index": 63111,
     "Word": "colloquy\n",
     "Etymology": [
+<<<<<<< HEAD
       "Middle English"
+=======
+      "Latin"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     ],
     "Origination Date": 1500
   },
@@ -164759,9 +165212,13 @@
   {
     "Index": 63113,
     "Word": "colloquial\n",
+<<<<<<< HEAD
     "Etymology": [
       "Latin"
     ],
+=======
+    "Etymology": [],
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": 1751
   },
   {
@@ -164779,24 +165236,36 @@
   {
     "Index": 63117,
     "Word": "colloquiality\n",
+<<<<<<< HEAD
     "Etymology": [
       "Latin"
     ],
+=======
+    "Etymology": [],
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": 1751
   },
   {
     "Index": 63120,
     "Word": "colloquially\n",
+<<<<<<< HEAD
     "Etymology": [
       "Latin"
     ],
+=======
+    "Etymology": [],
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Origination Date": 1751
   },
   {
     "Index": 63122,
     "Word": "colloquies\n",
     "Etymology": [
+<<<<<<< HEAD
       "Middle English"
+=======
+      "Latin"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     ],
     "Origination Date": 1500
   },
@@ -164864,8 +165333,12 @@
     "Index": 63153,
     "Word": "collusion\n",
     "Etymology": [
+<<<<<<< HEAD
       "Middle English",
       "Latin"
+=======
+      "Middle English"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     ],
     "Origination Date": 1400
   },
@@ -164873,8 +165346,12 @@
     "Index": 63154,
     "Word": "collusive\n",
     "Etymology": [
+<<<<<<< HEAD
       "Middle English",
       "Latin"
+=======
+      "Middle English"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     ],
     "Origination Date": 1400
   },
@@ -164882,8 +165359,12 @@
     "Index": 63155,
     "Word": "collusively\n",
     "Etymology": [
+<<<<<<< HEAD
       "Middle English",
       "Latin"
+=======
+      "Middle English"
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     ],
     "Origination Date": 1400
   },
@@ -164984,6 +165465,7 @@
     "Origination Date": 1832
   },
   {
+<<<<<<< HEAD
     "Index": 63204,
     "Word": "colombian\n",
     "Etymology": [],
@@ -164996,6 +165478,8 @@
     "Origination Date": 1820
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 63213,
     "Word": "colon\n",
     "Etymology": [
@@ -165325,6 +165809,7 @@
     "Origination Date": 1500
   },
   {
+<<<<<<< HEAD
     "Index": 63310,
     "Word": "coloradan\n",
     "Etymology": [],
@@ -165337,6 +165822,8 @@
     "Origination Date": 1862
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 63312,
     "Word": "colorado\n",
     "Etymology": [],
@@ -167137,6 +167624,17 @@
     "Origination Date": 1554
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 63900,
+    "Word": "commas\n",
+    "Etymology": [
+      "Latin"
+    ],
+    "Origination Date": 1554
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 63903,
     "Word": "commata\n",
     "Etymology": [
@@ -167635,13 +168133,21 @@
     "Index": 64034,
     "Word": "commie\n",
     "Etymology": [],
+<<<<<<< HEAD
     "Origination Date": 1924
+=======
+    "Origination Date": 1940
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 64035,
     "Word": "commies\n",
     "Etymology": [],
+<<<<<<< HEAD
     "Origination Date": 1924
+=======
+    "Origination Date": 1940
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   },
   {
     "Index": 64041,
@@ -169202,12 +169708,15 @@
     "Origination Date": 1925
   },
   {
+<<<<<<< HEAD
     "Index": 64429,
     "Word": "compartmentalization\n",
     "Etymology": [],
     "Origination Date": 1925
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 64430,
     "Word": "compartmentalize\n",
     "Etymology": [],
@@ -171239,6 +171748,17 @@
     "Origination Date": 1500
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 64888,
+    "Word": "comprising\n",
+    "Etymology": [
+      "Middle English"
+    ],
+    "Origination Date": 1500
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 64900,
     "Word": "compromise\n",
     "Etymology": [
@@ -173158,12 +173678,15 @@
     "Origination Date": 1852
   },
   {
+<<<<<<< HEAD
     "Index": 65427,
     "Word": "concords\n",
     "Etymology": [],
     "Origination Date": 1852
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 65433,
     "Word": "concours\n",
     "Etymology": [
@@ -175067,6 +175590,17 @@
     "Origination Date": 1740
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 65887,
+    "Word": "confidentiality\n",
+    "Etymology": [
+      "Latin"
+    ],
+    "Origination Date": 1740
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 65888,
     "Word": "confidentially\n",
     "Etymology": [
@@ -177166,12 +177700,15 @@
     "Origination Date": 1500
   },
   {
+<<<<<<< HEAD
     "Index": 66422,
     "Word": "conjugations\n",
     "Etymology": [],
     "Origination Date": 1500
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 66428,
     "Word": "conjunct\n",
     "Etymology": [
@@ -178982,6 +179519,15 @@
     "Origination Date": 1400
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 66885,
+    "Word": "consolations\n",
+    "Etymology": [],
+    "Origination Date": 1400
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 66888,
     "Word": "consolatory\n",
     "Etymology": [],
@@ -181317,6 +181863,7 @@
     "Origination Date": 1577
   },
   {
+<<<<<<< HEAD
     "Index": 67421,
     "Word": "context\n",
     "Etymology": [
@@ -181326,6 +181873,8 @@
     "Origination Date": 1577
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 67423,
     "Word": "contexts\n",
     "Etymology": [
@@ -183071,6 +183620,17 @@
     "Origination Date": 1860
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 67881,
+    "Word": "conus\n",
+    "Etymology": [
+      "Latin"
+    ],
+    "Origination Date": 1860
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 67892,
     "Word": "convalesce\n",
     "Etymology": [
@@ -185153,12 +185713,15 @@
     "Origination Date": 1500
   },
   {
+<<<<<<< HEAD
     "Index": 68420,
     "Word": "coparcener\n",
     "Etymology": [],
     "Origination Date": 1500
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 68429,
     "Word": "copartner\n",
     "Etymology": [],
@@ -186430,6 +186993,17 @@
     "Origination Date": 1901
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 68880,
+    "Word": "corbinas\n",
+    "Etymology": [
+      "American Spanish"
+    ],
+    "Origination Date": 1901
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 68889,
     "Word": "corcir\n",
     "Etymology": [],
@@ -187883,6 +188457,7 @@
     "Origination Date": 1753
   },
   {
+<<<<<<< HEAD
     "Index": 69417,
     "Word": "corollate\n",
     "Etymology": [
@@ -187891,6 +188466,8 @@
     "Origination Date": 1753
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 69426,
     "Word": "coromandel\n",
     "Etymology": [],
@@ -190784,6 +191361,7 @@
     "Origination Date": 1848
   },
   {
+<<<<<<< HEAD
     "Index": 70414,
     "Word": "cottas\n",
     "Etymology": [
@@ -190795,6 +191373,8 @@
     "Origination Date": 1848
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 70417,
     "Word": "cotter\n",
     "Etymology": [],
@@ -191913,6 +192493,15 @@
     "Origination Date": 1844
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 70872,
+    "Word": "counterirritant\n",
+    "Etymology": [],
+    "Origination Date": 1844
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 70896,
     "Word": "counterman\n",
     "Etymology": [],
@@ -193286,6 +193875,7 @@
     "Origination Date": 1719
   },
   {
+<<<<<<< HEAD
     "Index": 71411,
     "Word": "couthiest\n",
     "Etymology": [
@@ -193294,6 +193884,8 @@
     "Origination Date": 1719
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 71416,
     "Word": "couths\n",
     "Etymology": [],
@@ -195017,6 +195609,18 @@
     "Origination Date": 1200
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 71871,
+    "Word": "cradle\n",
+    "Etymology": [
+      "Middle English",
+      "Old English"
+    ],
+    "Origination Date": 1200
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 71874,
     "Word": "cradled\n",
     "Etymology": [],
@@ -196667,6 +197271,7 @@
     "Origination Date": 1578
   },
   {
+<<<<<<< HEAD
     "Index": 72409,
     "Word": "creases\n",
     "Etymology": [
@@ -196676,6 +197281,8 @@
     "Origination Date": 1578
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 72414,
     "Word": "creasing\n",
     "Etymology": [],
@@ -198158,6 +198765,15 @@
     "Origination Date": 1841
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 72870,
+    "Word": "cribbing\n",
+    "Etymology": [],
+    "Origination Date": 1841
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 72871,
     "Word": "cribbings\n",
     "Etymology": [],
@@ -199573,12 +200189,15 @@
     "Origination Date": 1600
   },
   {
+<<<<<<< HEAD
     "Index": 73408,
     "Word": "crystallizer\n",
     "Etymology": [],
     "Origination Date": 1600
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 73409,
     "Word": "crystallizes\n",
     "Etymology": [],
@@ -200874,6 +201493,15 @@
     "Origination Date": 1686
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 73869,
+    "Word": "crossroads\n",
+    "Etymology": [],
+    "Origination Date": 1686
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 73871,
     "Word": "crossruff\n",
     "Etymology": [],
@@ -202669,6 +203297,7 @@
     "Origination Date": 1893
   },
   {
+<<<<<<< HEAD
     "Index": 74400,
     "Word": "cuadrillas\n",
     "Etymology": [
@@ -202678,6 +203307,8 @@
     "Origination Date": 1893
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 74413,
     "Word": "cub\n",
     "Etymology": [
@@ -204074,6 +204705,18 @@
     "Origination Date": 1500
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 74867,
+    "Word": "culverins\n",
+    "Etymology": [
+      "Middle English",
+      "Middle French"
+    ],
+    "Origination Date": 1500
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 74870,
     "Word": "culvers\n",
     "Etymology": [
@@ -205694,6 +206337,7 @@
     "Origination Date": 1400
   },
   {
+<<<<<<< HEAD
     "Index": 75398,
     "Word": "currants\n",
     "Etymology": [
@@ -205703,6 +206347,8 @@
     "Origination Date": 1400
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 75403,
     "Word": "curred\n",
     "Etymology": [],
@@ -207367,6 +208013,18 @@
     "Origination Date": 1547
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 75865,
+    "Word": "cuttlebones\n",
+    "Etymology": [
+      "Middle English",
+      "Old English"
+    ],
+    "Origination Date": 1547
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 75867,
     "Word": "cuttlefish\n",
     "Etymology": [
@@ -208744,6 +209402,7 @@
     "Origination Date": 1200
   },
   {
+<<<<<<< HEAD
     "Index": 76397,
     "Word": "daisies\n",
     "Etymology": [
@@ -208752,6 +209411,8 @@
     "Origination Date": 1200
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 76402,
     "Word": "daystar\n",
     "Etymology": [],
@@ -210118,6 +210779,17 @@
     "Origination Date": 1563
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 76859,
+    "Word": "daphnis\n",
+    "Etymology": [
+      "Latin"
+    ],
+    "Origination Date": 1563
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 76865,
     "Word": "dapped\n",
     "Etymology": [],
@@ -211550,12 +212222,15 @@
     "Origination Date": 1898
   },
   {
+<<<<<<< HEAD
     "Index": 77395,
     "Word": "dc\n",
     "Etymology": [],
     "Origination Date": 1898
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 77405,
     "Word": "ddt\n",
     "Etymology": [],
@@ -213097,6 +213772,15 @@
     "Origination Date": 1300
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 77857,
+    "Word": "debtors\n",
+    "Etymology": [],
+    "Origination Date": 1300
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 77859,
     "Word": "debts\n",
     "Etymology": [
@@ -214738,12 +215422,15 @@
     "Origination Date": 1545
   },
   {
+<<<<<<< HEAD
     "Index": 78394,
     "Word": "deciphers\n",
     "Etymology": [],
     "Origination Date": 1545
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 78398,
     "Word": "decision\n",
     "Etymology": [
@@ -216450,6 +217137,17 @@
     "Origination Date": 1835
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 78854,
+    "Word": "decurved\n",
+    "Etymology": [
+      "Latin"
+    ],
+    "Origination Date": 1835
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 78859,
     "Word": "decussate\n",
     "Etymology": [
@@ -218612,6 +219310,7 @@
     "Origination Date": 1826
   },
   {
+<<<<<<< HEAD
     "Index": 79386,
     "Word": "deflexed\n",
     "Etymology": [
@@ -218620,6 +219319,8 @@
     "Origination Date": 1826
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 79401,
     "Word": "defloration\n",
     "Etymology": [
@@ -220217,6 +220918,15 @@
     "Origination Date": 1682
   },
   {
+<<<<<<< HEAD
+=======
+    "Index": 79853,
+    "Word": "deisms\n",
+    "Etymology": [],
+    "Origination Date": 1682
+  },
+  {
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 79854,
     "Word": "deist\n",
     "Etymology": [],
@@ -222270,12 +222980,15 @@
     "Origination Date": 1834
   },
   {
+<<<<<<< HEAD
     "Index": 80384,
     "Word": "demarks\n",
     "Etymology": [],
     "Origination Date": 1834
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 80401,
     "Word": "dematerialization\n",
     "Etymology": [],
@@ -225042,12 +225755,15 @@
     "Origination Date": 1902
   },
   {
+<<<<<<< HEAD
     "Index": 81382,
     "Word": "denumerably\n",
     "Etymology": [],
     "Origination Date": 1902
   },
   {
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
     "Index": 81393,
     "Word": "denunciation\n",
     "Etymology": [
@@ -226695,6 +227411,7 @@
     "Word": "depressant\n",
     "Etymology": [],
     "Origination Date": 1824
+<<<<<<< HEAD
   },
   {
     "Index": 81852,
@@ -242285,5 +243002,7 @@
     "Word": "disciplinarian\n",
     "Etymology": [],
     "Origination Date": 1598
+=======
+>>>>>>> 3aaa878efb3e72db1ef1fc671c784ad77c576078
   }
 ]
